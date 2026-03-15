@@ -18,16 +18,22 @@ const TEAMS = [
 2003 年起，赛事设立东方赛场 Willem C. Vis (East) Moot，于香港举办。在中国赛区，还衍生出 CIETAC Cup（贸仲杯）、Shanghai Moot 等相关赛事。
 
 赛事案件争议围绕一份虚构的国际货物销售合同展开，该合同适用《联合国国际货物销售合同公约》（CISG）。赛事内容紧密结合国际商事仲裁的最新实践发展，具有较强的实务导向和现实指引意义，比赛全程以英文进行。`,
-    achievements: `"贸仲杯" / Willem C. Vis Moot
+    achievements: `Willem C. Vis Moot / "贸仲杯"
 2018年  "贸仲杯"暨 Vis Moot 中国选拔赛    二等奖
 2020年  "贸仲杯"国际商事仲裁模拟仲裁庭    三等奖
 2021年  "贸仲杯"国际商事仲裁模拟仲裁庭    三等奖
 2024年  "贸仲杯"国际商事仲裁模拟仲裁庭    全国冠军 🏆
 2025年  "贸仲杯"国际商事仲裁模拟仲裁庭    二等奖
 
-Moot Shanghai
-2022年  全球十六强、中国第四名
-2025年  冠军 🏆`,
+Moot Shanghai / 其他商事仲裁
+2022年  Moot Shanghai 国际商事模拟仲裁庭    全球十六强、中国第四
+2025年  Moot Shanghai 国际商事模拟仲裁庭    冠军 🏆
+
+国际商事合同通则（PICC）国际模拟仲裁比赛
+2025年  全球四强 🏆
+
+亚太国际商事仲裁模拟仲裁庭辩论赛
+2025年  亚军`,
     requirements: `• 具备英文表达与法律分析能力，能进行模拟陈述
 • 对国际商事仲裁及相关法律问题有兴趣
 • 能投入充足时间参与系统备赛
@@ -99,11 +105,11 @@ Moot Shanghai  每年春季上海举行`,
 
 该项赛事吸引了北京大学、清华大学、中国政法大学、对外经贸大学、复旦大学、厦门大学、华东政法大学等众多知名高校参与。`,
     achievements: `FDI Moot（模拟国际投资仲裁）
-2021年  FDI Moot Shenzhen（深圳杯）     一等奖 🏆
-2022年  FDI Moot Shenzhen              全国一等奖 🏆
-2023年  China National Round of FDI Moot  全国十二强
-2023年  模拟国际投资仲裁深圳杯           全国十六强
-2025年  FDI Moot Shenzhen              一等奖 🏆`,
+2021年  FDI Moot Shenzhen    一等奖 🏆
+2022年  FDI Moot Shenzhen    全国一等奖 🏆
+2023年  China National Round of FDI Moot    全国十二强
+2023年  模拟国际投资仲裁深圳杯    全国十六强
+2025年  FDI Moot Shenzhen    一等奖 🏆`,
     requirements: `• 上海交通大学在读本科生或研究生
 • 具有良好的英语听说读写能力
 • 具有充足的备赛时间投入
@@ -134,8 +140,8 @@ Moot Shanghai  每年春季上海举行`,
     introduction: `国际海洋法模拟法庭（ILOSMCC）由中国海洋法学会和武汉大学中国边界与海洋研究院主办，是中国首创的国际性全程英文模拟法庭竞赛，也是世界上首个国际海洋法模拟法庭竞赛，是目前国际上同领域竞赛中规格最高、参赛规模最大的赛事。
 
 评委阵容强大：国际海洋法法庭唯一的中国籍法官高之国先生历任法官评审团队主席，评委包括 ITLOS 法官、外交部、国家海洋局专家及国内外高校顶尖学者。`,
-    achievements: `中国国际海洋法模拟法庭竞赛（ILOSMCC）
-2018年  全国三等奖（三项）、最佳辩手奖
+    achievements: `中国国际海洋法模拟法庭竞赛（ILOSMCC / LOS-MCC）
+2018年  全国三等奖三个，最佳辩手奖
 2019年  全国一等奖 🏆
 2021年  全国三等奖
 2022年  全国季军 / 全国一等奖 🏆
@@ -168,9 +174,9 @@ Moot Shanghai  每年春季上海举行`,
     introduction: `曼弗雷德·拉克斯（Manfred Lachs）国际空间法模拟法庭竞赛是国际空间法学会（IISL）1992 年创办的年度性、世界级模拟法庭大赛，因每年全球总决赛由联合国国际法院三位现任大法官亲自出庭审理，成为当今世界最高级别、最具影响力的模拟法庭大赛之一。
 
 中国空间法学会自 2003 年开始组织国内高校学生参加竞赛并组织全国选拔赛，2022 年共有来自 30 所高校的 48 支队伍进入口头轮次，竞争激烈。`,
-    achievements: `曼弗雷德·拉克斯国际空间法模拟法庭竞赛
-2021年  中国赛区一等奖 🏆，亚太赛区八强
-2022年  中国赛区二等奖，优秀辩手奖`,
+    achievements: `曼弗雷德·拉克斯国际空间法模拟法庭竞赛（Manfred Lachs Space Law Moot Court）
+2022年  中国赛区一等奖 🏆
+2022年  亚太赛区八强`,
     requirements: `① 良好的英语阅读、写作及口语能力
 ② 良好的逻辑分析和文献检索能力
 ③ 优秀的团队精神和抗压能力
@@ -204,7 +210,7 @@ Moot Shanghai  每年春季上海举行`,
     introduction: `国际刑事法院模拟法庭比赛（ICCMCC）是一个根据国际刑法以及国际刑事法院的实体和程序规则进行的模拟法庭比赛。国际刑事法院在其六个官方语言（英语、法语、中文、西班牙语、俄语、阿拉伯语）中分别推广此竞赛，至今已成功以英语、西班牙语、俄语和中文分别举行比赛。
 
 赛队共同准备英文赛和中文赛（赛题基本一致），备赛期间不区分中文赛与英文赛的队员，选拔包括全英文笔试与全英文面试。`,
-    achievements: `国际刑事法院（ICC）模拟法庭竞赛（中文 / 英文）
+    achievements: `国际刑事法院（ICC）模拟法庭竞赛（中文 / 英文，含隆安杯）
 2019年  中文赛    全国一等奖 🏆
 2020年            全国二等奖
 2021年  中文赛    全国一等奖 🏆
@@ -212,7 +218,7 @@ Moot Shanghai  每年春季上海举行`,
 2023年  中文赛    全国一等奖 🏆
 2024年  中文赛    全国一等奖 🏆（晋级海牙）、最佳检方律师奖
 2025年  中文赛    全国一等奖 🏆、亚军
-2025年  "隆安杯"英文赛   三等奖`,
+2025年  "隆安杯"中国高校 ICC 英文模拟法庭    三等奖`,
     requirements: `• 凯原法学院在读本科生、研一/研二硕士生
 • 足量的时间投入度
 • 优秀的团队合作精神
@@ -243,10 +249,7 @@ Moot Shanghai  每年春季上海举行`,
     introduction: `红十字国际人道法（IHL）模拟法庭比赛由红十字国际委员会（ICRC）、中国红十字总会（ICSC）主办，赛题由红十字国际委员会的法律专家拟定，法官由来自不同国家和地区的国际法及国际人道法专家组成。
 
 每个赛队需针对案例提交书面诉状并进行法庭辩论，各队将分别以控方和辩方的身份进行比赛。该赛事迄今已成功举办十三届，每年有 30 多所国内知名高校参加，大陆赛区前三名将由红十字会资助参加亚太地区高校间红十字国际人道法模拟法庭竞赛。`,
-    achievements: `国际人道法（IHL）模拟法庭竞赛
-2016年  团体一等奖 🏆
-2017年  团体二等奖
-2018年  团体一等奖 🏆、辩方最佳荣誉书状（第二名）
+    achievements: `国际人道法（IHL）模拟法庭竞赛（含红十字）
 2019年  全国一等奖 🏆
 2020年  国内选拔赛二等奖
 2022年  全国一等奖 🏆
@@ -289,7 +292,6 @@ ZOOM 会议室：646 1623 8936  密码：252964
 
 赛事模拟世界贸易组织（WTO）争端解决机制下的专家组程序，以英文为比赛官方语言，评委由商务部司局级领导、各知名高校国际经济法教授、涉外律所高级合伙人等共同组成。`,
     achievements: `中国 WTO 模拟法庭竞赛（China WTO Moot Court Competition）
-2019年  全国二等奖
 2022年  全国二等奖
 2024年  全国冠军 🏆`,
     requirements: `• 凯原法学院全体本科生、硕士生均可报名
@@ -328,10 +330,10 @@ ZOOM 会议室：646 1623 8936  密码：252964
 2018年  全国选拔赛    全国一等奖（含最佳辩手奖）🏆
 2019年  全国选拔赛    全国总分第一（最终全国亚军）、全球 50 强
 2020年  国内选拔赛    二等奖
-2021年  国际赛        一等奖 🏆
-2022年  国际赛        全球第 47 名、全国一等奖、全国第二名、最佳辩手奖
+2021年  国际赛    一等奖 🏆
+2022年  国际赛    全球第 47 名、全国一等奖、全国第二名、最佳辩手奖
 2024年  全国选拔赛    全国二等奖
-2025年  中国赛区      一等奖（晋级国际赛）🏆`,
+2025年  中国赛区一等奖（晋级国际赛）🏆`,
     requirements: `① 对 Jessup 感兴趣，能长久维持热情
 ② 愿意投入大量时间备赛，勤勉踏实，责任感强
 ③ 具备快速学习、深入思考能力，逻辑清晰
@@ -404,8 +406,7 @@ ZOOM 会议室：646 1623 8936  密码：252964
 2024年  全球总决赛八强 🏆
         循环赛第一
         最佳辩方奖
-        最佳法律研究奖
-        最佳辩手`,
+        最佳法律研究奖`,
     requirements: `① 我校在读法学专业本科生、法学/法律硕士、博士研究生
 ② 有较好的英文法律检索与英文写作能力
    或优秀的英文口头表达与反应能力
@@ -447,7 +448,32 @@ ZOOM 会议室：646 1623 8936  密码：252964
 2018年  最佳起诉书奖、最佳公诉组
 2020年  研究生组最佳辩护组奖
 2021年  获奖
-2025年  一等奖 🏆`,
+2025年  一等奖 🏆
+
+"法之梦"华东高校模拟法庭大赛
+2018年  最佳起诉书状奖、优秀组织奖
+2019年  最佳辩护词奖
+2020年  最佳答辩书奖
+
+上海市大学生模拟法庭竞赛 / "日盈杯"
+2018年  三等奖
+2019年  三等奖、最佳辩护词奖
+2021年  "日盈杯"二等奖、辩方书状一等奖
+2023年  市级奖项
+
+"金陵杯"华东地区高校模拟法庭竞赛
+2021年  亚军
+
+"华政杯"知识产权模拟法庭竞赛
+2022年  全国二等奖
+2023年  全国冠军 🏆
+
+INTA 国际商标协会模拟法庭
+2018年  口头辩论第三名、文书第二名（Second Best Brief）
+
+亚太地区企业并购模拟竞赛
+2018年  最佳并购方案奖（最高等级）、最佳书状奖
+2019年  一等奖 🏆`,
     requirements: `• 对模拟法庭比赛感兴趣
 • 具有优秀法学素养（或在培养中）
 • 有积极报名参加比赛的意向
@@ -479,6 +505,29 @@ const QUICK_QUESTIONS = [
   "How to prepare for moot court?",
   "What skills are required?",
   "推荐适合新手的比赛",
+];
+
+const GUIDE_ITEMS = [
+  { type: "科创类", scope: "国际级", name: "中国国际大学生创新大赛", org: "教育部等 12 个部门会同省级人民政府", freq: "一年一届" },
+  { type: "科创类", scope: "国家级", name: ""挑战杯"全国大学生课外学术科技作品竞赛", org: "共青团中央、中国科协、教育部、中国社会科学院、全国学联", freq: "两年一届" },
+  { type: "科创类", scope: "国家级", name: ""挑战杯"中国大学生创业计划竞赛", org: "共青团中央、中国科协、教育部、全国学联", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "杰赛普（JESSUP）国际法模拟法庭大赛", org: "美国国际法学生联合会（ILSA）、美国国际法学会（ASIL）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "Willem C. Vis 模拟国际商事仲裁辩论赛", org: "联合国国际贸易法委员会（UNCITRAL）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "模拟国际投资仲裁竞赛（FDI Moot）", org: "国际法律研究中心（CILS）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "国际刑事法院（ICC）模拟法庭比赛（含中英文）", org: "国际律师协会（IBA）、国际刑事法院（ICC）、中国国际刑法青年学者联盟", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "红十字国际人道法模拟法庭（IHL）竞赛", org: "红十字国际委员会（ICRC）、中国红十字会总会", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "法兰克福国际投资模拟仲裁庭", org: "德国马克斯·普朗克法律史与法理论研究所", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "国际航空法模拟法庭竞赛（IALMC）", org: "荷兰莱顿大学航空法与空间法国际研究中心（IIASL）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "普莱斯传媒法国际模拟法庭竞赛", org: "英国牛津大学", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "曼弗雷德·拉克斯国际空间法模拟法庭竞赛", org: "国际空间法学会（IISL）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "ICC 国际商事调解比赛", org: "国际商会（ICC）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "国际体育模拟仲裁竞赛（SAM）", org: "国际足联（FIFA）、瑞士仲裁学院", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: ""北外—万慧达杯"国际知识产权模拟法庭大赛", org: "最高人民法院知识产权法庭、北京外国语大学法学院、万慧达知识产权代理有限公司", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: "中国 WTO 模拟法庭辩论赛", org: "商务部、中国政法大学、西南政法大学", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: "中国国际海洋法模拟法庭竞赛", org: "中国海洋法学会、武汉大学", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: ""理律杯"全国高校模拟法庭竞赛", org: "理律杯模拟法庭比赛组委会、清华大学", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: "全国大学生模拟法庭竞赛", org: "教育部国家级实验教学示范中心法学组联席会", freq: "一年一届" },
+  { type: "其他", scope: "国家级", name: "全国大学生职业规划大赛", org: "教育部", freq: "一年一届" },
 ];
 
 // System prompt is configured on the Dify server side.
@@ -1010,6 +1059,7 @@ export default function MootCourtModule() {
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [originRect,   setOriginRect]   = useState(null);
   const [dirOpen,      setDirOpen]      = useState(true);
+  const [guideOpen,    setGuideOpen]    = useState(false);
   const [aiOpen,       setAiOpen]       = useState(false);
   const [aiMin,        setAiMin]        = useState(false);
   const [messages,     setMessages]     = useState([{
@@ -1220,6 +1270,106 @@ export default function MootCourtModule() {
             ))}
           </div>
         </header>
+
+
+        {/* ── COMPETITION DIRECTORY ── */}
+        <div style={{ marginBottom: 28 }}>
+          <button
+            onClick={() => setGuideOpen(v => !v)} aria-expanded={guideOpen}
+            style={{
+              width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "15px 22px",
+              background: "rgba(255,255,255,0.7)",
+              border: "1px solid rgba(100,80,160,0.15)",
+              borderRadius: 13, cursor: "pointer", color: "#1C1C28",
+              marginBottom: guideOpen ? 20 : 0,
+              backdropFilter: "blur(12px)", transition: "all 0.28s"
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.85)"}
+            onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.7)"}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{
+                width: 8, height: 8, borderRadius: "50%", background: "#6C5CE7",
+                boxShadow: "0 0 12px rgba(108,92,231,0.5)"
+              }} />
+              <span style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: 20, fontWeight: 500, letterSpacing: "0.01em"
+              }}>Competition Directory · 完整赛事目录</span>
+              <span style={{
+                fontSize: 10.5, padding: "2px 11px", borderRadius: 100,
+                background: "rgba(108,92,231,0.08)", color: "#6C5CE7",
+                border: "1px solid rgba(108,92,231,0.15)",
+                fontFamily: "'Space Mono', monospace"
+              }}>{GUIDE_ITEMS.length}</span>
+            </div>
+            <div style={{ transform: guideOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.28s", opacity: 0.5 }}>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </button>
+
+          {guideOpen && (
+            <div style={{
+              background: "rgba(255,255,255,0.75)", backdropFilter: "blur(16px)",
+              border: "1px solid rgba(100,80,160,0.1)", borderRadius: 16,
+              overflow: "hidden",
+              animationName: "cardIn", animationDuration: "0.4s",
+              animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)", animationFillMode: "both"
+            }}>
+              {/* Table header */}
+              <div style={{
+                padding: "14px 24px",
+                borderBottom: "1px solid rgba(0,0,0,0.06)",
+                display: "grid",
+                gridTemplateColumns: "56px 56px 1fr auto",
+                gap: 12, alignItems: "center",
+                background: "rgba(0,0,0,0.02)"
+              }}>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>类型</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>级别</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>竞赛名称 / 主办单位</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>频次</span>
+              </div>
+              {/* Items */}
+              {GUIDE_ITEMS.map((item, idx) => (
+                <div key={idx} style={{
+                  padding: "11px 24px",
+                  borderBottom: "1px solid rgba(0,0,0,0.03)",
+                  display: "grid",
+                  gridTemplateColumns: "56px 56px 1fr auto",
+                  gap: 12, alignItems: "center",
+                  background: idx % 2 === 0 ? "transparent" : "rgba(0,0,0,0.012)",
+                  transition: "background 0.15s"
+                }}
+                  onMouseEnter={e => e.currentTarget.style.background = "rgba(108,92,231,0.03)"}
+                  onMouseLeave={e => e.currentTarget.style.background = idx % 2 === 0 ? "transparent" : "rgba(0,0,0,0.012)"}
+                >
+                  <span style={{
+                    fontSize: 10, padding: "2px 6px", borderRadius: 100, textAlign: "center",
+                    background: item.type === "科创类" ? "rgba(234,88,12,0.08)" : item.type === "学科类" ? "rgba(108,92,231,0.08)" : "rgba(100,116,139,0.08)",
+                    color: item.type === "科创类" ? "#EA580C" : item.type === "学科类" ? "#6C5CE7" : "#64748B",
+                    fontWeight: 600, whiteSpace: "nowrap", fontFamily: "'Space Mono', monospace"
+                  }}>{item.type}</span>
+                  <span style={{
+                    fontSize: 10, padding: "2px 6px", borderRadius: 100, textAlign: "center",
+                    background: item.scope === "国际级" ? "rgba(37,99,235,0.08)" : "rgba(22,163,74,0.08)",
+                    color: item.scope === "国际级" ? "#2563EB" : "#16A34A",
+                    fontWeight: 600, whiteSpace: "nowrap", fontFamily: "'Space Mono', monospace"
+                  }}>{item.scope}</span>
+                  <div style={{ minWidth: 0 }}>
+                    <p style={{ fontSize: 13, fontWeight: 500, color: "#1C1C28", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{item.name}</p>
+                    <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.38)", marginTop: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.org}</p>
+                  </div>
+                  <span style={{ fontSize: 10, color: "rgba(28,28,40,0.35)", fontFamily: "'Space Mono', monospace", whiteSpace: "nowrap" }}>{item.freq}</span>
+                </div>
+              ))}
+              <div style={{ padding: "12px 24px", textAlign: "center" }}>
+                <p style={{ fontSize: 10, color: "rgba(28,28,40,0.3)", fontFamily: "'Space Mono', monospace" }}>数据来源：上海交通大学竞赛目录</p>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* ── DIRECTORY HEADER ── */}
         <div style={{ marginBottom: 20 }}>
