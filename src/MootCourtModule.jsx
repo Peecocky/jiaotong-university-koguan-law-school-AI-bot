@@ -511,8 +511,8 @@ function TeamCard({ team, onClick, index }) {
         transform: hovered ? "translateY(-8px) scale(1.02)" : "translateY(0) scale(1)",
         transition: "transform 0.38s cubic-bezier(.34,1.56,.64,1), border-color 0.25s, box-shadow 0.3s",
         boxShadow: hovered
-          ? `0 24px 48px rgba(0,0,0,0.6), 0 0 0 1px ${team.accent}40`
-          : "0 2px 16px rgba(0,0,0,0.4)",
+          ? `0 24px 48px rgba(0,0,0,0.15), 0 0 0 1px ${team.accent}40`
+          : "0 2px 16px rgba(0,0,0,0.08)",
         animationDelay: `${index * 0.035}s`,
         animationName: "cardIn", animationDuration: "0.5s",
         animationFillMode: "both", animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)"
@@ -766,7 +766,7 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
             <div>
               <p style={{
                 fontSize: "clamp(14.5px,1.4vw,17px)", lineHeight: 2.0,
-                color: "rgba(220,232,255,0.78)", fontWeight: 300,
+                color: "rgba(220,232,255,0.82)", fontWeight: 300,
                 whiteSpace: "pre-line", fontFamily: "'Instrument Sans', sans-serif"
               }}>{content[activeTab]}</p>
             </div>
@@ -827,10 +827,10 @@ function WinBtn({ children, onClick, label }) {
       onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
       style={{
         width: 26, height: 26, borderRadius: "50%",
-        background: h ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.05)",
-        border: "1px solid rgba(255,255,255,0.08)", cursor: "pointer",
+        background: h ? "rgba(0,0,0,0.08)" : "rgba(0,0,0,0.04)",
+        border: "1px solid rgba(0,0,0,0.08)", cursor: "pointer",
         display: "flex", alignItems: "center", justifyContent: "center",
-        color: h ? "rgba(220,232,255,0.9)" : "rgba(220,232,255,0.38)", transition: "all 0.18s"
+        color: h ? "rgba(28,28,40,0.8)" : "rgba(28,28,40,0.35)", transition: "all 0.18s"
       }}>{children}</button>
   );
 }
@@ -842,7 +842,7 @@ function QuickBtn({ children, onClick, color }) {
       onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
       style={{
         padding: "4px 11px", borderRadius: 100,
-        background: h ? `${color}22` : `${color}0e`,
+        background: h ? `${color}1a` : `${color}0a`,
         border: `1px solid ${color}28`,
         color: h ? color : `${color}BB`,
         fontSize: 10.5, cursor: "pointer",
@@ -856,15 +856,15 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
   useEffect(() => { if (!isMinimized) inputRef.current?.focus(); }, [isMinimized]);
 
   return (
-    <div role="dialog" aria-label="AI Moot Court Assistant"
+    <div role="dialog" aria-label="竞赛问答智能体"
       style={{
         position: "fixed", bottom: 26, right: 26,
         width: isMinimized ? 265 : 365,
         transform: `translate(${pos.x}px, ${pos.y}px)`,
         zIndex: 1000,
-        background: "rgba(8,14,26,0.97)", backdropFilter: "blur(28px)",
-        border: "1px solid rgba(240,192,64,0.2)", borderRadius: 18,
-        boxShadow: "0 32px 72px rgba(0,0,0,0.7), 0 0 0 1px rgba(240,192,64,0.07)",
+        background: "rgba(255,255,255,0.95)", backdropFilter: "blur(28px)",
+        border: "1px solid rgba(160,128,48,0.2)", borderRadius: 18,
+        boxShadow: "0 32px 72px rgba(0,0,0,0.12), 0 0 0 1px rgba(160,128,48,0.08)",
         overflow: "hidden",
         animationName: "panelSlide", animationDuration: "0.42s",
         animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)", animationFillMode: "both",
@@ -875,23 +875,23 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
       <div onMouseDown={onMouseDown}
         style={{
           padding: "12px 14px",
-          borderBottom: isMinimized ? "none" : "1px solid rgba(255,255,255,0.05)",
+          borderBottom: isMinimized ? "none" : "1px solid rgba(0,0,0,0.06)",
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          background: "linear-gradient(135deg, rgba(240,192,64,0.06), transparent)",
+          background: "linear-gradient(135deg, rgba(184,134,11,0.06), transparent)",
           cursor: "grab", userSelect: "none"
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
           <div style={{
             width: 32, height: 32, borderRadius: "50%",
-            background: "linear-gradient(135deg, #F0C040, #9A7820)",
+            background: "linear-gradient(135deg, #B8860B, #8B6914)",
             display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15
           }}>⚖️</div>
           <div>
-            <p style={{ fontSize: 12.5, fontWeight: 600, color: "#ECF2FF", lineHeight: 1.2, fontFamily: "'Instrument Sans', sans-serif" }}>模拟法庭 AI 助手</p>
-            <p style={{ fontSize: 10, color: "rgba(240,192,64,0.6)", display: "flex", alignItems: "center", gap: 4, fontFamily: "'Space Mono', monospace" }}>
+            <p style={{ fontSize: 12.5, fontWeight: 600, color: "#1C1C28", lineHeight: 1.2, fontFamily: "'Instrument Sans', sans-serif" }}>竞赛问答智能体</p>
+            <p style={{ fontSize: 10, color: "rgba(139,105,20,0.7)", display: "flex", alignItems: "center", gap: 4, fontFamily: "'Space Mono', monospace" }}>
               <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#4ADE80", boxShadow: "0 0 6px #4ADE80" }} />
-              Online · Claude
+              交通大学自主开发 · 在线
             </p>
           </div>
         </div>
@@ -918,10 +918,10 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
               <div style={{
                 maxWidth: "88%", padding: "8px 12px",
                 borderRadius: msg.role === "user" ? "13px 13px 4px 13px" : "13px 13px 13px 4px",
-                background: msg.role === "user" ? "linear-gradient(135deg, #F0C040, #9A7820)" : "rgba(255,255,255,0.05)",
-                border: msg.role === "assistant" ? "1px solid rgba(255,255,255,0.07)" : "none",
+                background: msg.role === "user" ? "linear-gradient(135deg, #B8860B, #8B6914)" : "rgba(0,0,0,0.04)",
+                border: msg.role === "assistant" ? "1px solid rgba(0,0,0,0.06)" : "none",
                 fontSize: 12, lineHeight: 1.7,
-                color: msg.role === "user" ? "#080E1C" : "rgba(220,232,255,0.82)",
+                color: msg.role === "user" ? "#FFFFFF" : "rgba(28,28,40,0.82)",
                 fontWeight: msg.role === "user" ? 600 : 400,
                 whiteSpace: "pre-wrap", wordBreak: "break-word",
                 fontFamily: "'Instrument Sans', sans-serif"
@@ -932,7 +932,7 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
             <div style={{ display: "flex", gap: 5, padding: "5px 10px" }}>
               {[0,1,2].map(i => (
                 <div key={i} style={{
-                  width: 7, height: 7, borderRadius: "50%", background: "#F0C040",
+                  width: 7, height: 7, borderRadius: "50%", background: "#B8860B",
                   animationName: "dotPulse", animationDuration: "1.4s",
                   animationDelay: `${i * 0.2}s`, animationIterationCount: "infinite"
                 }} />
@@ -945,14 +945,14 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
         {/* Quick btns */}
         <div className="no-drag" style={{ padding: "5px 12px 6px", display: "flex", flexWrap: "wrap", gap: 5 }}>
           {QUICK_QUESTIONS.map((q, i) => (
-            <QuickBtn key={i} onClick={() => onSend(q)} color="rgba(240,192,64,0.8)">{q}</QuickBtn>
+            <QuickBtn key={i} onClick={() => onSend(q)} color="rgba(160,120,20,0.9)">{q}</QuickBtn>
           ))}
-          <QuickBtn onClick={onShowTeams} color="rgba(96,165,250,0.8)">📋 全部赛队</QuickBtn>
+          <QuickBtn onClick={onShowTeams} color="rgba(60,100,180,0.9)">📋 全部赛队</QuickBtn>
         </div>
 
         {/* Input */}
         <div className="no-drag" style={{
-          padding: "8px 12px 13px", borderTop: "1px solid rgba(255,255,255,0.05)",
+          padding: "8px 12px 13px", borderTop: "1px solid rgba(0,0,0,0.06)",
           display: "flex", gap: 7, alignItems: "center"
         }}>
           <input
@@ -961,24 +961,24 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
             placeholder="Ask anything about moot court competitions..."
             aria-label="发送消息"
             style={{
-              flex: 1, background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)", borderRadius: 11,
-              padding: "8px 12px", fontSize: 12, color: "#ECF2FF",
+              flex: 1, background: "rgba(0,0,0,0.03)",
+              border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11,
+              padding: "8px 12px", fontSize: 12, color: "#1C1C28",
               fontFamily: "'Instrument Sans', sans-serif", outline: "none", transition: "border-color 0.2s"
             }}
-            onFocus={e => e.target.style.borderColor = "rgba(240,192,64,0.38)"}
-            onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.08)"}
+            onFocus={e => e.target.style.borderColor = "rgba(184,134,11,0.4)"}
+            onBlur={e => e.target.style.borderColor = "rgba(0,0,0,0.08)"}
           />
           <button onClick={() => onSend()} disabled={!input.trim() || loading}
             style={{
               width: 36, height: 36, borderRadius: 10, flexShrink: 0,
-              background: input.trim() && !loading ? "linear-gradient(135deg, #F0C040, #9A7820)" : "rgba(255,255,255,0.05)",
+              background: input.trim() && !loading ? "linear-gradient(135deg, #B8860B, #8B6914)" : "rgba(0,0,0,0.04)",
               border: "none", cursor: input.trim() && !loading ? "pointer" : "default",
               display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.18s"
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke={input.trim() && !loading ? "#080E1C" : "rgba(255,255,255,0.25)"} strokeWidth="2.5">
+              stroke={input.trim() && !loading ? "#FFFFFF" : "rgba(0,0,0,0.2)"} strokeWidth="2.5">
               <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
             </svg>
           </button>
@@ -1014,7 +1014,7 @@ export default function MootCourtModule() {
   const [aiMin,        setAiMin]        = useState(false);
   const [messages,     setMessages]     = useState([{
     role: "assistant",
-    content: "你好！我是凯原法学院模拟法庭 AI 助手 👋\n\n我了解我们学院的所有 12 支国际模拟法庭队伍，可以帮你：\n• 了解各竞赛的特点和难度\n• 找到最适合你的赛事\n• 解答备赛和报名问题\n\n有什么想知道的？"
+    content: "你好！我是凯原法学院竞赛问答智能体 👋\n\n我了解学院全部 12 支国际模拟法庭队伍的详细信息，可以帮你：\n• 了解各竞赛的特点和难度\n• 找到最适合你的赛事\n• 解答备赛和报名问题\n\n有什么想知道的？"
   }]);
   const [input,   setInput]   = useState("");
   const [loading, setLoading] = useState(false);
@@ -1153,25 +1153,25 @@ export default function MootCourtModule() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "linear-gradient(160deg, #080E1C 0%, #0A1628 60%, #070E1A 100%)",
+      background: "linear-gradient(160deg, #FDFBF7 0%, #F7F3EB 40%, #F0EBDF 100%)",
       fontFamily: "'Instrument Sans', sans-serif",
-      color: "#ECF2FF", position: "relative", overflowX: "hidden"
+      color: "#1C1C28", position: "relative", overflowX: "hidden"
     }}>
       {/* Fine dot grid */}
       <div style={{
         position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0,
-        backgroundImage: "radial-gradient(circle at 1px 1px, rgba(240,192,64,0.065) 1px, transparent 0)",
+        backgroundImage: "radial-gradient(circle at 1px 1px, rgba(160,130,60,0.07) 1px, transparent 0)",
         backgroundSize: "42px 42px"
       }} />
       {/* Ambient orbs */}
       <div style={{
         position: "fixed", top: "-20%", right: "-12%", width: 800, height: 800,
-        background: "radial-gradient(circle, rgba(240,192,64,0.055) 0%, transparent 60%)",
+        background: "radial-gradient(circle, rgba(200,170,80,0.07) 0%, transparent 60%)",
         pointerEvents: "none", zIndex: 0
       }} />
       <div style={{
         position: "fixed", bottom: "-18%", left: "-8%", width: 700, height: 700,
-        background: "radial-gradient(circle, rgba(59,130,246,0.055) 0%, transparent 60%)",
+        background: "radial-gradient(circle, rgba(80,100,160,0.06) 0%, transparent 60%)",
         pointerEvents: "none", zIndex: 0
       }} />
 
@@ -1183,30 +1183,30 @@ export default function MootCourtModule() {
           <div style={{
             display: "flex", alignItems: "center", gap: 10, marginBottom: 28
           }}>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to right, transparent, rgba(240,192,64,0.5))" }} />
+            <div style={{ width: 36, height: 1, background: "linear-gradient(to right, transparent, rgba(160,128,48,0.5))" }} />
             <span style={{
               fontSize: 10, letterSpacing: "0.38em", textTransform: "uppercase",
-              color: "#F0C040", opacity: 0.8, fontWeight: 700, fontFamily: "'Space Mono', monospace"
+              color: "#9A7D2E", opacity: 0.9, fontWeight: 700, fontFamily: "'Space Mono', monospace"
             }}>SJTU Koguan Law School</span>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to left, transparent, rgba(240,192,64,0.5))" }} />
+            <div style={{ width: 36, height: 1, background: "linear-gradient(to left, transparent, rgba(160,128,48,0.5))" }} />
           </div>
           <h1 style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "clamp(52px,7vw,100px)", fontWeight: 300,
             letterSpacing: "-0.025em", lineHeight: 0.95,
-            background: "linear-gradient(135deg, #ECF2FF 0%, #F0C040 40%, #E8D080 65%, #ECF2FF 100%)",
+            background: "linear-gradient(135deg, #1C1C28 0%, #8B6914 35%, #B8860B 55%, #1C1C28 100%)",
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             backgroundClip: "text", marginBottom: 22
           }}>模拟法庭<br/>联赛中心</h1>
           <p style={{
-            fontSize: "clamp(13px,1.4vw,16px)", color: "rgba(220,232,255,0.45)",
+            fontSize: "clamp(13px,1.4vw,16px)", color: "rgba(28,28,40,0.5)",
             maxWidth: 480, margin: "0 auto", lineHeight: 1.85, fontWeight: 300
           }}>凯原法学院 · 12 支国际模拟法庭队伍<br/>Explore your path in international law competition</p>
           {/* Stats row */}
           <div style={{
             display: "flex", gap: "clamp(20px,4vw,48px)", marginTop: 36,
             padding: "16px clamp(24px,4vw,48px)", borderRadius: 100,
-            background: "rgba(255,255,255,0.025)", border: "1px solid rgba(240,192,64,0.1)"
+            background: "rgba(0,0,0,0.03)", border: "1px solid rgba(160,128,48,0.15)"
           }}>
             {[
               { n: "12", label: "竞赛队伍" },
@@ -1214,8 +1214,8 @@ export default function MootCourtModule() {
               { n: "100+", label: "参赛国家/地区" },
             ].map(s => (
               <div key={s.n} style={{ textAlign: "center" }}>
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(22px,3vw,32px)", fontWeight: 500, color: "#F0C040", lineHeight: 1 }}>{s.n}</p>
-                <p style={{ fontSize: 10.5, color: "rgba(220,232,255,0.4)", marginTop: 4, fontFamily: "'Space Mono', monospace", letterSpacing: "0.05em" }}>{s.label}</p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(22px,3vw,32px)", fontWeight: 500, color: "#8B6914", lineHeight: 1 }}>{s.n}</p>
+                <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.4)", marginTop: 4, fontFamily: "'Space Mono', monospace", letterSpacing: "0.05em" }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -1228,19 +1228,19 @@ export default function MootCourtModule() {
             style={{
               width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
               padding: "15px 22px",
-              background: "rgba(255,255,255,0.022)",
-              border: "1px solid rgba(240,192,64,0.14)",
-              borderRadius: 13, cursor: "pointer", color: "#ECF2FF",
+              background: "rgba(255,255,255,0.7)",
+              border: "1px solid rgba(160,128,48,0.18)",
+              borderRadius: 13, cursor: "pointer", color: "#1C1C28",
               marginBottom: dirOpen ? 20 : 0,
               backdropFilter: "blur(12px)", transition: "all 0.28s"
             }}
-            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.036)"}
-            onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.022)"}
+            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.85)"}
+            onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.7)"}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <div style={{
-                width: 8, height: 8, borderRadius: "50%", background: "#F0C040",
-                boxShadow: "0 0 12px rgba(240,192,64,0.9)"
+                width: 8, height: 8, borderRadius: "50%", background: "#B8860B",
+                boxShadow: "0 0 12px rgba(184,134,11,0.5)"
               }} />
               <span style={{
                 fontFamily: "'Cormorant Garamond', serif",
@@ -1248,12 +1248,12 @@ export default function MootCourtModule() {
               }}>Moot Court Teams Directory</span>
               <span style={{
                 fontSize: 10.5, padding: "2px 11px", borderRadius: 100,
-                background: "rgba(240,192,64,0.1)", color: "#F0C040",
-                border: "1px solid rgba(240,192,64,0.18)",
+                background: "rgba(160,128,48,0.1)", color: "#8B6914",
+                border: "1px solid rgba(160,128,48,0.2)",
                 fontFamily: "'Space Mono', monospace"
               }}>{TEAMS.length}</span>
             </div>
-            <div style={{ transform: dirOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.28s", opacity: 0.45 }}>
+            <div style={{ transform: dirOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.28s", opacity: 0.5 }}>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
             </div>
           </button>
@@ -1284,20 +1284,20 @@ export default function MootCourtModule() {
 
       {/* ── AI FAB ── */}
       {!aiOpen && (
-        <button onClick={() => setAiOpen(true)} aria-label="打开 AI 助手"
+        <button onClick={() => setAiOpen(true)} aria-label="打开竞赛问答智能体"
           style={{
             position: "fixed", bottom: 26, right: 26,
             width: 58, height: 58, borderRadius: "50%",
-            background: "linear-gradient(135deg,#F0C040,#9A7820)",
+            background: "linear-gradient(135deg,#B8860B,#8B6914)",
             border: "none", cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 8px 28px rgba(240,192,64,0.45)",
+            boxShadow: "0 8px 28px rgba(184,134,11,0.35)",
             zIndex: 999, transition: "transform 0.22s, box-shadow 0.22s"
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 14px 40px rgba(240,192,64,0.65)"; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(240,192,64,0.45)"; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 14px 40px rgba(184,134,11,0.45)"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(184,134,11,0.35)"; }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#080E1C" strokeWidth="2.5">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
         </button>
@@ -1346,9 +1346,9 @@ export default function MootCourtModule() {
         * { box-sizing:border-box; margin:0; padding:0; }
         ::-webkit-scrollbar { width:3px; height:3px; }
         ::-webkit-scrollbar-track { background:transparent; }
-        ::-webkit-scrollbar-thumb { background:rgba(240,192,64,.22); border-radius:2px; }
+        ::-webkit-scrollbar-thumb { background:rgba(160,128,48,.25); border-radius:2px; }
         button { font-family:'Instrument Sans',sans-serif; }
-        input::placeholder { color:rgba(220,232,255,.22); }
+        input::placeholder { color:rgba(28,28,40,.28); }
       `}</style>
     </div>
   );
