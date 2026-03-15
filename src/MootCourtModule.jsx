@@ -1231,67 +1231,36 @@ export default function MootCourtModule() {
 
       <div style={{ position: "relative", zIndex: 1, maxWidth: 1400, margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
 
-        {/* ── PARALLAX HERO ── */}
-        <div style={{
-          position: "relative", overflow: "hidden",
-          borderRadius: "0 0 28px 28px",
-          marginLeft: "clamp(-20px,-4vw,-40px)",
-          marginRight: "clamp(-20px,-4vw,-40px)",
-          marginBottom: 12
-        }}>
-          {/* Parallax background image */}
-          <div style={{
-            position: "absolute", inset: 0, zIndex: 0,
-            backgroundImage: "url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80)",
-            backgroundSize: "cover", backgroundPosition: "center 40%",
-            backgroundAttachment: "fixed",
-            filter: "brightness(0.3) saturate(0.7)",
-          }} />
-          {/* Warm overlay gradient */}
-          <div style={{
-            position: "absolute", inset: 0, zIndex: 1,
-            background: "linear-gradient(180deg, rgba(28,20,8,0.55) 0%, rgba(28,20,8,0.75) 50%, rgba(253,251,247,0.98) 92%, rgba(253,251,247,1) 100%)",
-          }} />
-          {/* Fine texture overlay */}
-          <div style={{
-            position: "absolute", inset: 0, zIndex: 1,
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
-            backgroundSize: "32px 32px", pointerEvents: "none"
-          }} />
-
-          <header style={{
-            position: "relative", zIndex: 2,
-            padding: "clamp(56px,10vh,100px) clamp(20px,4vw,40px) clamp(48px,7vh,72px)",
-            display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center"
-          }}>
-          {/* Kite icon bar */}
+        {/* ── HEADER ── */}
+        <header style={{ padding: "clamp(44px,8vh,80px) 0 clamp(32px,5vh,52px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+          {/* Label bar */}
           <div style={{
             display: "flex", alignItems: "center", gap: 10, marginBottom: 28
           }}>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to right, transparent, rgba(240,192,64,0.4))" }} />
+            <div style={{ width: 36, height: 1, background: "linear-gradient(to right, transparent, rgba(160,128,48,0.5))" }} />
             <span style={{
               fontSize: 10, letterSpacing: "0.38em", textTransform: "uppercase",
-              color: "#F0C040", opacity: 0.85, fontWeight: 700, fontFamily: "'Space Mono', monospace"
+              color: "#9A7D2E", opacity: 0.9, fontWeight: 700, fontFamily: "'Space Mono', monospace"
             }}>上海交通大学 · 凯原法学院</span>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to left, transparent, rgba(240,192,64,0.4))" }} />
+            <div style={{ width: 36, height: 1, background: "linear-gradient(to left, transparent, rgba(160,128,48,0.5))" }} />
           </div>
           <h1 style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "clamp(52px,7vw,100px)", fontWeight: 300,
             letterSpacing: "-0.025em", lineHeight: 0.95,
-            background: "linear-gradient(135deg, rgba(255,248,230,0.95) 0%, #F0C040 35%, #E8D080 55%, rgba(255,248,230,0.95) 100%)",
+            background: "linear-gradient(135deg, #1C1C28 0%, #8B6914 35%, #B8860B 55%, #1C1C28 100%)",
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             backgroundClip: "text", marginBottom: 22
           }}>模拟法庭<br/>联赛中心</h1>
           <p style={{
-            fontSize: "clamp(13px,1.4vw,16px)", color: "rgba(255,248,230,0.5)",
+            fontSize: "clamp(13px,1.4vw,16px)", color: "rgba(28,28,40,0.5)",
             maxWidth: 480, margin: "0 auto", lineHeight: 1.85, fontWeight: 300
           }}>凯原法学院 · 12 支国际模拟法庭队伍<br/>探索你的国际法竞赛之路</p>
           {/* Stats row */}
           <div style={{
             display: "flex", gap: "clamp(20px,4vw,48px)", marginTop: 36,
             padding: "16px clamp(24px,4vw,48px)", borderRadius: 100,
-            background: "rgba(255,255,255,0.06)", border: "1px solid rgba(240,192,64,0.18)"
+            background: "rgba(0,0,0,0.03)", border: "1px solid rgba(160,128,48,0.15)"
           }}>
             {[
               { n: "12", label: "竞赛队伍" },
@@ -1299,13 +1268,12 @@ export default function MootCourtModule() {
               { n: "100+", label: "参赛国家/地区" },
             ].map(s => (
               <div key={s.n} style={{ textAlign: "center" }}>
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(22px,3vw,32px)", fontWeight: 500, color: "#F0C040", lineHeight: 1 }}>{s.n}</p>
-                <p style={{ fontSize: 10.5, color: "rgba(255,248,230,0.35)", marginTop: 4, fontFamily: "'Space Mono', monospace", letterSpacing: "0.05em" }}>{s.label}</p>
+                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(22px,3vw,32px)", fontWeight: 500, color: "#8B6914", lineHeight: 1 }}>{s.n}</p>
+                <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.4)", marginTop: 4, fontFamily: "'Space Mono', monospace", letterSpacing: "0.05em" }}>{s.label}</p>
               </div>
             ))}
           </div>
-          </header>
-        </div>
+        </header>
 
 
         {/* ── COMPETITION DIRECTORY ── */}
@@ -1504,9 +1472,6 @@ export default function MootCourtModule() {
 
       {/* ── GLOBAL CSS ── */}
       <style>{`
-        @supports (-webkit-overflow-scrolling: touch) {
-          .parallax-bg { background-attachment: scroll !important; }
-        }
         @keyframes cardIn {
           from { opacity:0; transform:translateY(22px) scale(0.97); }
           to   { opacity:1; transform:translateY(0)    scale(1);    }

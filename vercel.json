@@ -1,10 +1,9 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/dify/:path*",
-      "destination": "http://218.78.134.191/v1/:path*"
+  "functions": {
+    "api/dify/[...path].js": {
+      "maxDuration": 60
     }
-  ],
+  },
   "headers": [
     {
       "source": "/api/dify/(.*)",
