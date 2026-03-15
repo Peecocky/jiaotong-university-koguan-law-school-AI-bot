@@ -1,0 +1,18 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/dify/:path*",
+      "destination": "http://218.78.134.191/v1/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/dify/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" }
+      ]
+    }
+  ]
+}
