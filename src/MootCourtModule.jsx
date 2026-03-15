@@ -593,16 +593,17 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
 
   useEffect(() => { document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = ""; }; }, []);
   useEffect(() => { const id = requestAnimationFrame(() => setOpen(true)); return () => cancelAnimationFrame(id); }, []);
-  useEffect(() => {
-    const h = (e) => e.key === "Escape" && handleClose();
-    window.addEventListener("keydown", h);
-    return () => window.removeEventListener("keydown", h);
-  }, []);
 
   const handleClose = useCallback(() => {
     setOpen(false);
     setTimeout(onClose, 420);
   }, [onClose]);
+
+  useEffect(() => {
+    const h = (e) => e.key === "Escape" && handleClose();
+    window.addEventListener("keydown", h);
+    return () => window.removeEventListener("keydown", h);
+  }, [handleClose]);
 
   // Scroll content to top on tab change
   useEffect(() => { contentRef.current?.scrollTo({ top: 0, behavior: "smooth" }); }, [activeTab]);
@@ -1107,9 +1108,10 @@ export default function MootCourtModule() {
 
             if (parsed.event === "message" && parsed.answer) {
               fullAnswer += parsed.answer;
-              // Stream into the placeholder message
+              // Capture snapshot so the closure doesn't reference the outer variable
+              const snapshot = fullAnswer;
               setMessages(prev => prev.map(m =>
-                m._id === placeholderIdx ? { ...m, content: fullAnswer } : m
+                m._id === placeholderIdx ? { ...m, content: snapshot } : m
               ));
             }
 
