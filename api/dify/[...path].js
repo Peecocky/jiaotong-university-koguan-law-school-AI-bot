@@ -26,7 +26,7 @@ function getDifyBaseUrl() {
 }
 
 function getDifyPath(req) {
-  const pathParam = req.query.path;
+  const pathParam = req.query && req.query.path;
 
   if (Array.isArray(pathParam) && pathParam.length > 0) {
     return `/${pathParam.join("/")}`;
@@ -34,6 +34,13 @@ function getDifyPath(req) {
 
   if (typeof pathParam === "string" && pathParam.length > 0) {
     return `/${pathParam}`;
+  }
+
+  const pathname = new URL(req.url, "http://localhost").pathname;
+  const strippedPath = pathname.replace(/^\/api\/dify/, "");
+
+  if (strippedPath && strippedPath !== pathname) {
+    return strippedPath || "/";
   }
 
   return "/";
