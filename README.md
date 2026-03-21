@@ -9,7 +9,7 @@ The AI chat now goes through the Vercel serverless proxy at `api/dify/[...path].
 Set these environment variables locally or in the Vercel project:
 
 ```bash
-DIFY_API_BASE_URL=http://218.78.134.191/v1
+DIFY_API_BASE_URL=https://api.dify.ai/v1
 DIFY_API_KEY=app-xxxxxxxxxxxxxxxxxxxx
 DIFY_API_USER=moot-court-vercel
 ```
@@ -17,8 +17,10 @@ DIFY_API_USER=moot-court-vercel
 Notes:
 
 - `DIFY_API_BASE_URL` can be your Dify endpoint root with or without `/v1`; the proxy normalizes it.
+- For Dify Cloud, use `https://api.dify.ai/v1`. Do not use the public Web App URL like `https://udify.app/chat/...`.
 - `DIFY_API_KEY` is required in Vercel, otherwise `/api/dify/*` returns a clear configuration error.
 - `DIFY_API_USER` is optional. If omitted, the frontend sends a per-session user id.
+- After deployment, open `/api/dify/health` to verify whether the Vercel function can reach the upstream Dify service.
 
 ## Available Scripts
 

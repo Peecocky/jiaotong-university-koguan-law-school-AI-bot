@@ -1,7 +1,7 @@
 const http = require("http");
 const https = require("https");
 
-const DEFAULT_DIFY_BASE_URL = "http://218.78.134.191/v1";
+const DEFAULT_DIFY_BASE_URL = "https://api.dify.ai/v1";
 
 function setCorsHeaders(res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -17,8 +17,12 @@ function sendJson(res, statusCode, payload) {
 function getDifyBaseUrl() {
   const configuredBaseUrl = (process.env.DIFY_API_BASE_URL || DEFAULT_DIFY_BASE_URL).trim();
   const trimmedBaseUrl = configuredBaseUrl.replace(/\/+$/, "");
+  const normalizedBaseUrl = trimmedBaseUrl.replace(
+    /\/v1\/(chat-messages(?:\/[^/]+\/stop)?|files\/upload|messages(?:\/[^/]+(?:\/feedbacks|\/suggested)?)?|conversations(?:\/[^/]+(?:\/name|\/variables)?)?|audio-to-text|text-to-audio|info|parameters|meta|site|app\/feedbacks|apps\/annotations(?:\/[^/]+)?|apps\/annotation-reply(?:\/[^/]+(?:\/status\/[^/]+)?)?)$/i,
+    "/v1"
+  );
 
-  return /\/v1$/i.test(trimmedBaseUrl) ? trimmedBaseUrl : `${trimmedBaseUrl}/v1`;
+  return /\/v1$/i.test(normalizedBaseUrl) ? normalizedBaseUrl : `${normalizedBaseUrl}/v1`;
 }
 
 function getDifyPath(req) {
@@ -33,6 +37,10 @@ function getDifyPath(req) {
   }
 
   return "/";
+}
+
+function isHealthCheckRequest(req, difyPath) {
+  return req.method === "GET" && difyPath === "/health";
 }
 
 async function readRequestBody(req) {
@@ -67,6 +75,101 @@ function buildRequestBody(req, bodyBuffer) {
   return bodyBuffer;
 }
 
+function requestJson({ targetUrl, method = "GET", headers = {}, timeout = 10000 }) {
+  const transport = targetUrl.protocol === "https:" ? https : http;
+
+  return new Promise((resolve, reject) => {
+    const upstreamReq = transport.request(
+      {
+        hostname: targetUrl.hostname,
+        port: targetUrl.port || (targetUrl.protocol === "https:" ? 443 : 80),
+        path: targetUrl.pathname + targetUrl.search,
+        method,
+        headers,
+        timeout,
+      },
+      (upstreamRes) => {
+        const chunks = [];
+
+        upstreamRes.on("data", (chunk) => {
+          chunks.push(chunk);
+        });
+
+        upstreamRes.on("end", () => {
+          const rawBody = Buffer.concat(chunks).toString("utf8");
+          let parsedBody = null;
+
+          try {
+            parsedBody = rawBody ? JSON.parse(rawBody) : null;
+          } catch (error) {
+            parsedBody = rawBody || null;
+          }
+
+          resolve({
+            ok: (upstreamRes.statusCode || 500) < 400,
+            status: upstreamRes.statusCode || 500,
+            body: parsedBody,
+          });
+        });
+
+        upstreamRes.on("error", reject);
+      }
+    );
+
+    upstreamReq.on("error", reject);
+    upstreamReq.on("timeout", () => {
+      upstreamReq.destroy(new Error("Upstream timeout"));
+    });
+    upstreamReq.end();
+  });
+}
+
+async function handleHealthCheck(req, res, authorization) {
+  const baseUrl = getDifyBaseUrl();
+  const infoUrl = new URL(`${baseUrl}/info`);
+
+  try {
+    const result = await requestJson({
+      targetUrl: infoUrl,
+      headers: {
+        Accept: "application/json",
+        Authorization: authorization,
+      },
+      timeout: 10000,
+    });
+
+    return sendJson(res, result.ok ? 200 : result.status, {
+      ok: result.ok,
+      target: infoUrl.toString(),
+      hasApiKey: Boolean(process.env.DIFY_API_KEY),
+      upstreamStatus: result.status,
+      upstreamBody: result.body,
+    });
+  } catch (error) {
+    return sendJson(res, 502, {
+      ok: false,
+      target: infoUrl.toString(),
+      hasApiKey: Boolean(process.env.DIFY_API_KEY),
+      error: error.message,
+      hint: "Vercel cannot reach the Dify upstream. Check whether the Dify service is publicly reachable from the Internet.",
+    });
+  }
+}
+
+function buildProxyErrorPayload(error, targetUrl) {
+  const networkCodes = new Set(["ETIMEDOUT", "ECONNREFUSED", "EHOSTUNREACH", "ENETUNREACH"]);
+  const isNetworkError = networkCodes.has(error.code);
+
+  return {
+    error: `Proxy error: ${error.message}`,
+    code: error.code || null,
+    target: targetUrl.toString(),
+    hint: isNetworkError
+      ? "The upstream Dify endpoint is not reachable from the serverless runtime. Expose Dify on a public reachable address or deploy the proxy in the same network."
+      : undefined,
+  };
+}
+
 module.exports = async function handler(req, res) {
   if (req.method === "OPTIONS") {
     setCorsHeaders(res);
@@ -84,6 +187,10 @@ module.exports = async function handler(req, res) {
   }
 
   const difyPath = getDifyPath(req);
+  if (isHealthCheckRequest(req, difyPath)) {
+    return handleHealthCheck(req, res, authorization);
+  }
+
   const search = new URL(req.url, "http://localhost").search;
   const targetUrl = new URL(`${getDifyBaseUrl()}${difyPath}${search}`);
   const requestBody = buildRequestBody(req, await readRequestBody(req));
@@ -141,7 +248,7 @@ module.exports = async function handler(req, res) {
 
     proxyReq.on("error", (error) => {
       console.error("Proxy request error:", error);
-      sendJson(res, 502, { error: `Proxy error: ${error.message}` });
+      sendJson(res, 502, buildProxyErrorPayload(error, targetUrl));
       resolve();
     });
 
