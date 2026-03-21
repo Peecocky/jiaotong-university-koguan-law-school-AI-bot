@@ -1040,11 +1040,12 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
 // ─────────────────────────────────────────────────────────────
 // DIFY API CONFIG
 // ─────────────────────────────────────────────────────────────
-// Use Vercel rewrite proxy to avoid mixed-content (HTTPS→HTTP) and CORS issues.
-// In vercel.json: "/api/dify/:path*" → "http://218.78.134.191/v1/:path*"
-const DIFY_BASE   = "/api/dify";
-const DIFY_KEY    = "app-5xnxJLUouEQM5I1uafIXdPpY";
-const DIFY_USER   = "moot-court-user";
+// Route all Dify requests through the Vercel serverless proxy.
+const DIFY_BASE = "/api/dify";
+
+function createDifyUserId() {
+  return `moot-court-${Math.random().toString(36).slice(2, 10)}`;
+}
 
 // ─────────────────────────────────────────────────────────────
 // ROOT
@@ -1076,6 +1077,7 @@ export default function MootCourtModule() {
   const dragStart      = useRef({ x: 0, y: 0 });
   const messagesEnd    = useRef(null);
   const conversationId = useRef("");   // persists the Dify conversation session
+  const difyUserId     = useRef(createDifyUserId());
 
   useEffect(() => { messagesEnd.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
 
@@ -1116,14 +1118,13 @@ export default function MootCourtModule() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${DIFY_KEY}`,
         },
         body: JSON.stringify({
           query: text,
           inputs: {},
           response_mode: "streaming",
           conversation_id: conversationId.current,
-          user: DIFY_USER,
+          user: difyUserId.current,
         }),
       });
 

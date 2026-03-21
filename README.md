@@ -2,6 +2,24 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dify Configuration
+
+The AI chat now goes through the Vercel serverless proxy at `api/dify/[...path].js`. The browser no longer carries the Dify API key.
+
+Set these environment variables locally or in the Vercel project:
+
+```bash
+DIFY_API_BASE_URL=http://218.78.134.191/v1
+DIFY_API_KEY=app-xxxxxxxxxxxxxxxxxxxx
+DIFY_API_USER=moot-court-vercel
+```
+
+Notes:
+
+- `DIFY_API_BASE_URL` can be your Dify endpoint root with or without `/v1`; the proxy normalizes it.
+- `DIFY_API_KEY` is required in Vercel, otherwise `/api/dify/*` returns a clear configuration error.
+- `DIFY_API_USER` is optional. If omitted, the frontend sends a per-session user id.
+
 ## Available Scripts
 
 In the project directory, you can run:
