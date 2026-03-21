@@ -501,11 +501,20 @@ const TABS = [
 ];
 
 const QUICK_QUESTIONS = [
-  "Jessup 和 Vis Moot 哪个更难？",
-  "如何准备模拟法庭比赛？",
-  "需要哪些能力和素质？",
-  "推荐适合新手的比赛",
+  "Jessup 和 Vis Moot 有什么区别？",
+  "大一学生适合报名哪些赛队？",
+  "哪些比赛明确写了不要求过往模拟法庭经验？",
+  "国际商事仲裁方向有哪些比赛？",
 ];
+
+const AI_WELCOME_MESSAGE =
+  "你好，我是凯原法学院竞赛问答智能体。\n\n" +
+  "我可以基于学院 12 支模拟法庭赛队的公开资料，帮你快速了解：\n" +
+  "• 赛事方向与区别\n" +
+  "• 报名要求与选拔方式\n" +
+  "• 新手适合报哪些赛队\n" +
+  "• 历年参赛成绩与能力要求\n\n" +
+  "你可以直接问具体赛队，也可以先点下面的快捷问题。";
 
 const GUIDE_ITEMS = [
   { type: "科创类", scope: "国际级", name: "中国国际大学生创新大赛", org: "教育部等 12 个部门会同省级人民政府", freq: "一年一届" },
@@ -908,12 +917,12 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
     <div role="dialog" aria-label="竞赛问答智能体"
       style={{
         position: "fixed", bottom: 26, right: 26,
-        width: isMinimized ? 265 : 365,
+        width: isMinimized ? 280 : 390,
         transform: `translate(${pos.x}px, ${pos.y}px)`,
         zIndex: 1000,
-        background: "rgba(255,255,255,0.95)", backdropFilter: "blur(28px)",
-        border: "1px solid rgba(160,128,48,0.2)", borderRadius: 18,
-        boxShadow: "0 32px 72px rgba(0,0,0,0.12), 0 0 0 1px rgba(160,128,48,0.08)",
+        background: "rgba(255,252,246,0.96)", backdropFilter: "blur(28px)",
+        border: "1px solid rgba(160,128,48,0.22)", borderRadius: 20,
+        boxShadow: "0 36px 90px rgba(28,28,40,0.16), 0 0 0 1px rgba(160,128,48,0.08)",
         overflow: "hidden",
         animationName: "panelSlide", animationDuration: "0.42s",
         animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)", animationFillMode: "both",
@@ -923,24 +932,25 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
       {/* Header */}
       <div onMouseDown={onMouseDown}
         style={{
-          padding: "12px 14px",
+          padding: "13px 14px 12px",
           borderBottom: isMinimized ? "none" : "1px solid rgba(0,0,0,0.06)",
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          background: "linear-gradient(135deg, rgba(184,134,11,0.06), transparent)",
+          background: "linear-gradient(135deg, rgba(184,134,11,0.14), rgba(255,255,255,0.6) 48%, rgba(82,105,168,0.08) 100%)",
           cursor: "grab", userSelect: "none"
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
           <div style={{
-            width: 32, height: 32, borderRadius: "50%",
-            background: "linear-gradient(135deg, #B8860B, #8B6914)",
-            display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15
+            width: 36, height: 36, borderRadius: 12,
+            background: "linear-gradient(135deg, #C89C2C, #8B6914)",
+            display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15,
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 10px 24px rgba(184,134,11,0.18)"
           }}>⚖️</div>
           <div>
-            <p style={{ fontSize: 12.5, fontWeight: 600, color: "#1C1C28", lineHeight: 1.2, fontFamily: "'Instrument Sans', sans-serif" }}>竞赛问答智能体</p>
-            <p style={{ fontSize: 10, color: "rgba(139,105,20,0.7)", display: "flex", alignItems: "center", gap: 4, fontFamily: "'Space Mono', monospace" }}>
+            <p style={{ fontSize: 13, fontWeight: 700, color: "#1C1C28", lineHeight: 1.2, fontFamily: "'Instrument Sans', sans-serif" }}>竞赛问答智能体</p>
+            <p style={{ fontSize: 10, color: "rgba(139,105,20,0.76)", display: "flex", alignItems: "center", gap: 4, fontFamily: "'Space Mono', monospace", marginTop: 2 }}>
               <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#4ADE80", boxShadow: "0 0 6px #4ADE80" }} />
-              交通大学自主开发 · 在线
+              知识库检索 · 12 支赛队 · 在线
             </p>
           </div>
         </div>
@@ -957,8 +967,28 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
       </div>
 
       {!isMinimized && <>
+        <div style={{
+          padding: "10px 12px 8px",
+          display: "flex",
+          gap: 6,
+          flexWrap: "wrap",
+          background: "linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0))"
+        }}>
+          {["赛事对比", "报名要求", "成绩查询"].map((tag) => (
+            <span key={tag} style={{
+              fontSize: 10.5,
+              padding: "4px 8px",
+              borderRadius: 999,
+              background: "rgba(255,255,255,0.8)",
+              border: "1px solid rgba(160,128,48,0.14)",
+              color: "rgba(28,28,40,0.62)",
+              fontFamily: "'Instrument Sans', sans-serif"
+            }}>{tag}</span>
+          ))}
+        </div>
+
         {/* Messages */}
-        <div style={{ height: 295, overflowY: "auto", padding: "12px 12px 6px", display: "flex", flexDirection: "column", gap: 9 }}>
+        <div style={{ height: 272, overflowY: "auto", padding: "8px 12px 6px", display: "flex", flexDirection: "column", gap: 10 }}>
           {messages.map((msg, i) => (
             <div key={i} style={{
               display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
@@ -967,13 +997,16 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
               <div style={{
                 maxWidth: "88%", padding: "8px 12px",
                 borderRadius: msg.role === "user" ? "13px 13px 4px 13px" : "13px 13px 13px 4px",
-                background: msg.role === "user" ? "linear-gradient(135deg, #B8860B, #8B6914)" : "rgba(0,0,0,0.04)",
-                border: msg.role === "assistant" ? "1px solid rgba(0,0,0,0.06)" : "none",
+                background: msg.role === "user"
+                  ? "linear-gradient(135deg, #B8860B, #8B6914)"
+                  : "linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,243,235,0.9))",
+                border: msg.role === "assistant" ? "1px solid rgba(160,128,48,0.12)" : "none",
                 fontSize: 12, lineHeight: 1.7,
                 color: msg.role === "user" ? "#FFFFFF" : "rgba(28,28,40,0.82)",
                 fontWeight: msg.role === "user" ? 600 : 400,
                 whiteSpace: "pre-wrap", wordBreak: "break-word",
-                fontFamily: "'Instrument Sans', sans-serif"
+                fontFamily: "'Instrument Sans', sans-serif",
+                boxShadow: msg.role === "assistant" ? "0 8px 24px rgba(28,28,40,0.04)" : "0 10px 22px rgba(184,134,11,0.18)"
               }}>{msg.content}</div>
             </div>
           ))}
@@ -992,7 +1025,23 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
         </div>
 
         {/* Quick btns */}
-        <div className="no-drag" style={{ padding: "5px 12px 6px", display: "flex", flexWrap: "wrap", gap: 5 }}>
+        <div className="no-drag" style={{
+          padding: "10px 12px 8px",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 6,
+          borderTop: "1px solid rgba(0,0,0,0.04)",
+          background: "rgba(255,255,255,0.42)"
+        }}>
+          <div style={{
+            width: "100%",
+            fontSize: 10,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "rgba(28,28,40,0.38)",
+            fontFamily: "'Space Mono', monospace",
+            marginBottom: 2
+          }}>推荐提问</div>
           {QUICK_QUESTIONS.map((q, i) => (
             <QuickBtn key={i} onClick={() => onSend(q)} color="rgba(160,120,20,0.9)">{q}</QuickBtn>
           ))}
@@ -1007,16 +1056,16 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
           <input
             ref={inputRef} value={input} onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === "Enter" && !e.shiftKey && !loading && onSend()}
-            placeholder="关于模拟法庭竞赛，你想了解什么..."
+            placeholder="例如：Jessup 的报名要求是什么？"
             aria-label="发送消息"
             style={{
-              flex: 1, background: "rgba(0,0,0,0.03)",
-              border: "1px solid rgba(0,0,0,0.08)", borderRadius: 11,
-              padding: "8px 12px", fontSize: 12, color: "#1C1C28",
-              fontFamily: "'Instrument Sans', sans-serif", outline: "none", transition: "border-color 0.2s"
+              flex: 1, background: "rgba(255,255,255,0.8)",
+              border: "1px solid rgba(160,128,48,0.14)", borderRadius: 12,
+              padding: "10px 12px", fontSize: 12, color: "#1C1C28",
+              fontFamily: "'Instrument Sans', sans-serif", outline: "none", transition: "border-color 0.2s, box-shadow 0.2s"
             }}
-            onFocus={e => e.target.style.borderColor = "rgba(184,134,11,0.4)"}
-            onBlur={e => e.target.style.borderColor = "rgba(0,0,0,0.08)"}
+            onFocus={e => { e.target.style.borderColor = "rgba(184,134,11,0.4)"; e.target.style.boxShadow = "0 0 0 4px rgba(184,134,11,0.08)"; }}
+            onBlur={e => { e.target.style.borderColor = "rgba(160,128,48,0.14)"; e.target.style.boxShadow = "none"; }}
           />
           <button onClick={() => onSend()} disabled={!input.trim() || loading}
             style={{
@@ -1067,7 +1116,7 @@ export default function MootCourtModule() {
   const [aiMin,        setAiMin]        = useState(false);
   const [messages,     setMessages]     = useState([{
     role: "assistant",
-    content: "你好！我是凯原法学院竞赛问答智能体 👋\n\n我了解学院全部 12 支国际模拟法庭队伍的详细信息，可以帮你：\n• 了解各竞赛的特点和难度\n• 找到最适合你的赛事\n• 解答备赛和报名问题\n\n有什么想知道的？"
+    content: AI_WELCOME_MESSAGE
   }]);
   const [input,   setInput]   = useState("");
   const [loading, setLoading] = useState(false);
@@ -1185,14 +1234,16 @@ export default function MootCourtModule() {
       // If stream ended with no content at all
       if (!fullAnswer) {
         setMessages(prev => prev.map(m =>
-          m._id === placeholderIdx ? { ...m, content: "抱歉，暂时无法获取回复，请稍后重试。" } : m
+          m._id === placeholderIdx
+            ? { ...m, content: "这次没有检索到可展示的答案。你可以改问具体赛队、报名要求、能力要求或参赛成绩。" }
+            : m
         ));
       }
     } catch (err) {
       console.error("Dify chat error:", err);
       setMessages(prev => prev.map(m =>
         m._id === placeholderIdx
-          ? { ...m, content: `连接出错：${err.message || "网络异常，请稍后重试"}` }
+          ? { ...m, content: `连接出错：${err.message || "网络异常，请稍后重试"}\n\n建议先试试“全部赛队”，或直接问某一支赛队的报名要求、比赛方向与成绩。` }
           : m
       ));
     } finally {
@@ -1202,7 +1253,7 @@ export default function MootCourtModule() {
 
   const handleShowTeams = useCallback(() => {
     const list = TEAMS.map((t, i) => `${i + 1}. ${t.name} — ${t.tag}`).join("\n");
-    setMessages(prev => [...prev, { role: "assistant", content: `凯原法学院目前共有 12 支模拟法庭队伍：\n\n${list}\n\n想深入了解哪一支？` }]);
+    setMessages(prev => [...prev, { role: "assistant", content: `凯原法学院目前共有 12 支模拟法庭赛队：\n\n${list}\n\n如果你愿意，我可以继续按“适合新手”“仲裁方向”或“国际公法方向”帮你缩小范围。` }]);
   }, []);
 
   return (
