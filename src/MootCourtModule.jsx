@@ -507,45 +507,10 @@ const QUICK_QUESTIONS = [
   "国际商事仲裁方向有哪些比赛？",
 ];
 
-const KOGUAN_ASSETS = {
-  motto: "/koguan/yuanxun.png",
-  crest: "/koguan/yh-logo.png",
-  shield: "/koguan/yh-logo01.png",
-  field: "/koguan/yh-logo02.png",
-  charge: "/koguan/yh-logo03.png",
-  supporter: "/koguan/yh-logo04.png",
+const HERO_ASSETS = {
+  campus: "/sjtu-law/hero-campus.jpg",
+  logo: "/sjtu-law/logo.png",
 };
-
-const KOGUAN_EMBLEM_DETAILS = [
-  {
-    key: "shield",
-    title: "盾牌",
-    subtitle: "法学院的古典识别",
-    description: "沿用传统法学院盾徽轮廓，强化庄重、礼制与辨识度。",
-    image: KOGUAN_ASSETS.shield,
-  },
-  {
-    key: "field",
-    title: "底色",
-    subtitle: "绛红与白的平衡",
-    description: "承接交大绛红主色，也回应院徽中阴阳动态的层次关系。",
-    image: KOGUAN_ASSETS.field,
-  },
-  {
-    key: "charge",
-    title: "天秤与齿轮",
-    subtitle: "Justice within SJTU",
-    description: "交大齿轮环抱天秤，让学校标识与法学公正的意象合一。",
-    image: KOGUAN_ASSETS.charge,
-  },
-  {
-    key: "supporter",
-    title: "獬豸守护",
-    subtitle: "院徽中的正义守望",
-    description: "以獬豸作为守护者，把法律判断与公正精神具象化。",
-    image: KOGUAN_ASSETS.supporter,
-  },
-];
 
 const AI_WELCOME_MESSAGE =
   "你好，我是凯原法学院竞赛问答智能体。\n\n" +
@@ -616,7 +581,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted }) {
         transform: hovered ? "translateY(-8px) scale(1.02)" : "translateY(0) scale(1)",
         transition: "transform 0.38s cubic-bezier(.34,1.56,.64,1), border-color 0.25s, box-shadow 0.3s",
         boxShadow: highlighted
-          ? `0 0 0 2px ${team.accent}, 0 0 0 10px ${team.accent}18, 0 30px 60px rgba(0,0,0,0.18)`
+          ? `0 0 0 2px rgba(122,39,53,0.9), 0 18px 44px rgba(20,28,40,0.16)`
           : hovered
           ? `0 24px 48px rgba(0,0,0,0.15), 0 0 0 1px ${team.accent}40`
           : "0 2px 16px rgba(0,0,0,0.08)",
@@ -653,12 +618,14 @@ function TeamCard({ team, onClick, index, registerRef, highlighted }) {
       {highlighted && (
         <div style={{
           position: "absolute", top: 14, right: 14,
-          padding: "5px 10px", borderRadius: 100,
-          background: "rgba(255,255,255,0.18)",
-          backdropFilter: "blur(12px)",
-          border: `1px solid ${team.accent}55`,
-          fontSize: 9.5, fontWeight: 700, color: "#FFFFFF",
-          letterSpacing: "0.08em", fontFamily: "'Space Mono', monospace"
+          padding: "5px 10px",
+          borderRadius: 100,
+          background: "rgba(122,39,53,0.82)",
+          border: "1px solid rgba(255,255,255,0.18)",
+          color: "#FFFFFF",
+          fontSize: 10,
+          letterSpacing: "0.08em",
+          fontFamily: "'Space Mono', monospace"
         }}>
           已定位
         </div>
@@ -1206,7 +1173,7 @@ export default function MootCourtModule() {
   const pulseTeamCard = useCallback((teamId) => {
     setActiveJumpTeamId(teamId);
     window.clearTimeout(jumpTimerRef.current);
-    jumpTimerRef.current = window.setTimeout(() => setActiveJumpTeamId(null), 2400);
+    jumpTimerRef.current = window.setTimeout(() => setActiveJumpTeamId(null), 2200);
   }, []);
 
   const handleMouseDown = useCallback((e) => {
@@ -1241,9 +1208,8 @@ export default function MootCourtModule() {
 
     node.scrollIntoView({ behavior: "smooth", block: "center" });
     window.setTimeout(() => {
-      const rect = node.getBoundingClientRect();
-      handleTeamClick(team, rect);
-    }, 360);
+      handleTeamClick(team, node.getBoundingClientRect());
+    }, 340);
   }, [handleTeamClick]);
 
   const handleGuideItemClick = useCallback((item) => {
@@ -1363,362 +1329,253 @@ export default function MootCourtModule() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "linear-gradient(160deg, #FDFBF7 0%, #F7F3EB 40%, #F0EBDF 100%)",
+      background: "linear-gradient(180deg, #F4F7FA 0%, #EEF2F6 52%, #F6F3EE 100%)",
       fontFamily: "'Instrument Sans', sans-serif",
       color: "#1C1C28", position: "relative", overflowX: "hidden"
     }}>
       {/* Fine dot grid */}
       <div style={{
         position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0,
-        backgroundImage: "radial-gradient(circle at 1px 1px, rgba(160,130,60,0.07) 1px, transparent 0)",
+        backgroundImage: "radial-gradient(circle at 1px 1px, rgba(122,39,53,0.045) 1px, transparent 0)",
         backgroundSize: "42px 42px"
       }} />
       {/* Ambient orbs */}
       <div style={{
         position: "fixed", top: "-20%", right: "-12%", width: 800, height: 800,
-        background: "radial-gradient(circle, rgba(200,170,80,0.07) 0%, transparent 60%)",
+        background: "radial-gradient(circle, rgba(94,124,162,0.10) 0%, transparent 60%)",
         pointerEvents: "none", zIndex: 0
       }} />
       <div style={{
         position: "fixed", bottom: "-18%", left: "-8%", width: 700, height: 700,
-        background: "radial-gradient(circle, rgba(80,100,160,0.06) 0%, transparent 60%)",
+        background: "radial-gradient(circle, rgba(122,39,53,0.08) 0%, transparent 60%)",
         pointerEvents: "none", zIndex: 0
       }} />
 
       <div style={{ position: "relative", zIndex: 1, maxWidth: 1400, margin: "0 auto", padding: "0 clamp(20px,4vw,40px)" }}>
 
         {/* ── HEADER ── */}
-        <header style={{ padding: "clamp(44px,8vh,80px) 0 clamp(32px,5vh,52px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          {/* Label bar */}
+        <header style={{ padding: "clamp(20px,4vh,36px) 0 clamp(30px,5vh,48px)" }}>
           <div style={{
-            display: "flex", alignItems: "center", gap: 10, marginBottom: 28
+            position: "relative",
+            minHeight: "clamp(560px, 74vh, 780px)",
+            borderRadius: 30,
+            overflow: "hidden",
+            boxShadow: "0 28px 80px rgba(15,23,42,0.18)"
           }}>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to right, transparent, rgba(160,128,48,0.5))" }} />
-            <span style={{
-              fontSize: 10, letterSpacing: "0.38em", textTransform: "uppercase",
-              color: "#9A7D2E", opacity: 0.9, fontWeight: 700, fontFamily: "'Space Mono', monospace"
-            }}>上海交通大学 · 凯原法学院</span>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to left, transparent, rgba(160,128,48,0.5))" }} />
-          </div>
-          <h1 style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(52px,7vw,100px)", fontWeight: 300,
-            letterSpacing: "-0.025em", lineHeight: 0.95,
-            background: "linear-gradient(135deg, #1C1C28 0%, #8B6914 35%, #B8860B 55%, #1C1C28 100%)",
-            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-            backgroundClip: "text", marginBottom: 22
-          }}>模拟法庭<br/>联赛中心</h1>
-          <p style={{
-            fontSize: "clamp(13px,1.4vw,16px)", color: "rgba(28,28,40,0.5)",
-            maxWidth: 480, margin: "0 auto", lineHeight: 1.85, fontWeight: 300
-          }}>凯原法学院 · 12 支国际模拟法庭队伍<br/>探索你的国际法竞赛之路</p>
-          {/* Stats row */}
-          <div style={{
-            display: "flex", gap: "clamp(20px,4vw,48px)", marginTop: 36,
-            padding: "16px clamp(24px,4vw,48px)", borderRadius: 100,
-            background: "rgba(0,0,0,0.03)", border: "1px solid rgba(160,128,48,0.15)"
-          }}>
-            {[
-              { n: "12", label: "竞赛队伍" },
-              { n: "3", label: "全球顶级竞赛" },
-              { n: "100+", label: "参赛国家/地区" },
-            ].map(s => (
-              <div key={s.n} style={{ textAlign: "center" }}>
-                <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(22px,3vw,32px)", fontWeight: 500, color: "#8B6914", lineHeight: 1 }}>{s.n}</p>
-                <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.4)", marginTop: 4, fontFamily: "'Space Mono', monospace", letterSpacing: "0.05em" }}>{s.label}</p>
-              </div>
-            ))}
-          </div>
+            <div style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${HERO_ASSETS.campus})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center 32%",
+              transform: "scale(1.02)"
+            }} />
+            <div style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(180deg, rgba(7,18,34,0.42) 0%, rgba(12,20,31,0.24) 24%, rgba(10,17,28,0.36) 54%, rgba(8,14,24,0.72) 100%)"
+            }} />
+            <div style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(90deg, rgba(0,0,0,0.20), transparent 26%, transparent 74%, rgba(0,0,0,0.20))"
+            }} />
 
-          <div style={{
-            width: "100%",
-            marginTop: 26,
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: 18,
-            textAlign: "left"
-          }}>
-            <section style={{
+            <div style={{
               position: "relative",
-              overflow: "hidden",
-              borderRadius: 28,
-              padding: "clamp(24px,3vw,34px)",
-              minHeight: 320,
-              background: "linear-gradient(145deg, #4C1522 0%, #7D2232 42%, #B8860B 100%)",
-              color: "#FFF7EF",
-              boxShadow: "0 28px 70px rgba(76,21,34,0.18)"
+              zIndex: 1,
+              display: "flex",
+              flexDirection: "column",
+              minHeight: "clamp(560px, 74vh, 780px)",
+              padding: "clamp(22px,3vw,34px)"
             }}>
               <div style={{
-                position: "absolute",
-                inset: 0,
-                background: "radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 34%), radial-gradient(circle at bottom left, rgba(255,255,255,0.12), transparent 30%)",
-                pointerEvents: "none"
-              }} />
-              <div style={{
-                position: "relative",
-                zIndex: 1,
                 display: "flex",
-                flexDirection: "column",
-                height: "100%"
+                alignItems: "flex-start",
+                justifyContent: "space-between",
+                gap: 16,
+                flexWrap: "wrap"
               }}>
                 <div style={{
-                  display: "inline-flex",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 14,
+                  minWidth: 0
+                }}>
+                  <img
+                    src={HERO_ASSETS.logo}
+                    alt="上海交通大学凯原法学院"
+                    style={{
+                      width: "min(100%, 360px)",
+                      maxWidth: 360,
+                      height: "auto",
+                      display: "block"
+                    }}
+                  />
+                </div>
+
+                <div style={{
+                  display: "flex",
                   alignItems: "center",
                   gap: 10,
-                  alignSelf: "flex-start",
-                  padding: "6px 12px",
-                  borderRadius: 100,
-                  background: "rgba(255,255,255,0.12)",
-                  border: "1px solid rgba(255,255,255,0.18)",
-                  fontSize: 11,
-                  letterSpacing: "0.12em",
-                  fontFamily: "'Space Mono', monospace"
-                }}>
-                  KOGUAN IDENTITY
-                </div>
-                <div style={{
-                  marginTop: 18,
-                  display: "flex",
                   flexWrap: "wrap",
-                  gap: 22,
-                  alignItems: "center",
-                  justifyContent: "space-between"
+                  justifyContent: "flex-end"
                 }}>
-                  <div style={{ flex: "1 1 240px", minWidth: 0 }}>
-                    <p style={{
+                  {["旧版网站", "English", "Moot Court"].map((label) => (
+                    <span key={label} style={{
+                      padding: "8px 14px",
+                      borderRadius: 999,
+                      background: "rgba(255,255,255,0.08)",
+                      border: "1px solid rgba(255,255,255,0.18)",
+                      color: "rgba(255,255,255,0.92)",
                       fontSize: 12,
-                      letterSpacing: "0.18em",
-                      textTransform: "uppercase",
-                      opacity: 0.78,
-                      marginBottom: 12,
-                      fontFamily: "'Space Mono', monospace"
+                      letterSpacing: "0.06em",
+                      backdropFilter: "blur(10px)"
                     }}>
-                      正义精神与学院识别
-                    </p>
-                    <h2 style={{
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontSize: "clamp(36px,4vw,58px)",
-                      lineHeight: 0.94,
-                      fontWeight: 500
-                    }}>
-                      正谊明道
-                      <br />
-                      尚法辅德
-                    </h2>
-                    <p style={{
-                      marginTop: 14,
-                      maxWidth: 460,
-                      lineHeight: 1.8,
-                      color: "rgba(255,247,239,0.82)",
-                      fontSize: 14
-                    }}>
-                      参考凯原法学院“院训院徽”页，将院训与院徽里的盾牌、绛红、天秤、齿轮与獬豸守护意象，嵌入模拟法庭联赛中心的首屏视觉。
-                    </p>
-                    <div style={{
-                      marginTop: 18,
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 10
-                    }}>
-                      {["盾牌", "天秤", "交大齿轮", "獬豸", "绛红主色"].map((label) => (
-                        <span key={label} style={{
-                          padding: "6px 12px",
-                          borderRadius: 100,
-                          border: "1px solid rgba(255,255,255,0.18)",
-                          background: "rgba(255,255,255,0.08)",
-                          fontSize: 12,
-                          color: "#FFF7EF"
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center"
+              }}>
+                <div style={{ maxWidth: 900 }}>
+                  <p style={{
+                    fontSize: "clamp(11px,1vw,13px)",
+                    letterSpacing: "0.34em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.75)",
+                    marginBottom: 18,
+                    fontFamily: "'Space Mono', monospace"
+                  }}>
+                    Shanghai Jiao Tong University
+                  </p>
+                  <h1 style={{
+                    fontFamily: "'Microsoft YaHei', 'PingFang SC', sans-serif",
+                    fontSize: "clamp(44px, 7.4vw, 86px)",
+                    fontWeight: 300,
+                    lineHeight: 1.06,
+                    color: "#FFFFFF",
+                    letterSpacing: "0.08em",
+                    textShadow: "0 8px 30px rgba(0,0,0,0.28)"
+                  }}>
+                    模拟法庭联赛中心
+                  </h1>
+                  <div style={{
+                    marginTop: 26,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 18,
+                    flexWrap: "wrap"
+                  }}>
+                    {["正谊明道", "尚法辅德"].map((label, idx) => (
+                      <div key={label} style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 18,
+                        color: "rgba(255,255,255,0.96)"
+                      }}>
+                        <span style={{
+                          fontFamily: "'Microsoft YaHei', 'PingFang SC', sans-serif",
+                          fontSize: "clamp(18px,2vw,28px)",
+                          fontWeight: 300,
+                          letterSpacing: "0.34em"
                         }}>
                           {label}
                         </span>
-                      ))}
-                    </div>
+                        {idx === 0 && <span style={{ width: 1, height: 28, background: "rgba(255,255,255,0.42)" }} />}
+                      </div>
+                    ))}
                   </div>
-
-                  <div style={{
-                    flex: "0 1 220px",
-                    width: "min(100%, 220px)",
-                    aspectRatio: "1 / 1",
-                    borderRadius: 28,
-                    display: "grid",
-                    placeItems: "center",
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08))",
-                    border: "1px solid rgba(255,255,255,0.18)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.18)"
+                  <p style={{
+                    marginTop: 14,
+                    color: "rgba(255,255,255,0.78)",
+                    fontSize: "clamp(14px,1.4vw,18px)",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    letterSpacing: "0.01em"
                   }}>
-                    <div style={{
-                      width: "78%",
-                      aspectRatio: "1 / 1",
-                      borderRadius: "50%",
-                      display: "grid",
-                      placeItems: "center",
-                      background: "radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0.58))",
-                      boxShadow: "0 20px 50px rgba(33,7,14,0.26)"
-                    }}>
-                      <img
-                        src={KOGUAN_ASSETS.crest}
-                        alt="凯原法学院院徽"
-                        style={{ width: "82%", height: "82%", objectFit: "contain" }}
-                      />
-                    </div>
-                  </div>
+                    Koguan School of Law Moot Court Program
+                  </p>
                 </div>
               </div>
-            </section>
 
-            <div style={{
-              display: "grid",
-              gap: 18,
-              gridTemplateRows: "auto auto"
-            }}>
-              <section style={{
-                borderRadius: 24,
-                background: "rgba(255,255,255,0.88)",
-                border: "1px solid rgba(125,34,50,0.14)",
-                padding: "22px 24px",
-                boxShadow: "0 20px 50px rgba(28,28,40,0.08)"
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "minmax(0, 1.45fr) minmax(300px, 0.9fr)",
+                gap: 18,
+                alignItems: "end"
               }}>
                 <div style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: 18,
-                  alignItems: "center",
-                  justifyContent: "space-between"
+                  padding: "18px clamp(18px,2vw,24px)",
+                  borderRadius: 22,
+                  background: "rgba(10,17,28,0.34)",
+                  border: "1px solid rgba(255,255,255,0.14)",
+                  backdropFilter: "blur(12px)"
                 }}>
-                  <div style={{ flex: "1 1 220px", minWidth: 0 }}>
-                    <p style={{
-                      fontSize: 11,
-                      fontFamily: "'Space Mono', monospace",
-                      letterSpacing: "0.14em",
-                      color: "#7D2232",
-                      marginBottom: 10
-                    }}>
-                      MOTTO
-                    </p>
-                    <h3 style={{
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontSize: 30,
-                      lineHeight: 1,
-                      color: "#24181D",
-                      marginBottom: 10
-                    }}>
-                      院训融入网页
-                    </h3>
-                    <p style={{
-                      fontSize: 13.5,
-                      lineHeight: 1.8,
-                      color: "rgba(36,24,29,0.72)",
-                      maxWidth: 420
-                    }}>
-                      页面保留原有竞赛信息密度，同时把“正谊明道，尚法辅德”放进首屏叙事，让赛队展示更有学院归属感。
-                    </p>
-                  </div>
-                  <div style={{
-                    flex: "0 1 240px",
-                    width: "min(100%, 240px)",
-                    padding: "14px 18px",
-                    borderRadius: 22,
-                    background: "linear-gradient(180deg, rgba(125,34,50,0.08), rgba(184,134,11,0.08))",
-                    border: "1px solid rgba(125,34,50,0.12)"
+                  <p style={{
+                    fontSize: 12,
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.64)",
+                    fontFamily: "'Space Mono', monospace",
+                    marginBottom: 8
                   }}>
-                    <img
-                      src={KOGUAN_ASSETS.motto}
-                      alt="凯原法学院院训"
-                      style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
-                    />
-                  </div>
-                </div>
-              </section>
-
-              <section style={{
-                borderRadius: 24,
-                background: "rgba(255,255,255,0.82)",
-                border: "1px solid rgba(125,34,50,0.12)",
-                padding: "20px 20px 18px",
-                boxShadow: "0 20px 50px rgba(28,28,40,0.06)"
-              }}>
-                <div style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  justifyContent: "space-between",
-                  gap: 12,
-                  marginBottom: 16
-                }}>
-                  <div>
-                    <p style={{
-                      fontSize: 11,
-                      fontFamily: "'Space Mono', monospace",
-                      letterSpacing: "0.14em",
-                      color: "#7D2232",
-                      marginBottom: 6
-                    }}>
-                      EMBLEM NOTES
-                    </p>
-                    <h3 style={{
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontSize: 28,
-                      color: "#24181D"
-                    }}>
-                      院徽拆解
-                    </h3>
-                  </div>
-                  <span style={{
-                    fontSize: 11,
-                    color: "rgba(36,24,29,0.55)",
-                    fontFamily: "'Space Mono', monospace"
+                    Overview
+                  </p>
+                  <p style={{
+                    fontSize: "clamp(13px,1.3vw,16px)",
+                    lineHeight: 1.9,
+                    color: "rgba(255,255,255,0.92)"
                   }}>
-                    4 个核心符号
-                  </span>
+                    以上海交通大学凯原法学院官网视觉风格为参照，整合学院识别、院训气质与 12 支赛队信息，集中呈现学院模拟法庭体系的赛事入口、方向与介绍。
+                  </p>
                 </div>
 
                 <div style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+                  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                   gap: 12
                 }}>
-                  {KOGUAN_EMBLEM_DETAILS.map((detail) => (
-                    <article
-                      key={detail.key}
-                      style={{
-                        minWidth: 0,
-                        borderRadius: 18,
-                        padding: "14px 14px 16px",
-                        background: "linear-gradient(180deg, rgba(253,251,247,0.98), rgba(247,243,235,0.9))",
-                        border: "1px solid rgba(125,34,50,0.1)"
-                      }}
-                    >
-                      <div style={{
-                        height: 74,
-                        borderRadius: 14,
-                        display: "grid",
-                        placeItems: "center",
-                        background: "linear-gradient(180deg, rgba(125,34,50,0.08), rgba(184,134,11,0.04))",
-                        marginBottom: 12
+                  {[
+                    { n: "12", label: "赛队" },
+                    { n: "3", label: "顶级国际赛事" },
+                    { n: "100+", label: "参赛国家/地区" },
+                  ].map((s) => (
+                    <div key={s.n} style={{
+                      padding: "18px 12px",
+                      borderRadius: 20,
+                      textAlign: "center",
+                      background: "rgba(255,255,255,0.10)",
+                      border: "1px solid rgba(255,255,255,0.14)",
+                      backdropFilter: "blur(12px)"
+                    }}>
+                      <p style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontSize: "clamp(24px,2.4vw,36px)",
+                        color: "#FFFFFF",
+                        lineHeight: 1
                       }}>
-                        <img
-                          src={detail.image}
-                          alt={detail.title}
-                          style={{ width: 54, height: 54, objectFit: "contain" }}
-                        />
-                      </div>
-                      <p style={{ fontSize: 12, color: "#7D2232", marginBottom: 5, fontFamily: "'Space Mono', monospace" }}>
-                        {detail.subtitle}
+                        {s.n}
                       </p>
-                      <h4 style={{
-                        fontSize: 18,
-                        color: "#24181D",
-                        marginBottom: 7,
-                        fontFamily: "'Cormorant Garamond', serif"
+                      <p style={{
+                        marginTop: 8,
+                        fontSize: 11,
+                        color: "rgba(255,255,255,0.72)",
+                        letterSpacing: "0.08em"
                       }}>
-                        {detail.title}
-                      </h4>
-                      <p style={{ fontSize: 12.5, lineHeight: 1.7, color: "rgba(36,24,29,0.66)" }}>
-                        {detail.description}
+                        {s.label}
                       </p>
-                    </article>
+                    </div>
                   ))}
                 </div>
-              </section>
+              </div>
             </div>
           </div>
         </header>
@@ -1732,7 +1589,7 @@ export default function MootCourtModule() {
               width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
               padding: "15px 22px",
               background: "rgba(255,255,255,0.7)",
-              border: "1px solid rgba(100,80,160,0.15)",
+              border: "1px solid rgba(122,39,53,0.14)",
               borderRadius: 13, cursor: "pointer", color: "#1C1C28",
               marginBottom: guideOpen ? 20 : 0,
               backdropFilter: "blur(12px)", transition: "all 0.28s"
@@ -1742,8 +1599,8 @@ export default function MootCourtModule() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <div style={{
-                width: 8, height: 8, borderRadius: "50%", background: "#6C5CE7",
-                boxShadow: "0 0 12px rgba(108,92,231,0.5)"
+                width: 8, height: 8, borderRadius: "50%", background: "#7A2735",
+                boxShadow: "0 0 12px rgba(122,39,53,0.45)"
               }} />
               <span style={{
                 fontFamily: "'Cormorant Garamond', serif",
@@ -1751,8 +1608,8 @@ export default function MootCourtModule() {
               }}>完整赛事目录</span>
               <span style={{
                 fontSize: 10.5, padding: "2px 11px", borderRadius: 100,
-                background: "rgba(108,92,231,0.08)", color: "#6C5CE7",
-                border: "1px solid rgba(108,92,231,0.15)",
+                background: "rgba(122,39,53,0.08)", color: "#7A2735",
+                border: "1px solid rgba(122,39,53,0.15)",
                 fontFamily: "'Space Mono', monospace"
               }}>{GUIDE_ITEMS.length}</span>
             </div>
@@ -1764,35 +1621,19 @@ export default function MootCourtModule() {
           {guideOpen && (
             <div style={{
               background: "rgba(255,255,255,0.75)", backdropFilter: "blur(16px)",
-              border: "1px solid rgba(100,80,160,0.1)", borderRadius: 16,
+              border: "1px solid rgba(122,39,53,0.1)", borderRadius: 16,
               overflow: "hidden",
               animationName: "cardIn", animationDuration: "0.4s",
               animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)", animationFillMode: "both"
             }}>
               <div style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 14,
-                padding: "16px 24px 10px",
+                padding: "14px 24px 10px",
                 borderBottom: "1px solid rgba(0,0,0,0.04)",
-                background: "linear-gradient(180deg, rgba(125,34,50,0.04), transparent)"
+                background: "linear-gradient(180deg, rgba(122,39,53,0.04), transparent)"
               }}>
-                <p style={{ fontSize: 12.5, color: "rgba(28,28,40,0.6)", lineHeight: 1.65 }}>
-                  已纳入下方赛队目录的赛事，点击即可直接定位并打开对应赛队介绍。
+                <p style={{ fontSize: 12.5, color: "rgba(28,28,40,0.6)", lineHeight: 1.7 }}>
+                  已有赛队介绍的赛事支持直接跳转。点击目录中的对应条目，会自动定位到下方赛队并打开详情。
                 </p>
-                <span style={{
-                  flexShrink: 0,
-                  padding: "5px 10px",
-                  borderRadius: 100,
-                  background: "rgba(125,34,50,0.08)",
-                  border: "1px solid rgba(125,34,50,0.12)",
-                  color: "#7D2232",
-                  fontSize: 11,
-                  fontFamily: "'Space Mono', monospace"
-                }}>
-                  {GUIDE_ITEMS.filter(item => item.teamId).length} 项可跳转
-                </span>
               </div>
               {/* Table header */}
               <div style={{
@@ -1817,13 +1658,13 @@ export default function MootCourtModule() {
                   gridTemplateColumns: "56px 56px 1fr auto",
                   gap: 12, alignItems: "center",
                   background: idx % 2 === 0 ? "transparent" : "rgba(0,0,0,0.012)",
-                  transition: "background 0.15s, box-shadow 0.15s",
+                  transition: "background 0.15s",
                   cursor: item.teamId ? "pointer" : "default",
-                  boxShadow: item.teamId ? "inset 3px 0 0 rgba(125,34,50,0.22)" : "none"
+                  boxShadow: item.teamId ? "inset 3px 0 0 rgba(122,39,53,0.18)" : "none"
                 }}
                   role={item.teamId ? "button" : undefined}
                   tabIndex={item.teamId ? 0 : undefined}
-                  aria-label={item.teamId ? `${item.name}，点击查看对应赛队介绍` : undefined}
+                  aria-label={item.teamId ? `${item.name}，点击跳转到赛队介绍` : undefined}
                   onClick={() => handleGuideItemClick(item)}
                   onKeyDown={(e) => {
                     if (item.teamId && (e.key === "Enter" || e.key === " ")) {
@@ -1831,7 +1672,7 @@ export default function MootCourtModule() {
                       handleGuideItemClick(item);
                     }
                   }}
-                  onMouseEnter={e => e.currentTarget.style.background = item.teamId ? "rgba(125,34,50,0.05)" : "rgba(108,92,231,0.03)"}
+                  onMouseEnter={e => e.currentTarget.style.background = item.teamId ? "rgba(122,39,53,0.045)" : "rgba(108,92,231,0.03)"}
                   onMouseLeave={e => e.currentTarget.style.background = idx % 2 === 0 ? "transparent" : "rgba(0,0,0,0.012)"}
                 >
                   <span style={{
@@ -1854,13 +1695,13 @@ export default function MootCourtModule() {
                           flexShrink: 0,
                           padding: "2px 8px",
                           borderRadius: 100,
-                          background: "rgba(125,34,50,0.08)",
-                          color: "#7D2232",
-                          border: "1px solid rgba(125,34,50,0.12)",
+                          background: "rgba(122,39,53,0.08)",
+                          border: "1px solid rgba(122,39,53,0.14)",
+                          color: "#7A2735",
                           fontSize: 10.5,
                           fontFamily: "'Space Mono', monospace"
                         }}>
-                          赛队介绍 →
+                          赛队介绍
                         </span>
                       )}
                     </div>
@@ -1884,7 +1725,7 @@ export default function MootCourtModule() {
               width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
               padding: "15px 22px",
               background: "rgba(255,255,255,0.7)",
-              border: "1px solid rgba(160,128,48,0.18)",
+              border: "1px solid rgba(122,39,53,0.14)",
               borderRadius: 13, cursor: "pointer", color: "#1C1C28",
               marginBottom: dirOpen ? 20 : 0,
               backdropFilter: "blur(12px)", transition: "all 0.28s"
@@ -1894,8 +1735,8 @@ export default function MootCourtModule() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
               <div style={{
-                width: 8, height: 8, borderRadius: "50%", background: "#B8860B",
-                boxShadow: "0 0 12px rgba(184,134,11,0.5)"
+                width: 8, height: 8, borderRadius: "50%", background: "#7A2735",
+                boxShadow: "0 0 12px rgba(122,39,53,0.45)"
               }} />
               <span style={{
                 fontFamily: "'Cormorant Garamond', serif",
@@ -1903,8 +1744,8 @@ export default function MootCourtModule() {
               }}>模拟法庭队伍目录</span>
               <span style={{
                 fontSize: 10.5, padding: "2px 11px", borderRadius: 100,
-                background: "rgba(160,128,48,0.1)", color: "#8B6914",
-                border: "1px solid rgba(160,128,48,0.2)",
+                background: "rgba(122,39,53,0.08)", color: "#7A2735",
+                border: "1px solid rgba(122,39,53,0.15)",
                 fontFamily: "'Space Mono', monospace"
               }}>{TEAMS.length}</span>
             </div>
@@ -1950,14 +1791,14 @@ export default function MootCourtModule() {
           style={{
             position: "fixed", bottom: 26, right: 26,
             width: 58, height: 58, borderRadius: "50%",
-            background: "linear-gradient(135deg,#B8860B,#8B6914)",
+            background: "linear-gradient(135deg,#7A2735,#4B1823)",
             border: "none", cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 8px 28px rgba(184,134,11,0.35)",
+            boxShadow: "0 8px 28px rgba(122,39,53,0.3)",
             zIndex: 999, transition: "transform 0.22s, box-shadow 0.22s"
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 14px 40px rgba(184,134,11,0.45)"; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(184,134,11,0.35)"; }}
+          onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 14px 40px rgba(122,39,53,0.42)"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(122,39,53,0.3)"; }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -2008,7 +1849,7 @@ export default function MootCourtModule() {
         * { box-sizing:border-box; margin:0; padding:0; }
         ::-webkit-scrollbar { width:3px; height:3px; }
         ::-webkit-scrollbar-track { background:transparent; }
-        ::-webkit-scrollbar-thumb { background:rgba(160,128,48,.25); border-radius:2px; }
+        ::-webkit-scrollbar-thumb { background:rgba(122,39,53,.24); border-radius:2px; }
         button { font-family:'Instrument Sans',sans-serif; }
         input::placeholder { color:rgba(28,28,40,.28); }
       `}</style>
