@@ -507,6 +507,46 @@ const QUICK_QUESTIONS = [
   "国际商事仲裁方向有哪些比赛？",
 ];
 
+const KOGUAN_ASSETS = {
+  motto: "/koguan/yuanxun.png",
+  crest: "/koguan/yh-logo.png",
+  shield: "/koguan/yh-logo01.png",
+  field: "/koguan/yh-logo02.png",
+  charge: "/koguan/yh-logo03.png",
+  supporter: "/koguan/yh-logo04.png",
+};
+
+const KOGUAN_EMBLEM_DETAILS = [
+  {
+    key: "shield",
+    title: "盾牌",
+    subtitle: "法学院的古典识别",
+    description: "沿用传统法学院盾徽轮廓，强化庄重、礼制与辨识度。",
+    image: KOGUAN_ASSETS.shield,
+  },
+  {
+    key: "field",
+    title: "底色",
+    subtitle: "绛红与白的平衡",
+    description: "承接交大绛红主色，也回应院徽中阴阳动态的层次关系。",
+    image: KOGUAN_ASSETS.field,
+  },
+  {
+    key: "charge",
+    title: "天秤与齿轮",
+    subtitle: "Justice within SJTU",
+    description: "交大齿轮环抱天秤，让学校标识与法学公正的意象合一。",
+    image: KOGUAN_ASSETS.charge,
+  },
+  {
+    key: "supporter",
+    title: "獬豸守护",
+    subtitle: "院徽中的正义守望",
+    description: "以獬豸作为守护者，把法律判断与公正精神具象化。",
+    image: KOGUAN_ASSETS.supporter,
+  },
+];
+
 const AI_WELCOME_MESSAGE =
   "你好，我是凯原法学院竞赛问答智能体。\n\n" +
   "我可以基于学院 12 支模拟法庭赛队的公开资料，帮你快速了解：\n" +
@@ -520,33 +560,40 @@ const GUIDE_ITEMS = [
   { type: "科创类", scope: "国际级", name: "中国国际大学生创新大赛", org: "教育部等 12 个部门会同省级人民政府", freq: "一年一届" },
   { type: "科创类", scope: "国家级", name: "“挑战杯”全国大学生课外学术科技作品竞赛", org: "共青团中央、中国科协、教育部、中国社会科学院、全国学联", freq: "两年一届" },
   { type: "科创类", scope: "国家级", name: "“挑战杯”中国大学生创业计划竞赛", org: "共青团中央、中国科协、教育部、全国学联", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "杰赛普（JESSUP）国际法模拟法庭大赛", org: "美国国际法学生联合会（ILSA）、美国国际法学会（ASIL）", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "Willem C. Vis 模拟国际商事仲裁辩论赛", org: "联合国国际贸易法委员会（UNCITRAL）", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "模拟国际投资仲裁竞赛（FDI Moot）", org: "国际法律研究中心（CILS）", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "国际刑事法院（ICC）模拟法庭比赛（含中英文）", org: "国际律师协会（IBA）、国际刑事法院（ICC）、中国国际刑法青年学者联盟", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "红十字国际人道法模拟法庭（IHL）竞赛", org: "红十字国际委员会（ICRC）、中国红十字会总会", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "杰赛普（JESSUP）国际法模拟法庭大赛", org: "美国国际法学生联合会（ILSA）、美国国际法学会（ASIL）", freq: "一年一届", teamId: 9 },
+  { type: "学科类", scope: "国际级", name: "Willem C. Vis 模拟国际商事仲裁辩论赛", org: "联合国国际贸易法委员会（UNCITRAL）", freq: "一年一届", teamId: 1 },
+  { type: "学科类", scope: "国际级", name: "模拟国际投资仲裁竞赛（FDI Moot）", org: "国际法律研究中心（CILS）", freq: "一年一届", teamId: 3 },
+  { type: "学科类", scope: "国际级", name: "国际刑事法院（ICC）模拟法庭比赛（含中英文）", org: "国际律师协会（IBA）、国际刑事法院（ICC）、中国国际刑法青年学者联盟", freq: "一年一届", teamId: 6 },
+  { type: "学科类", scope: "国际级", name: "红十字国际人道法模拟法庭（IHL）竞赛", org: "红十字国际委员会（ICRC）、中国红十字会总会", freq: "一年一届", teamId: 7 },
   { type: "学科类", scope: "国际级", name: "法兰克福国际投资模拟仲裁庭", org: "德国马克斯·普朗克法律史与法理论研究所", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "国际航空法模拟法庭竞赛（IALMC）", org: "荷兰莱顿大学航空法与空间法国际研究中心（IIASL）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "国际航空法模拟法庭竞赛（IALMC）", org: "荷兰莱顿大学航空法与空间法国际研究中心（IIASL）", freq: "一年一届", teamId: 10 },
   { type: "学科类", scope: "国际级", name: "普莱斯传媒法国际模拟法庭竞赛", org: "英国牛津大学", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "曼弗雷德·拉克斯国际空间法模拟法庭竞赛", org: "国际空间法学会（IISL）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "曼弗雷德·拉克斯国际空间法模拟法庭竞赛", org: "国际空间法学会（IISL）", freq: "一年一届", teamId: 5 },
   { type: "学科类", scope: "国际级", name: "ICC 国际商事调解比赛", org: "国际商会（ICC）", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "国际体育模拟仲裁竞赛（SAM）", org: "国际足联（FIFA）、瑞士仲裁学院", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "国际体育模拟仲裁竞赛（SAM）", org: "国际足联（FIFA）、瑞士仲裁学院", freq: "一年一届", teamId: 11 },
   { type: "学科类", scope: "国家级", name: "“北外—万慧达杯”国际知识产权模拟法庭大赛", org: "最高人民法院知识产权法庭、北京外国语大学法学院、万慧达知识产权代理有限公司", freq: "一年一届" },
-  { type: "学科类", scope: "国家级", name: "中国 WTO 模拟法庭辩论赛", org: "商务部、中国政法大学、西南政法大学", freq: "一年一届" },
-  { type: "学科类", scope: "国家级", name: "中国国际海洋法模拟法庭竞赛", org: "中国海洋法学会、武汉大学", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: "中国 WTO 模拟法庭辩论赛", org: "商务部、中国政法大学、西南政法大学", freq: "一年一届", teamId: 8 },
+  { type: "学科类", scope: "国家级", name: "中国国际海洋法模拟法庭竞赛", org: "中国海洋法学会、武汉大学", freq: "一年一届", teamId: 4 },
   { type: "学科类", scope: "国家级", name: "“理律杯”全国高校模拟法庭竞赛", org: "理律杯模拟法庭比赛组委会、清华大学", freq: "一年一届" },
   { type: "学科类", scope: "国家级", name: "全国大学生模拟法庭竞赛", org: "教育部国家级实验教学示范中心法学组联席会", freq: "一年一届" },
   { type: "其他", scope: "国家级", name: "全国大学生职业规划大赛", org: "教育部", freq: "一年一届" },
 ];
+
+const TEAM_MAP = new Map(TEAMS.map((team) => [team.id, team]));
 
 // System prompt is configured on the Dify server side.
 
 // ─────────────────────────────────────────────────────────────
 // TEAM CARD
 // ─────────────────────────────────────────────────────────────
-function TeamCard({ team, onClick, index }) {
+function TeamCard({ team, onClick, index, registerRef, highlighted }) {
   const [hovered, setHovered] = useState(false);
   const cardRef = useRef(null);
+
+  const setCardRef = useCallback((node) => {
+    cardRef.current = node;
+    registerRef?.(team.id, node);
+  }, [registerRef, team.id]);
 
   const handleClick = () => {
     const rect = cardRef.current?.getBoundingClientRect();
@@ -555,7 +602,7 @@ function TeamCard({ team, onClick, index }) {
 
   return (
     <div
-      ref={cardRef}
+      ref={setCardRef}
       role="button" tabIndex={0}
       aria-label={`${team.name} — 点击查看详情`}
       onClick={handleClick}
@@ -568,12 +615,15 @@ function TeamCard({ team, onClick, index }) {
         border: `1px solid ${hovered ? team.accent + "55" : "rgba(255,255,255,0.08)"}`,
         transform: hovered ? "translateY(-8px) scale(1.02)" : "translateY(0) scale(1)",
         transition: "transform 0.38s cubic-bezier(.34,1.56,.64,1), border-color 0.25s, box-shadow 0.3s",
-        boxShadow: hovered
+        boxShadow: highlighted
+          ? `0 0 0 2px ${team.accent}, 0 0 0 10px ${team.accent}18, 0 30px 60px rgba(0,0,0,0.18)`
+          : hovered
           ? `0 24px 48px rgba(0,0,0,0.15), 0 0 0 1px ${team.accent}40`
           : "0 2px 16px rgba(0,0,0,0.08)",
         animationDelay: `${index * 0.035}s`,
         animationName: "cardIn", animationDuration: "0.5s",
-        animationFillMode: "both", animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)"
+        animationFillMode: "both", animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
+        scrollMarginTop: 96
       }}
     >
       {/* Photo background */}
@@ -600,6 +650,19 @@ function TeamCard({ team, onClick, index }) {
         letterSpacing: "0.12em", textTransform: "uppercase",
         fontFamily: "'Space Mono', monospace"
       }}>{team.tag}</div>
+      {highlighted && (
+        <div style={{
+          position: "absolute", top: 14, right: 14,
+          padding: "5px 10px", borderRadius: 100,
+          background: "rgba(255,255,255,0.18)",
+          backdropFilter: "blur(12px)",
+          border: `1px solid ${team.accent}55`,
+          fontSize: 9.5, fontWeight: 700, color: "#FFFFFF",
+          letterSpacing: "0.08em", fontFamily: "'Space Mono', monospace"
+        }}>
+          已定位
+        </div>
+      )}
       {/* Bottom content */}
       <div style={{
         position: "absolute", bottom: 0, left: 0, right: 0, padding: "16px 18px 18px",
@@ -1112,6 +1175,7 @@ export default function MootCourtModule() {
   const [originRect,   setOriginRect]   = useState(null);
   const [dirOpen,      setDirOpen]      = useState(true);
   const [guideOpen,    setGuideOpen]    = useState(false);
+  const [activeJumpTeamId, setActiveJumpTeamId] = useState(null);
   const [aiOpen,       setAiOpen]       = useState(false);
   const [aiMin,        setAiMin]        = useState(false);
   const [messages,     setMessages]     = useState([{
@@ -1125,10 +1189,25 @@ export default function MootCourtModule() {
   const isDragging     = useRef(false);
   const dragStart      = useRef({ x: 0, y: 0 });
   const messagesEnd    = useRef(null);
+  const teamDirectoryRef = useRef(null);
+  const teamCardRefs   = useRef(new Map());
+  const jumpTimerRef   = useRef(null);
   const conversationId = useRef("");   // persists the Dify conversation session
   const difyUserId     = useRef(createDifyUserId());
 
   useEffect(() => { messagesEnd.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
+  useEffect(() => () => window.clearTimeout(jumpTimerRef.current), []);
+
+  const registerTeamCardRef = useCallback((teamId, node) => {
+    if (node) teamCardRefs.current.set(teamId, node);
+    else teamCardRefs.current.delete(teamId);
+  }, []);
+
+  const pulseTeamCard = useCallback((teamId) => {
+    setActiveJumpTeamId(teamId);
+    window.clearTimeout(jumpTimerRef.current);
+    jumpTimerRef.current = window.setTimeout(() => setActiveJumpTeamId(null), 2400);
+  }, []);
 
   const handleMouseDown = useCallback((e) => {
     if (e.target.closest(".no-drag")) return;
@@ -1149,6 +1228,31 @@ export default function MootCourtModule() {
     setOriginRect(rect);
     setSelectedTeam(team);
   }, []);
+
+  const focusTeamCard = useCallback((teamId, attempt = 0) => {
+    const node = teamCardRefs.current.get(teamId);
+    const team = TEAM_MAP.get(teamId);
+    if (!node || !team) {
+      if (attempt < 8) {
+        window.setTimeout(() => focusTeamCard(teamId, attempt + 1), 80);
+      }
+      return;
+    }
+
+    node.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => {
+      const rect = node.getBoundingClientRect();
+      handleTeamClick(team, rect);
+    }, 360);
+  }, [handleTeamClick]);
+
+  const handleGuideItemClick = useCallback((item) => {
+    if (!item.teamId) return;
+    setDirOpen(true);
+    pulseTeamCard(item.teamId);
+    teamDirectoryRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => focusTeamCard(item.teamId), dirOpen ? 80 : 220);
+  }, [dirOpen, focusTeamCard, pulseTeamCard]);
 
   // ── Dify streaming chat send ──────────────────────────────
   const handleSend = useCallback(async (msg) => {
@@ -1325,6 +1429,298 @@ export default function MootCourtModule() {
               </div>
             ))}
           </div>
+
+          <div style={{
+            width: "100%",
+            marginTop: 26,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: 18,
+            textAlign: "left"
+          }}>
+            <section style={{
+              position: "relative",
+              overflow: "hidden",
+              borderRadius: 28,
+              padding: "clamp(24px,3vw,34px)",
+              minHeight: 320,
+              background: "linear-gradient(145deg, #4C1522 0%, #7D2232 42%, #B8860B 100%)",
+              color: "#FFF7EF",
+              boxShadow: "0 28px 70px rgba(76,21,34,0.18)"
+            }}>
+              <div style={{
+                position: "absolute",
+                inset: 0,
+                background: "radial-gradient(circle at top right, rgba(255,255,255,0.22), transparent 34%), radial-gradient(circle at bottom left, rgba(255,255,255,0.12), transparent 30%)",
+                pointerEvents: "none"
+              }} />
+              <div style={{
+                position: "relative",
+                zIndex: 1,
+                display: "flex",
+                flexDirection: "column",
+                height: "100%"
+              }}>
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  alignSelf: "flex-start",
+                  padding: "6px 12px",
+                  borderRadius: 100,
+                  background: "rgba(255,255,255,0.12)",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  fontSize: 11,
+                  letterSpacing: "0.12em",
+                  fontFamily: "'Space Mono', monospace"
+                }}>
+                  KOGUAN IDENTITY
+                </div>
+                <div style={{
+                  marginTop: 18,
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 22,
+                  alignItems: "center",
+                  justifyContent: "space-between"
+                }}>
+                  <div style={{ flex: "1 1 240px", minWidth: 0 }}>
+                    <p style={{
+                      fontSize: 12,
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                      opacity: 0.78,
+                      marginBottom: 12,
+                      fontFamily: "'Space Mono', monospace"
+                    }}>
+                      正义精神与学院识别
+                    </p>
+                    <h2 style={{
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: "clamp(36px,4vw,58px)",
+                      lineHeight: 0.94,
+                      fontWeight: 500
+                    }}>
+                      正谊明道
+                      <br />
+                      尚法辅德
+                    </h2>
+                    <p style={{
+                      marginTop: 14,
+                      maxWidth: 460,
+                      lineHeight: 1.8,
+                      color: "rgba(255,247,239,0.82)",
+                      fontSize: 14
+                    }}>
+                      参考凯原法学院“院训院徽”页，将院训与院徽里的盾牌、绛红、天秤、齿轮与獬豸守护意象，嵌入模拟法庭联赛中心的首屏视觉。
+                    </p>
+                    <div style={{
+                      marginTop: 18,
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 10
+                    }}>
+                      {["盾牌", "天秤", "交大齿轮", "獬豸", "绛红主色"].map((label) => (
+                        <span key={label} style={{
+                          padding: "6px 12px",
+                          borderRadius: 100,
+                          border: "1px solid rgba(255,255,255,0.18)",
+                          background: "rgba(255,255,255,0.08)",
+                          fontSize: 12,
+                          color: "#FFF7EF"
+                        }}>
+                          {label}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div style={{
+                    flex: "0 1 220px",
+                    width: "min(100%, 220px)",
+                    aspectRatio: "1 / 1",
+                    borderRadius: 28,
+                    display: "grid",
+                    placeItems: "center",
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08))",
+                    border: "1px solid rgba(255,255,255,0.18)",
+                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.18)"
+                  }}>
+                    <div style={{
+                      width: "78%",
+                      aspectRatio: "1 / 1",
+                      borderRadius: "50%",
+                      display: "grid",
+                      placeItems: "center",
+                      background: "radial-gradient(circle, rgba(255,255,255,0.9), rgba(255,255,255,0.58))",
+                      boxShadow: "0 20px 50px rgba(33,7,14,0.26)"
+                    }}>
+                      <img
+                        src={KOGUAN_ASSETS.crest}
+                        alt="凯原法学院院徽"
+                        style={{ width: "82%", height: "82%", objectFit: "contain" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div style={{
+              display: "grid",
+              gap: 18,
+              gridTemplateRows: "auto auto"
+            }}>
+              <section style={{
+                borderRadius: 24,
+                background: "rgba(255,255,255,0.88)",
+                border: "1px solid rgba(125,34,50,0.14)",
+                padding: "22px 24px",
+                boxShadow: "0 20px 50px rgba(28,28,40,0.08)"
+              }}>
+                <div style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 18,
+                  alignItems: "center",
+                  justifyContent: "space-between"
+                }}>
+                  <div style={{ flex: "1 1 220px", minWidth: 0 }}>
+                    <p style={{
+                      fontSize: 11,
+                      fontFamily: "'Space Mono', monospace",
+                      letterSpacing: "0.14em",
+                      color: "#7D2232",
+                      marginBottom: 10
+                    }}>
+                      MOTTO
+                    </p>
+                    <h3 style={{
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: 30,
+                      lineHeight: 1,
+                      color: "#24181D",
+                      marginBottom: 10
+                    }}>
+                      院训融入网页
+                    </h3>
+                    <p style={{
+                      fontSize: 13.5,
+                      lineHeight: 1.8,
+                      color: "rgba(36,24,29,0.72)",
+                      maxWidth: 420
+                    }}>
+                      页面保留原有竞赛信息密度，同时把“正谊明道，尚法辅德”放进首屏叙事，让赛队展示更有学院归属感。
+                    </p>
+                  </div>
+                  <div style={{
+                    flex: "0 1 240px",
+                    width: "min(100%, 240px)",
+                    padding: "14px 18px",
+                    borderRadius: 22,
+                    background: "linear-gradient(180deg, rgba(125,34,50,0.08), rgba(184,134,11,0.08))",
+                    border: "1px solid rgba(125,34,50,0.12)"
+                  }}>
+                    <img
+                      src={KOGUAN_ASSETS.motto}
+                      alt="凯原法学院院训"
+                      style={{ width: "100%", height: "auto", display: "block", objectFit: "contain" }}
+                    />
+                  </div>
+                </div>
+              </section>
+
+              <section style={{
+                borderRadius: 24,
+                background: "rgba(255,255,255,0.82)",
+                border: "1px solid rgba(125,34,50,0.12)",
+                padding: "20px 20px 18px",
+                boxShadow: "0 20px 50px rgba(28,28,40,0.06)"
+              }}>
+                <div style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  justifyContent: "space-between",
+                  gap: 12,
+                  marginBottom: 16
+                }}>
+                  <div>
+                    <p style={{
+                      fontSize: 11,
+                      fontFamily: "'Space Mono', monospace",
+                      letterSpacing: "0.14em",
+                      color: "#7D2232",
+                      marginBottom: 6
+                    }}>
+                      EMBLEM NOTES
+                    </p>
+                    <h3 style={{
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: 28,
+                      color: "#24181D"
+                    }}>
+                      院徽拆解
+                    </h3>
+                  </div>
+                  <span style={{
+                    fontSize: 11,
+                    color: "rgba(36,24,29,0.55)",
+                    fontFamily: "'Space Mono', monospace"
+                  }}>
+                    4 个核心符号
+                  </span>
+                </div>
+
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+                  gap: 12
+                }}>
+                  {KOGUAN_EMBLEM_DETAILS.map((detail) => (
+                    <article
+                      key={detail.key}
+                      style={{
+                        minWidth: 0,
+                        borderRadius: 18,
+                        padding: "14px 14px 16px",
+                        background: "linear-gradient(180deg, rgba(253,251,247,0.98), rgba(247,243,235,0.9))",
+                        border: "1px solid rgba(125,34,50,0.1)"
+                      }}
+                    >
+                      <div style={{
+                        height: 74,
+                        borderRadius: 14,
+                        display: "grid",
+                        placeItems: "center",
+                        background: "linear-gradient(180deg, rgba(125,34,50,0.08), rgba(184,134,11,0.04))",
+                        marginBottom: 12
+                      }}>
+                        <img
+                          src={detail.image}
+                          alt={detail.title}
+                          style={{ width: 54, height: 54, objectFit: "contain" }}
+                        />
+                      </div>
+                      <p style={{ fontSize: 12, color: "#7D2232", marginBottom: 5, fontFamily: "'Space Mono', monospace" }}>
+                        {detail.subtitle}
+                      </p>
+                      <h4 style={{
+                        fontSize: 18,
+                        color: "#24181D",
+                        marginBottom: 7,
+                        fontFamily: "'Cormorant Garamond', serif"
+                      }}>
+                        {detail.title}
+                      </h4>
+                      <p style={{ fontSize: 12.5, lineHeight: 1.7, color: "rgba(36,24,29,0.66)" }}>
+                        {detail.description}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            </div>
+          </div>
         </header>
 
 
@@ -1373,6 +1769,31 @@ export default function MootCourtModule() {
               animationName: "cardIn", animationDuration: "0.4s",
               animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)", animationFillMode: "both"
             }}>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 14,
+                padding: "16px 24px 10px",
+                borderBottom: "1px solid rgba(0,0,0,0.04)",
+                background: "linear-gradient(180deg, rgba(125,34,50,0.04), transparent)"
+              }}>
+                <p style={{ fontSize: 12.5, color: "rgba(28,28,40,0.6)", lineHeight: 1.65 }}>
+                  已纳入下方赛队目录的赛事，点击即可直接定位并打开对应赛队介绍。
+                </p>
+                <span style={{
+                  flexShrink: 0,
+                  padding: "5px 10px",
+                  borderRadius: 100,
+                  background: "rgba(125,34,50,0.08)",
+                  border: "1px solid rgba(125,34,50,0.12)",
+                  color: "#7D2232",
+                  fontSize: 11,
+                  fontFamily: "'Space Mono', monospace"
+                }}>
+                  {GUIDE_ITEMS.filter(item => item.teamId).length} 项可跳转
+                </span>
+              </div>
               {/* Table header */}
               <div style={{
                 padding: "14px 24px",
@@ -1396,9 +1817,21 @@ export default function MootCourtModule() {
                   gridTemplateColumns: "56px 56px 1fr auto",
                   gap: 12, alignItems: "center",
                   background: idx % 2 === 0 ? "transparent" : "rgba(0,0,0,0.012)",
-                  transition: "background 0.15s"
+                  transition: "background 0.15s, box-shadow 0.15s",
+                  cursor: item.teamId ? "pointer" : "default",
+                  boxShadow: item.teamId ? "inset 3px 0 0 rgba(125,34,50,0.22)" : "none"
                 }}
-                  onMouseEnter={e => e.currentTarget.style.background = "rgba(108,92,231,0.03)"}
+                  role={item.teamId ? "button" : undefined}
+                  tabIndex={item.teamId ? 0 : undefined}
+                  aria-label={item.teamId ? `${item.name}，点击查看对应赛队介绍` : undefined}
+                  onClick={() => handleGuideItemClick(item)}
+                  onKeyDown={(e) => {
+                    if (item.teamId && (e.key === "Enter" || e.key === " ")) {
+                      e.preventDefault();
+                      handleGuideItemClick(item);
+                    }
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = item.teamId ? "rgba(125,34,50,0.05)" : "rgba(108,92,231,0.03)"}
                   onMouseLeave={e => e.currentTarget.style.background = idx % 2 === 0 ? "transparent" : "rgba(0,0,0,0.012)"}
                 >
                   <span style={{
@@ -1414,7 +1847,23 @@ export default function MootCourtModule() {
                     fontWeight: 600, whiteSpace: "nowrap", fontFamily: "'Space Mono', monospace"
                   }}>{item.scope}</span>
                   <div style={{ minWidth: 0 }}>
-                    <p style={{ fontSize: 13, fontWeight: 500, color: "#1C1C28", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{item.name}</p>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
+                      <p style={{ fontSize: 13, fontWeight: 500, color: "#1C1C28", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{item.name}</p>
+                      {item.teamId && (
+                        <span style={{
+                          flexShrink: 0,
+                          padding: "2px 8px",
+                          borderRadius: 100,
+                          background: "rgba(125,34,50,0.08)",
+                          color: "#7D2232",
+                          border: "1px solid rgba(125,34,50,0.12)",
+                          fontSize: 10.5,
+                          fontFamily: "'Space Mono', monospace"
+                        }}>
+                          赛队介绍 →
+                        </span>
+                      )}
+                    </div>
                     <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.38)", marginTop: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.org}</p>
                   </div>
                   <span style={{ fontSize: 10, color: "rgba(28,28,40,0.35)", fontFamily: "'Space Mono', monospace", whiteSpace: "nowrap" }}>{item.freq}</span>
@@ -1428,7 +1877,7 @@ export default function MootCourtModule() {
         </div>
 
         {/* ── DIRECTORY HEADER ── */}
-        <div style={{ marginBottom: 20 }}>
+        <div ref={teamDirectoryRef} style={{ marginBottom: 20 }}>
           <button
             onClick={() => setDirOpen(v => !v)} aria-expanded={dirOpen}
             style={{
@@ -1471,7 +1920,14 @@ export default function MootCourtModule() {
               gap: 16
             }}>
               {TEAMS.map((team, idx) => (
-                <TeamCard key={team.id} team={team} index={idx} onClick={handleTeamClick} />
+                <TeamCard
+                  key={team.id}
+                  team={team}
+                  index={idx}
+                  onClick={handleTeamClick}
+                  registerRef={registerTeamCardRef}
+                  highlighted={activeJumpTeamId === team.id}
+                />
               ))}
             </div>
           )}
