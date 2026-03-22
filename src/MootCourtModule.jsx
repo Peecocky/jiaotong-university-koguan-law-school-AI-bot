@@ -521,6 +521,9 @@ const HERO_ASSETS = {
   footer: "/sjtu-law/hero-campus.jpg",
 };
 
+const OFFICIAL_CN_FONT = "'PingFang SC', 'PingFangSC-Regular', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif";
+const OFFICIAL_CN_FONT_SEMIBOLD = "'PingFang SC', 'PingFangSC-Semibold', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif";
+
 const AI_WELCOME_MESSAGE = {
   zh:
     "你好，我是凯原法学院竞赛问答智能体。\n\n" +
@@ -1533,7 +1536,7 @@ export default function MootCourtModule() {
     <div style={{
       minHeight: "100vh",
       background: "linear-gradient(180deg, #FAF1F1 0%, #F7ECEC 50%, #F2E7E7 100%)",
-      fontFamily: "'Instrument Sans', sans-serif",
+      fontFamily: lang === "zh" ? OFFICIAL_CN_FONT : "'Instrument Sans', sans-serif",
       color: "#1C1C28", position: "relative", overflowX: "hidden"
     }}>
       {/* Fine dot grid */}
@@ -1680,12 +1683,12 @@ export default function MootCourtModule() {
                     {ui.hero.university}
                   </p>
                   <h1 style={{
-                    fontFamily: "'Microsoft YaHei', 'PingFang SC', sans-serif",
+                    fontFamily: lang === "zh" ? OFFICIAL_CN_FONT : "'Instrument Sans', sans-serif",
                     fontSize: "clamp(44px, 7.4vw, 86px)",
-                    fontWeight: 300,
+                    fontWeight: lang === "zh" ? 400 : 300,
                     lineHeight: 1.06,
                     color: "#FFFFFF",
-                    letterSpacing: "0.08em",
+                    letterSpacing: lang === "zh" ? "0.04em" : "0.08em",
                     textShadow: "0 8px 30px rgba(0,0,0,0.28)"
                   }}>
                     {ui.hero.title}
@@ -1706,10 +1709,10 @@ export default function MootCourtModule() {
                         color: "rgba(255,255,255,0.96)"
                       }}>
                         <span style={{
-                          fontFamily: "'Microsoft YaHei', 'PingFang SC', sans-serif",
+                          fontFamily: lang === "zh" ? OFFICIAL_CN_FONT_SEMIBOLD : "'Instrument Sans', sans-serif",
                           fontSize: "clamp(18px,2vw,28px)",
-                          fontWeight: 300,
-                          letterSpacing: "0.34em"
+                          fontWeight: lang === "zh" ? 500 : 300,
+                          letterSpacing: lang === "zh" ? "0.22em" : "0.34em"
                         }}>
                           {label}
                         </span>
@@ -1878,7 +1881,7 @@ export default function MootCourtModule() {
                 boxShadow: "0 0 12px rgba(122,39,53,0.45)"
               }} />
               <span style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: lang === "zh" ? OFFICIAL_CN_FONT_SEMIBOLD : "'Cormorant Garamond', serif",
                 fontSize: 20, fontWeight: 500, letterSpacing: "0.01em"
               }}>{ui.guide.title}</span>
               <span style={{
@@ -2014,7 +2017,7 @@ export default function MootCourtModule() {
                 boxShadow: "0 0 12px rgba(122,39,53,0.45)"
               }} />
               <span style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: lang === "zh" ? OFFICIAL_CN_FONT_SEMIBOLD : "'Cormorant Garamond', serif",
                 fontSize: 20, fontWeight: 500, letterSpacing: "0.01em"
               }}>{ui.directory.title}</span>
               <span style={{
