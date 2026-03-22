@@ -647,6 +647,7 @@ const UI_TEXT = {
       subtitle: "Koguan School of Law Moot Court Program",
       welcomeTitle: "Welcome",
       welcomeText: "Welcome to the Moot Court Center of Koguan School of Law, Shanghai Jiao Tong University. Here you can quickly browse teams, competition tracks, recruitment information, and core introductions.",
+      credit: "Designed by Shangyue Shi, New York University",
       stats: [
         { n: "12", label: "Teams" },
         { n: "3", label: "Top global moots" },
@@ -1326,6 +1327,7 @@ export default function MootCourtModule() {
   const [activeJumpTeamId, setActiveJumpTeamId] = useState(null);
   const [aiOpen,       setAiOpen]       = useState(false);
   const [aiMin,        setAiMin]        = useState(false);
+  const [creditVisible, setCreditVisible] = useState(false);
   const [messages,     setMessages]     = useState([{
     role: "assistant",
     content: AI_WELCOME_MESSAGE.zh
@@ -1340,6 +1342,7 @@ export default function MootCourtModule() {
   const teamDirectoryRef = useRef(null);
   const teamCardRefs   = useRef(new Map());
   const jumpTimerRef   = useRef(null);
+  const welcomeScrollRef = useRef(null);
   const conversationId = useRef("");   // persists the Dify conversation session
   const difyUserId     = useRef(createDifyUserId());
   const ui             = UI_TEXT[lang];
@@ -1353,6 +1356,16 @@ export default function MootCourtModule() {
         ? [{ role: "assistant", content: AI_WELCOME_MESSAGE[lang] }]
         : prev
     ));
+    setCreditVisible(false);
+    if (welcomeScrollRef.current) {
+      welcomeScrollRef.current.scrollTop = 0;
+    }
+  }, [lang]);
+
+  const handleWelcomeScroll = useCallback((e) => {
+    if (lang === "en" && e.currentTarget.scrollTop > 10) {
+      setCreditVisible(true);
+    }
   }, [lang]);
 
   const registerTeamCardRef = useCallback((teamId, node) => {
@@ -1727,25 +1740,81 @@ export default function MootCourtModule() {
                   borderRadius: 22,
                   background: "rgba(10,17,28,0.34)",
                   border: "1px solid rgba(255,255,255,0.14)",
-                  backdropFilter: "blur(12px)"
-                }}>
-                  <p style={{
-                    fontSize: 12,
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.64)",
-                    fontFamily: "'Space Mono', monospace",
-                    marginBottom: 8
+                  backdropFilter: "blur(12px)",
+                  maxHeight: 160,
+                  overflowY: "auto"
+                }}
+                ref={welcomeScrollRef}
+                onScroll={handleWelcomeScroll}
+                >
+                  <div style={{
+                    minHeight: lang === "en" ? 210 : "auto",
+                    display: "flex",
+                    flexDirection: "column"
                   }}>
-                    {ui.hero.welcomeTitle}
-                  </p>
-                  <p style={{
-                    fontSize: "clamp(13px,1.3vw,16px)",
-                    lineHeight: 1.9,
-                    color: "rgba(255,255,255,0.92)"
-                  }}>
-                    {ui.hero.welcomeText}
-                  </p>
+                    <p style={{
+                      fontSize: 12,
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.64)",
+                      fontFamily: "'Space Mono', monospace",
+                      marginBottom: 8
+                    }}>
+                      {ui.hero.welcomeTitle}
+                    </p>
+                    <p style={{
+                      fontSize: "clamp(13px,1.3vw,16px)",
+                      lineHeight: 1.9,
+                      color: "rgba(255,255,255,0.92)"
+                    }}>
+                      {ui.hero.welcomeText}
+                    </p>
+                    {lang === "en" && ui.hero.credit && (
+                      <div style={{
+                        marginTop: 22,
+                        paddingTop: 16,
+                        borderTop: "1px solid rgba(255,255,255,0.16)",
+                        display: "flex",
+                        justifyContent: "center"
+                      }}>
+                        <div style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          justifyContent: "center",
+                          gap: "0 0.02em",
+                          maxWidth: 420
+                        }}>
+                          {Array.from(ui.hero.credit).map((char, idx) => {
+                            const isSpace = char === " ";
+                            return (
+                              <span
+                                key={`${char}-${idx}`}
+                                style={{
+                                  display: "inline-block",
+                                  minWidth: isSpace ? "0.4em" : "auto",
+                                  opacity: creditVisible ? 1 : 0,
+                                  transform: creditVisible
+                                    ? "translateX(0) scale(1)"
+                                    : `translateX(${idx % 2 === 0 ? "-18px" : "18px"}) scale(0.88)`,
+                                  filter: creditVisible ? "blur(0)" : "blur(6px)",
+                                  transitionProperty: "transform, opacity, filter",
+                                  transitionDuration: "520ms",
+                                  transitionTimingFunction: "cubic-bezier(0.18, 0.88, 0.22, 1.22)",
+                                  transitionDelay: `${idx * 28}ms`,
+                                  color: "rgba(255,255,255,0.82)",
+                                  fontSize: 13,
+                                  lineHeight: 1.8,
+                                  fontFamily: "'Space Mono', monospace"
+                                }}
+                              >
+                                {isSpace ? "\u00A0" : char}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div style={{
