@@ -493,33 +493,217 @@ INTA 国际商标协会模拟法庭
 ];
 
 const TABS = [
-  { key: "introduction", label: "赛事介绍" },
-  { key: "achievements",  label: "参赛成绩" },
-  { key: "requirements",  label: "能力要求" },
-  { key: "application",   label: "报名信息" },
-  { key: "schedule",      label: "赛事日程" },
+  { key: "introduction" },
+  { key: "achievements" },
+  { key: "requirements" },
+  { key: "application" },
+  { key: "schedule" },
 ];
 
-const QUICK_QUESTIONS = [
-  "Jessup 和 Vis Moot 有什么区别？",
-  "大一学生适合报名哪些赛队？",
-  "哪些比赛明确写了不要求过往模拟法庭经验？",
-  "国际商事仲裁方向有哪些比赛？",
-];
+const QUICK_QUESTIONS = {
+  zh: [
+    "Jessup 和 Vis Moot 有什么区别？",
+    "大一学生适合报名哪些赛队？",
+    "哪些比赛明确写了不要求过往模拟法庭经验？",
+    "国际商事仲裁方向有哪些比赛？",
+  ],
+  en: [
+    "What is the difference between Jessup and Vis Moot?",
+    "Which teams are suitable for first-year students?",
+    "Which competitions do not require prior moot court experience?",
+    "Which teams focus on international commercial arbitration?",
+  ],
+};
 
 const HERO_ASSETS = {
   campus: "/sjtu-law/hero-campus.jpg",
   logo: "/sjtu-law/logo.png",
+  footer: "/sjtu-law/hero-campus.jpg",
 };
 
-const AI_WELCOME_MESSAGE =
-  "你好，我是凯原法学院竞赛问答智能体。\n\n" +
-  "我可以基于学院 12 支模拟法庭赛队的公开资料，帮你快速了解：\n" +
-  "• 赛事方向与区别\n" +
-  "• 报名要求与选拔方式\n" +
-  "• 新手适合报哪些赛队\n" +
-  "• 历年参赛成绩与能力要求\n\n" +
-  "你可以直接问具体赛队，也可以先点下面的快捷问题。";
+const AI_WELCOME_MESSAGE = {
+  zh:
+    "你好，我是凯原法学院竞赛问答智能体。\n\n" +
+    "我可以基于学院 12 支模拟法庭赛队的公开资料，帮你快速了解：\n" +
+    "• 赛事方向与区别\n" +
+    "• 报名要求与选拔方式\n" +
+    "• 新手适合报哪些赛队\n" +
+    "• 历年参赛成绩与能力要求\n\n" +
+    "你可以直接问具体赛队，也可以先点下面的快捷问题。",
+  en:
+    "Hello. I am the Koguan School of Law moot court assistant.\n\n" +
+    "I can help you quickly understand the public information of all 12 moot court teams, including:\n" +
+    "• competition focus and differences\n" +
+    "• application requirements and selection process\n" +
+    "• suitable teams for beginners\n" +
+    "• past results and capability expectations\n\n" +
+    "You can ask about a specific team or start with one of the quick prompts below.",
+};
+
+const UI_TEXT = {
+  zh: {
+    tabLabels: {
+      introduction: "赛事介绍",
+      achievements: "参赛成绩",
+      requirements: "能力要求",
+      application: "报名信息",
+      schedule: "赛事日程",
+    },
+    buttons: {
+      official: "官网",
+      english: "English",
+      chinese: "中文",
+      details: "查看详情 →",
+      located: "已定位",
+      teamIntro: "赛队介绍",
+      viewTeams: "📋 全部赛队",
+      close: "关闭",
+      back: "返回队伍目录",
+      minimize: "最小化",
+      expand: "展开",
+      sendPlaceholder: "例如：Jessup 的报名要求是什么？",
+    },
+    hero: {
+      university: "Shanghai Jiao Tong University",
+      title: "模拟法庭联赛中心",
+      motto1: "正谊明道",
+      motto2: "尚法辅德",
+      subtitle: "Koguan School of Law Moot Court Program",
+      welcomeTitle: "Welcome",
+      welcomeText: "欢迎来到上海交通大学凯原法学院模拟法庭联赛中心。在这里，你可以快速浏览学院赛队、比赛方向、招募信息与赛事介绍。",
+      stats: [
+        { n: "12", label: "赛队" },
+        { n: "3", label: "顶级国际赛事" },
+        { n: "100+", label: "参赛国家/地区" },
+      ],
+    },
+    guide: {
+      title: "完整赛事目录",
+      note: "已有赛队介绍的赛事支持直接跳转。点击目录中的对应条目，会自动定位到下方赛队并打开详情。",
+      columns: ["类型", "级别", "竞赛名称 / 主办单位", "频次"],
+      footnote: "数据来源：上海交通大学学生竞赛目录",
+    },
+    directory: {
+      title: "模拟法庭队伍目录",
+    },
+    overlay: {
+      sidebar: [
+        { label: "竞赛语言", value: "英文为主" },
+        { label: "队伍规模", value: "3–6 人" },
+        { label: "招募周期", value: "秋季为主" },
+      ],
+      school: "上海交通大学凯原法学院",
+      dialogLabel: "竞赛详情",
+    },
+    ai: {
+      title: "竞赛问答智能体",
+      status: "知识库检索 · 12 支赛队 · 在线",
+      tags: ["赛事对比", "报名要求", "成绩查询"],
+      recommends: "推荐提问",
+      emptyAnswer: "这次没有检索到可展示的答案。你可以改问具体赛队、报名要求、能力要求或参赛成绩。",
+      errorAdvice: "建议先试试“全部赛队”，或直接问某一支赛队的报名要求、比赛方向与成绩。",
+      allTeamsReplyPrefix: "凯原法学院目前共有 12 支模拟法庭赛队：",
+      allTeamsReplySuffix: "如果你愿意，我可以继续按“适合新手”“仲裁方向”或“国际公法方向”帮你缩小范围。",
+    },
+    footer: {
+      parallaxTitle: "校园与学院",
+      parallaxText: "从凯原法学楼到学院赛队，模拟法庭训练在这里延展为一整套国际化法律竞赛体系。",
+      school: "上海交通大学凯原法学院",
+      schoolEn: "KOGUAN SCHOOL OF LAW, SHANGHAI JIAO TONG UNIVERSITY",
+      copyright: "版权所有 上海交通大学凯原法学院 © 2009 All Rights Reserved",
+      address: "地址：上海市徐汇区华山路1954号廖凯原法学楼",
+      postcode: "邮编：200030",
+      icp: "沪ICP备：12004267",
+      police: "沪公网安备：31009102000045",
+    },
+  },
+  en: {
+    tabLabels: {
+      introduction: "Overview",
+      achievements: "Results",
+      requirements: "Requirements",
+      application: "Application",
+      schedule: "Schedule",
+    },
+    buttons: {
+      official: "Official Site",
+      english: "English",
+      chinese: "中文",
+      details: "View details →",
+      located: "Located",
+      teamIntro: "Team Intro",
+      viewTeams: "📋 All Teams",
+      close: "Close",
+      back: "Back to directory",
+      minimize: "Minimize",
+      expand: "Expand",
+      sendPlaceholder: "Example: What are the Jessup application requirements?",
+    },
+    hero: {
+      university: "Shanghai Jiao Tong University",
+      title: "Moot Court Center",
+      motto1: "Rectitude and Truth",
+      motto2: "Law and Virtue",
+      subtitle: "Koguan School of Law Moot Court Program",
+      welcomeTitle: "Welcome",
+      welcomeText: "Welcome to the Moot Court Center of Koguan School of Law, Shanghai Jiao Tong University. Here you can quickly browse teams, competition tracks, recruitment information, and core introductions.",
+      stats: [
+        { n: "12", label: "Teams" },
+        { n: "3", label: "Top global moots" },
+        { n: "100+", label: "Countries/regions" },
+      ],
+    },
+    guide: {
+      title: "Competition Directory",
+      note: "Items already covered by the team directory can be clicked to jump to the corresponding team card and open its detail view.",
+      columns: ["Type", "Level", "Competition / Organizer", "Frequency"],
+      footnote: "Source: SJTU student competition directory",
+    },
+    directory: {
+      title: "Moot Court Teams",
+    },
+    overlay: {
+      sidebar: [
+        { label: "Language", value: "Mainly English" },
+        { label: "Team Size", value: "3–6 members" },
+        { label: "Recruitment", value: "Mostly autumn" },
+      ],
+      school: "Koguan School of Law, SJTU",
+      dialogLabel: "Competition detail",
+    },
+    ai: {
+      title: "Moot Court Assistant",
+      status: "Knowledge base · 12 teams · online",
+      tags: ["Compare moots", "Application", "Results"],
+      recommends: "Suggested prompts",
+      emptyAnswer: "No displayable answer was found this time. Try asking about a specific team, application criteria, requirements, or competition results.",
+      errorAdvice: "Try “All Teams” first, or ask directly about one team’s application requirements, competition focus, or results.",
+      allTeamsReplyPrefix: "Koguan School of Law currently has 12 moot court teams:",
+      allTeamsReplySuffix: "If you want, I can further narrow them down by beginner-friendly options, arbitration tracks, or public international law.",
+    },
+    footer: {
+      parallaxTitle: "Campus and School",
+      parallaxText: "From Koguan Law Building to every team, moot court training here grows into a complete international legal competition system.",
+      school: "Koguan School of Law",
+      schoolEn: "KOGUAN SCHOOL OF LAW, SHANGHAI JIAO TONG UNIVERSITY",
+      copyright: "Copyright © 2009 Koguan School of Law, Shanghai Jiao Tong University",
+      address: "Address: Liao Kaiyuan Law Building, 1954 Huashan Road, Xuhui District, Shanghai",
+      postcode: "Postcode: 200030",
+      icp: "ICP: 12004267",
+      police: "Public Security: 31009102000045",
+    },
+  },
+};
+
+const GUIDE_TYPE_LABEL = {
+  zh: { "科创类": "科创类", "学科类": "学科类", "其他": "其他" },
+  en: { "科创类": "Innovation", "学科类": "Academic", "其他": "Other" },
+};
+
+const GUIDE_SCOPE_LABEL = {
+  zh: { "国际级": "国际级", "国家级": "国家级" },
+  en: { "国际级": "Global", "国家级": "National" },
+};
 
 const GUIDE_ITEMS = [
   { type: "科创类", scope: "国际级", name: "中国国际大学生创新大赛", org: "教育部等 12 个部门会同省级人民政府", freq: "一年一届" },
@@ -551,7 +735,7 @@ const TEAM_MAP = new Map(TEAMS.map((team) => [team.id, team]));
 // ─────────────────────────────────────────────────────────────
 // TEAM CARD
 // ─────────────────────────────────────────────────────────────
-function TeamCard({ team, onClick, index, registerRef, highlighted }) {
+function TeamCard({ team, onClick, index, registerRef, highlighted, ui }) {
   const [hovered, setHovered] = useState(false);
   const cardRef = useRef(null);
 
@@ -569,7 +753,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted }) {
     <div
       ref={setCardRef}
       role="button" tabIndex={0}
-      aria-label={`${team.name} — 点击查看详情`}
+      aria-label={`${team.name} — ${ui.buttons.details.replace(" →", "")}`}
       onClick={handleClick}
       onKeyDown={e => (e.key === "Enter" || e.key === " ") && handleClick()}
       onMouseEnter={() => setHovered(true)}
@@ -627,7 +811,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted }) {
           letterSpacing: "0.08em",
           fontFamily: "'Space Mono', monospace"
         }}>
-          已定位
+          {ui.buttons.located}
         </div>
       )}
       {/* Bottom content */}
@@ -665,7 +849,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted }) {
           fontSize: 10.5, fontWeight: 600, color: "#fff",
           border: "1px solid rgba(255,255,255,0.22)",
           fontFamily: "'Instrument Sans', sans-serif"
-        }}>查看详情 →</span>
+        }}>{ui.buttons.details}</span>
       </div>
     </div>
   );
@@ -674,7 +858,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted }) {
 // ─────────────────────────────────────────────────────────────
 // FULLSCREEN OVERLAY
 // ─────────────────────────────────────────────────────────────
-function TeamDetailOverlay({ team, originRect, onClose }) {
+function TeamDetailOverlay({ team, originRect, onClose, ui }) {
   const [activeTab, setActiveTab] = useState("introduction");
   const [open, setOpen] = useState(false);
   const contentRef = useRef(null);
@@ -709,7 +893,7 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
 
   return (
     <div
-      role="dialog" aria-modal="true"
+      role="dialog" aria-modal="true" aria-label={ui.overlay.dialogLabel}
       style={{
         position: "fixed", inset: 0, zIndex: 800,
         clipPath: open ? "inset(0% 0% 0% 0% round 0px)" : `inset(${pT}% ${pR}% ${pB}% ${pL}% round 16px)`,
@@ -736,7 +920,7 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
           background: "rgba(10,18,32,0.9)", backdropFilter: "blur(20px)",
           borderBottom: `1px solid ${team.accent}18`
         }}>
-          <button onClick={handleClose} aria-label="返回"
+          <button onClick={handleClose} aria-label={ui.buttons.back}
             style={{
               display: "flex", alignItems: "center", gap: 8, background: "none",
               border: "none", cursor: "pointer", color: "rgba(236,242,255,0.5)",
@@ -746,7 +930,7 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
             onMouseLeave={e => e.currentTarget.style.color = "rgba(236,242,255,0.5)"}
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-            <span style={{ fontSize: 13, fontWeight: 500 }}>返回队伍目录</span>
+            <span style={{ fontSize: 13, fontWeight: 500 }}>{ui.buttons.back}</span>
           </button>
 
           <div style={{
@@ -758,7 +942,7 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
             <span style={{ fontSize: 12, fontWeight: 600, color: team.accent, fontFamily: "'Space Mono', monospace" }}>{team.tag}</span>
           </div>
 
-          <button onClick={handleClose} aria-label="关闭"
+          <button onClick={handleClose} aria-label={ui.buttons.close}
             style={{
               width: 36, height: 36, borderRadius: "50%",
               background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.09)",
@@ -831,7 +1015,7 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
                   borderBottom: `2px solid ${activeTab === tab.key ? team.accent : "transparent"}`,
                   marginBottom: -1, transition: "all 0.2s", whiteSpace: "nowrap"
                 }}
-              >{tab.label}</button>
+              >{ui.tabLabels[tab.key]}</button>
             ))}
           </div>
         </div>
@@ -884,17 +1068,13 @@ function TeamDetailOverlay({ team, originRect, onClose }) {
                 </div>
                 {/* Sidebar stats */}
                 <div style={{ padding: "18px 22px" }}>
-                  {[
-                    { label: "竞赛语言", value: "英文为主" },
-                    { label: "队伍规模", value: "3–6 人" },
-                    { label: "招募周期", value: "秋季为主" },
-                  ].map(item => (
+                  {ui.overlay.sidebar.map(item => (
                     <div key={item.label} style={{ marginBottom: 16, paddingBottom: 16, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
                       <p style={{ fontSize: 9.5, color: "rgba(220,232,255,0.28)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 4, fontFamily: "'Space Mono', monospace" }}>{item.label}</p>
                       <p style={{ fontSize: 14, color: "rgba(220,232,255,0.78)", fontFamily: "'Instrument Sans', sans-serif" }}>{item.value}</p>
                     </div>
                   ))}
-                  <p style={{ fontSize: 10, color: "rgba(220,232,255,0.22)", textAlign: "center", marginTop: 4, fontFamily: "'Instrument Sans', sans-serif" }}>上海交通大学凯原法学院</p>
+                  <p style={{ fontSize: 10, color: "rgba(220,232,255,0.22)", textAlign: "center", marginTop: 4, fontFamily: "'Instrument Sans', sans-serif" }}>{ui.overlay.school}</p>
                 </div>
               </div>
             </aside>
@@ -939,20 +1119,20 @@ function QuickBtn({ children, onClick, color }) {
   );
 }
 
-function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize, isMinimized, loading, onShowTeams, pos, onMouseDown, messagesEndRef }) {
+function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize, isMinimized, loading, onShowTeams, pos, onMouseDown, messagesEndRef, ui, quickQuestions }) {
   const inputRef = useRef(null);
   useEffect(() => { if (!isMinimized) inputRef.current?.focus(); }, [isMinimized]);
 
   return (
-    <div role="dialog" aria-label="竞赛问答智能体"
+    <div role="dialog" aria-label={ui.ai.title}
       style={{
         position: "fixed", bottom: 26, right: 26,
         width: isMinimized ? 280 : 390,
         transform: `translate(${pos.x}px, ${pos.y}px)`,
         zIndex: 1000,
-        background: "rgba(255,252,246,0.96)", backdropFilter: "blur(28px)",
-        border: "1px solid rgba(160,128,48,0.22)", borderRadius: 20,
-        boxShadow: "0 36px 90px rgba(28,28,40,0.16), 0 0 0 1px rgba(160,128,48,0.08)",
+        background: "rgba(255,250,250,0.96)", backdropFilter: "blur(28px)",
+        border: "1px solid rgba(122,39,53,0.18)", borderRadius: 20,
+        boxShadow: "0 36px 90px rgba(28,28,40,0.16), 0 0 0 1px rgba(122,39,53,0.08)",
         overflow: "hidden",
         animationName: "panelSlide", animationDuration: "0.42s",
         animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)", animationFillMode: "both",
@@ -965,32 +1145,32 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
           padding: "13px 14px 12px",
           borderBottom: isMinimized ? "none" : "1px solid rgba(0,0,0,0.06)",
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          background: "linear-gradient(135deg, rgba(184,134,11,0.14), rgba(255,255,255,0.6) 48%, rgba(82,105,168,0.08) 100%)",
+          background: "linear-gradient(135deg, rgba(122,39,53,0.14), rgba(255,255,255,0.6) 48%, rgba(82,105,168,0.08) 100%)",
           cursor: "grab", userSelect: "none"
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
           <div style={{
             width: 36, height: 36, borderRadius: 12,
-            background: "linear-gradient(135deg, #C89C2C, #8B6914)",
+            background: "linear-gradient(135deg, #8A1B2A, #5D1822)",
             display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15,
-            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 10px 24px rgba(184,134,11,0.18)"
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 10px 24px rgba(122,39,53,0.2)"
           }}>⚖️</div>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 700, color: "#1C1C28", lineHeight: 1.2, fontFamily: "'Instrument Sans', sans-serif" }}>竞赛问答智能体</p>
-            <p style={{ fontSize: 10, color: "rgba(139,105,20,0.76)", display: "flex", alignItems: "center", gap: 4, fontFamily: "'Space Mono', monospace", marginTop: 2 }}>
+            <p style={{ fontSize: 13, fontWeight: 700, color: "#1C1C28", lineHeight: 1.2, fontFamily: "'Instrument Sans', sans-serif" }}>{ui.ai.title}</p>
+            <p style={{ fontSize: 10, color: "rgba(122,39,53,0.76)", display: "flex", alignItems: "center", gap: 4, fontFamily: "'Space Mono', monospace", marginTop: 2 }}>
               <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#4ADE80", boxShadow: "0 0 6px #4ADE80" }} />
-              知识库检索 · 12 支赛队 · 在线
+              {ui.ai.status}
             </p>
           </div>
         </div>
         <div className="no-drag" style={{ display: "flex", gap: 4 }}>
-          <WinBtn onClick={onMinimize} label={isMinimized ? "展开" : "最小化"}>
+          <WinBtn onClick={onMinimize} label={isMinimized ? ui.buttons.expand : ui.buttons.minimize}>
             {isMinimized
               ? <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               : <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14"/></svg>}
           </WinBtn>
-          <WinBtn onClick={onClose} label="关闭">
+          <WinBtn onClick={onClose} label={ui.buttons.close}>
             <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
           </WinBtn>
         </div>
@@ -1004,13 +1184,13 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
           flexWrap: "wrap",
           background: "linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0))"
         }}>
-          {["赛事对比", "报名要求", "成绩查询"].map((tag) => (
+          {ui.ai.tags.map((tag) => (
             <span key={tag} style={{
               fontSize: 10.5,
               padding: "4px 8px",
               borderRadius: 999,
               background: "rgba(255,255,255,0.8)",
-              border: "1px solid rgba(160,128,48,0.14)",
+              border: "1px solid rgba(122,39,53,0.14)",
               color: "rgba(28,28,40,0.62)",
               fontFamily: "'Instrument Sans', sans-serif"
             }}>{tag}</span>
@@ -1028,15 +1208,15 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
                 maxWidth: "88%", padding: "8px 12px",
                 borderRadius: msg.role === "user" ? "13px 13px 4px 13px" : "13px 13px 13px 4px",
                 background: msg.role === "user"
-                  ? "linear-gradient(135deg, #B8860B, #8B6914)"
+                  ? "linear-gradient(135deg, #8A1B2A, #5D1822)"
                   : "linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,243,235,0.9))",
-                border: msg.role === "assistant" ? "1px solid rgba(160,128,48,0.12)" : "none",
+                border: msg.role === "assistant" ? "1px solid rgba(122,39,53,0.12)" : "none",
                 fontSize: 12, lineHeight: 1.7,
                 color: msg.role === "user" ? "#FFFFFF" : "rgba(28,28,40,0.82)",
                 fontWeight: msg.role === "user" ? 600 : 400,
                 whiteSpace: "pre-wrap", wordBreak: "break-word",
                 fontFamily: "'Instrument Sans', sans-serif",
-                boxShadow: msg.role === "assistant" ? "0 8px 24px rgba(28,28,40,0.04)" : "0 10px 22px rgba(184,134,11,0.18)"
+                boxShadow: msg.role === "assistant" ? "0 8px 24px rgba(28,28,40,0.04)" : "0 10px 22px rgba(122,39,53,0.18)"
               }}>{msg.content}</div>
             </div>
           ))}
@@ -1044,7 +1224,7 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
             <div style={{ display: "flex", gap: 5, padding: "5px 10px" }}>
               {[0,1,2].map(i => (
                 <div key={i} style={{
-                  width: 7, height: 7, borderRadius: "50%", background: "#B8860B",
+                  width: 7, height: 7, borderRadius: "50%", background: "#8A1B2A",
                   animationName: "dotPulse", animationDuration: "1.4s",
                   animationDelay: `${i * 0.2}s`, animationIterationCount: "infinite"
                 }} />
@@ -1071,11 +1251,11 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
             color: "rgba(28,28,40,0.38)",
             fontFamily: "'Space Mono', monospace",
             marginBottom: 2
-          }}>推荐提问</div>
-          {QUICK_QUESTIONS.map((q, i) => (
+          }}>{ui.ai.recommends}</div>
+          {quickQuestions.map((q, i) => (
             <QuickBtn key={i} onClick={() => onSend(q)} color="rgba(160,120,20,0.9)">{q}</QuickBtn>
           ))}
-          <QuickBtn onClick={onShowTeams} color="rgba(60,100,180,0.9)">📋 全部赛队</QuickBtn>
+          <QuickBtn onClick={onShowTeams} color="rgba(60,100,180,0.9)">{ui.buttons.viewTeams}</QuickBtn>
         </div>
 
         {/* Input */}
@@ -1086,21 +1266,21 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
           <input
             ref={inputRef} value={input} onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === "Enter" && !e.shiftKey && !loading && onSend()}
-            placeholder="例如：Jessup 的报名要求是什么？"
-            aria-label="发送消息"
+            placeholder={ui.buttons.sendPlaceholder}
+            aria-label={ui.buttons.sendPlaceholder}
             style={{
               flex: 1, background: "rgba(255,255,255,0.8)",
-              border: "1px solid rgba(160,128,48,0.14)", borderRadius: 12,
+              border: "1px solid rgba(122,39,53,0.14)", borderRadius: 12,
               padding: "10px 12px", fontSize: 12, color: "#1C1C28",
               fontFamily: "'Instrument Sans', sans-serif", outline: "none", transition: "border-color 0.2s, box-shadow 0.2s"
             }}
-            onFocus={e => { e.target.style.borderColor = "rgba(184,134,11,0.4)"; e.target.style.boxShadow = "0 0 0 4px rgba(184,134,11,0.08)"; }}
-            onBlur={e => { e.target.style.borderColor = "rgba(160,128,48,0.14)"; e.target.style.boxShadow = "none"; }}
+            onFocus={e => { e.target.style.borderColor = "rgba(122,39,53,0.4)"; e.target.style.boxShadow = "0 0 0 4px rgba(122,39,53,0.08)"; }}
+            onBlur={e => { e.target.style.borderColor = "rgba(122,39,53,0.14)"; e.target.style.boxShadow = "none"; }}
           />
           <button onClick={() => onSend()} disabled={!input.trim() || loading}
             style={{
               width: 36, height: 36, borderRadius: 10, flexShrink: 0,
-              background: input.trim() && !loading ? "linear-gradient(135deg, #B8860B, #8B6914)" : "rgba(0,0,0,0.04)",
+              background: input.trim() && !loading ? "linear-gradient(135deg, #8A1B2A, #5D1822)" : "rgba(0,0,0,0.04)",
               border: "none", cursor: input.trim() && !loading ? "pointer" : "default",
               display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.18s"
             }}
@@ -1142,12 +1322,13 @@ export default function MootCourtModule() {
   const [originRect,   setOriginRect]   = useState(null);
   const [dirOpen,      setDirOpen]      = useState(true);
   const [guideOpen,    setGuideOpen]    = useState(false);
+  const [lang,         setLang]         = useState("zh");
   const [activeJumpTeamId, setActiveJumpTeamId] = useState(null);
   const [aiOpen,       setAiOpen]       = useState(false);
   const [aiMin,        setAiMin]        = useState(false);
   const [messages,     setMessages]     = useState([{
     role: "assistant",
-    content: AI_WELCOME_MESSAGE
+    content: AI_WELCOME_MESSAGE.zh
   }]);
   const [input,   setInput]   = useState("");
   const [loading, setLoading] = useState(false);
@@ -1161,9 +1342,18 @@ export default function MootCourtModule() {
   const jumpTimerRef   = useRef(null);
   const conversationId = useRef("");   // persists the Dify conversation session
   const difyUserId     = useRef(createDifyUserId());
+  const ui             = UI_TEXT[lang];
+  const quickQuestions = QUICK_QUESTIONS[lang];
 
   useEffect(() => { messagesEnd.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
   useEffect(() => () => window.clearTimeout(jumpTimerRef.current), []);
+  useEffect(() => {
+    setMessages((prev) => (
+      prev.length === 1 && prev[0].role === "assistant"
+        ? [{ role: "assistant", content: AI_WELCOME_MESSAGE[lang] }]
+        : prev
+    ));
+  }, [lang]);
 
   const registerTeamCardRef = useCallback((teamId, node) => {
     if (node) teamCardRefs.current.set(teamId, node);
@@ -1305,7 +1495,7 @@ export default function MootCourtModule() {
       if (!fullAnswer) {
         setMessages(prev => prev.map(m =>
           m._id === placeholderIdx
-            ? { ...m, content: "这次没有检索到可展示的答案。你可以改问具体赛队、报名要求、能力要求或参赛成绩。" }
+            ? { ...m, content: ui.ai.emptyAnswer }
             : m
         ));
       }
@@ -1313,23 +1503,23 @@ export default function MootCourtModule() {
       console.error("Dify chat error:", err);
       setMessages(prev => prev.map(m =>
         m._id === placeholderIdx
-          ? { ...m, content: `连接出错：${err.message || "网络异常，请稍后重试"}\n\n建议先试试“全部赛队”，或直接问某一支赛队的报名要求、比赛方向与成绩。` }
+          ? { ...m, content: `${lang === "zh" ? "连接出错" : "Connection error"}：${err.message || (lang === "zh" ? "网络异常，请稍后重试" : "network issue, please try again later")}\n\n${ui.ai.errorAdvice}` }
           : m
       ));
     } finally {
       setLoading(false);
     }
-  }, [input, loading]);
+  }, [input, loading, ui, lang]);
 
   const handleShowTeams = useCallback(() => {
     const list = TEAMS.map((t, i) => `${i + 1}. ${t.name} — ${t.tag}`).join("\n");
-    setMessages(prev => [...prev, { role: "assistant", content: `凯原法学院目前共有 12 支模拟法庭赛队：\n\n${list}\n\n如果你愿意，我可以继续按“适合新手”“仲裁方向”或“国际公法方向”帮你缩小范围。` }]);
-  }, []);
+    setMessages(prev => [...prev, { role: "assistant", content: `${ui.ai.allTeamsReplyPrefix}\n\n${list}\n\n${ui.ai.allTeamsReplySuffix}` }]);
+  }, [ui]);
 
   return (
     <div style={{
       minHeight: "100vh",
-      background: "linear-gradient(180deg, #F4F7FA 0%, #EEF2F6 52%, #F6F3EE 100%)",
+      background: "linear-gradient(180deg, #FAF1F1 0%, #F7ECEC 50%, #F2E7E7 100%)",
       fontFamily: "'Instrument Sans', sans-serif",
       color: "#1C1C28", position: "relative", overflowX: "hidden"
     }}>
@@ -1404,7 +1594,7 @@ export default function MootCourtModule() {
                 }}>
                   <img
                     src={HERO_ASSETS.logo}
-                    alt="上海交通大学凯原法学院"
+                    alt={ui.footer.school}
                     style={{
                       width: "min(100%, 360px)",
                       maxWidth: 360,
@@ -1421,8 +1611,11 @@ export default function MootCourtModule() {
                   flexWrap: "wrap",
                   justifyContent: "flex-end"
                 }}>
-                  {["旧版网站", "English", "Moot Court"].map((label) => (
-                    <span key={label} style={{
+                  <a
+                    href="https://law.sjtu.edu.cn/"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
                       padding: "8px 14px",
                       borderRadius: 999,
                       background: "rgba(255,255,255,0.08)",
@@ -1430,11 +1623,28 @@ export default function MootCourtModule() {
                       color: "rgba(255,255,255,0.92)",
                       fontSize: 12,
                       letterSpacing: "0.06em",
-                      backdropFilter: "blur(10px)"
-                    }}>
-                      {label}
-                    </span>
-                  ))}
+                      backdropFilter: "blur(10px)",
+                      textDecoration: "none"
+                    }}
+                  >
+                    {ui.buttons.official}
+                  </a>
+                  <button
+                    onClick={() => setLang((prev) => prev === "zh" ? "en" : "zh")}
+                    style={{
+                      padding: "8px 14px",
+                      borderRadius: 999,
+                      background: "rgba(255,255,255,0.08)",
+                      border: "1px solid rgba(255,255,255,0.18)",
+                      color: "rgba(255,255,255,0.92)",
+                      fontSize: 12,
+                      letterSpacing: "0.06em",
+                      backdropFilter: "blur(10px)",
+                      cursor: "pointer"
+                    }}
+                  >
+                    {lang === "zh" ? ui.buttons.english : ui.buttons.chinese}
+                  </button>
                 </div>
               </div>
 
@@ -1454,7 +1664,7 @@ export default function MootCourtModule() {
                     marginBottom: 18,
                     fontFamily: "'Space Mono', monospace"
                   }}>
-                    Shanghai Jiao Tong University
+                    {ui.hero.university}
                   </p>
                   <h1 style={{
                     fontFamily: "'Microsoft YaHei', 'PingFang SC', sans-serif",
@@ -1465,7 +1675,7 @@ export default function MootCourtModule() {
                     letterSpacing: "0.08em",
                     textShadow: "0 8px 30px rgba(0,0,0,0.28)"
                   }}>
-                    模拟法庭联赛中心
+                    {ui.hero.title}
                   </h1>
                   <div style={{
                     marginTop: 26,
@@ -1475,7 +1685,7 @@ export default function MootCourtModule() {
                     gap: 18,
                     flexWrap: "wrap"
                   }}>
-                    {["正谊明道", "尚法辅德"].map((label, idx) => (
+                    {[ui.hero.motto1, ui.hero.motto2].map((label, idx) => (
                       <div key={label} style={{
                         display: "flex",
                         alignItems: "center",
@@ -1501,7 +1711,7 @@ export default function MootCourtModule() {
                     fontFamily: "'Cormorant Garamond', serif",
                     letterSpacing: "0.01em"
                   }}>
-                    Koguan School of Law Moot Court Program
+                    {ui.hero.subtitle}
                   </p>
                 </div>
               </div>
@@ -1527,14 +1737,14 @@ export default function MootCourtModule() {
                     fontFamily: "'Space Mono', monospace",
                     marginBottom: 8
                   }}>
-                    Overview
+                    {ui.hero.welcomeTitle}
                   </p>
                   <p style={{
                     fontSize: "clamp(13px,1.3vw,16px)",
                     lineHeight: 1.9,
                     color: "rgba(255,255,255,0.92)"
                   }}>
-                    以上海交通大学凯原法学院官网视觉风格为参照，整合学院识别、院训气质与 12 支赛队信息，集中呈现学院模拟法庭体系的赛事入口、方向与介绍。
+                    {ui.hero.welcomeText}
                   </p>
                 </div>
 
@@ -1543,11 +1753,7 @@ export default function MootCourtModule() {
                   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                   gap: 12
                 }}>
-                  {[
-                    { n: "12", label: "赛队" },
-                    { n: "3", label: "顶级国际赛事" },
-                    { n: "100+", label: "参赛国家/地区" },
-                  ].map((s) => (
+                  {ui.hero.stats.map((s) => (
                     <div key={s.n} style={{
                       padding: "18px 12px",
                       borderRadius: 20,
@@ -1605,7 +1811,7 @@ export default function MootCourtModule() {
               <span style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 20, fontWeight: 500, letterSpacing: "0.01em"
-              }}>完整赛事目录</span>
+              }}>{ui.guide.title}</span>
               <span style={{
                 fontSize: 10.5, padding: "2px 11px", borderRadius: 100,
                 background: "rgba(122,39,53,0.08)", color: "#7A2735",
@@ -1632,7 +1838,7 @@ export default function MootCourtModule() {
                 background: "linear-gradient(180deg, rgba(122,39,53,0.04), transparent)"
               }}>
                 <p style={{ fontSize: 12.5, color: "rgba(28,28,40,0.6)", lineHeight: 1.7 }}>
-                  已有赛队介绍的赛事支持直接跳转。点击目录中的对应条目，会自动定位到下方赛队并打开详情。
+                  {ui.guide.note}
                 </p>
               </div>
               {/* Table header */}
@@ -1644,10 +1850,10 @@ export default function MootCourtModule() {
                 gap: 12, alignItems: "center",
                 background: "rgba(0,0,0,0.02)"
               }}>
-                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>类型</span>
-                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>级别</span>
-                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>竞赛名称 / 主办单位</span>
-                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>频次</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>{ui.guide.columns[0]}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>{ui.guide.columns[1]}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>{ui.guide.columns[2]}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(28,28,40,0.4)", letterSpacing: "0.1em", fontFamily: "'Space Mono', monospace" }}>{ui.guide.columns[3]}</span>
               </div>
               {/* Items */}
               {GUIDE_ITEMS.map((item, idx) => (
@@ -1664,7 +1870,7 @@ export default function MootCourtModule() {
                 }}
                   role={item.teamId ? "button" : undefined}
                   tabIndex={item.teamId ? 0 : undefined}
-                  aria-label={item.teamId ? `${item.name}，点击跳转到赛队介绍` : undefined}
+                  aria-label={item.teamId ? `${item.name} — ${ui.buttons.teamIntro}` : undefined}
                   onClick={() => handleGuideItemClick(item)}
                   onKeyDown={(e) => {
                     if (item.teamId && (e.key === "Enter" || e.key === " ")) {
@@ -1680,13 +1886,13 @@ export default function MootCourtModule() {
                     background: item.type === "科创类" ? "rgba(234,88,12,0.08)" : item.type === "学科类" ? "rgba(108,92,231,0.08)" : "rgba(100,116,139,0.08)",
                     color: item.type === "科创类" ? "#EA580C" : item.type === "学科类" ? "#6C5CE7" : "#64748B",
                     fontWeight: 600, whiteSpace: "nowrap", fontFamily: "'Space Mono', monospace"
-                  }}>{item.type}</span>
+                  }}>{GUIDE_TYPE_LABEL[lang][item.type] || item.type}</span>
                   <span style={{
                     fontSize: 10, padding: "2px 6px", borderRadius: 100, textAlign: "center",
                     background: item.scope === "国际级" ? "rgba(37,99,235,0.08)" : "rgba(22,163,74,0.08)",
                     color: item.scope === "国际级" ? "#2563EB" : "#16A34A",
                     fontWeight: 600, whiteSpace: "nowrap", fontFamily: "'Space Mono', monospace"
-                  }}>{item.scope}</span>
+                  }}>{GUIDE_SCOPE_LABEL[lang][item.scope] || item.scope}</span>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
                       <p style={{ fontSize: 13, fontWeight: 500, color: "#1C1C28", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{item.name}</p>
@@ -1701,7 +1907,7 @@ export default function MootCourtModule() {
                           fontSize: 10.5,
                           fontFamily: "'Space Mono', monospace"
                         }}>
-                          赛队介绍
+                          {ui.buttons.teamIntro}
                         </span>
                       )}
                     </div>
@@ -1711,7 +1917,7 @@ export default function MootCourtModule() {
                 </div>
               ))}
               <div style={{ padding: "12px 24px", textAlign: "center" }}>
-                <p style={{ fontSize: 10, color: "rgba(28,28,40,0.3)", fontFamily: "'Space Mono', monospace" }}>数据来源：上海交通大学学生竞赛目录</p>
+                <p style={{ fontSize: 10, color: "rgba(28,28,40,0.3)", fontFamily: "'Space Mono', monospace" }}>{ui.guide.footnote}</p>
               </div>
             </div>
           )}
@@ -1741,7 +1947,7 @@ export default function MootCourtModule() {
               <span style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 20, fontWeight: 500, letterSpacing: "0.01em"
-              }}>模拟法庭队伍目录</span>
+              }}>{ui.directory.title}</span>
               <span style={{
                 fontSize: 10.5, padding: "2px 11px", borderRadius: 100,
                 background: "rgba(122,39,53,0.08)", color: "#7A2735",
@@ -1768,13 +1974,84 @@ export default function MootCourtModule() {
                   onClick={handleTeamClick}
                   registerRef={registerTeamCardRef}
                   highlighted={activeJumpTeamId === team.id}
+                  ui={ui}
                 />
               ))}
             </div>
           )}
         </div>
 
-        <div style={{ height: 120 }} />
+        <footer style={{ margin: "22px 0 120px" }}>
+          <section style={{
+            height: "clamp(260px, 40vh, 420px)",
+            borderRadius: "28px 28px 0 0",
+            overflow: "hidden",
+            backgroundImage: `linear-gradient(rgba(10,16,24,0.28), rgba(10,16,24,0.48)), url(${HERO_ASSETS.footer})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            backgroundAttachment: "fixed",
+            display: "flex",
+            alignItems: "end",
+            padding: "clamp(24px,3vw,36px)"
+          }}>
+            <div style={{
+              maxWidth: 620,
+              background: "rgba(122,39,53,0.72)",
+              color: "#FFFFFF",
+              padding: "20px 24px",
+              borderRadius: 22,
+              backdropFilter: "blur(8px)"
+            }}>
+              <p style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", opacity: 0.72, marginBottom: 8 }}>
+                {ui.footer.parallaxTitle}
+              </p>
+              <p style={{ fontSize: "clamp(14px,1.4vw,17px)", lineHeight: 1.9 }}>
+                {ui.footer.parallaxText}
+              </p>
+            </div>
+          </section>
+          <section style={{
+            position: "relative",
+            overflow: "hidden",
+            borderRadius: "0 0 28px 28px",
+            background: "linear-gradient(180deg, #24181B 0%, #1D1315 100%)",
+            color: "#D8D2D2",
+            padding: "0 clamp(24px,3vw,32px) clamp(28px,3vw,34px)"
+          }}>
+            <div style={{
+              width: "min(100%, 900px)",
+              marginTop: -1,
+              padding: "24px 28px 26px",
+              clipPath: "polygon(0 0, 100% 0, 91% 100%, 0 100%)",
+              background: "#8A1B2A",
+              color: "#FFFFFF"
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                <img src={HERO_ASSETS.logo} alt={ui.footer.school} style={{ width: "min(100%, 420px)", height: "auto", display: "block" }} />
+              </div>
+            </div>
+            <div style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: "repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0 8px, transparent 8px 24px), repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 34px, transparent 34px 72px)",
+              pointerEvents: "none"
+            }} />
+            <div style={{
+              position: "relative",
+              zIndex: 1,
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: 20,
+              marginTop: 28
+            }}>
+              <p style={{ fontSize: "clamp(14px,1.3vw,16px)", lineHeight: 1.9 }}>{ui.footer.copyright}</p>
+              <p style={{ fontSize: "clamp(14px,1.3vw,16px)", lineHeight: 1.9 }}>{ui.footer.address}</p>
+              <p style={{ fontSize: "clamp(14px,1.3vw,16px)", lineHeight: 1.9 }}>{ui.footer.postcode}</p>
+              <p style={{ fontSize: "clamp(14px,1.3vw,16px)", lineHeight: 1.9 }}>{ui.footer.icp}</p>
+              <p style={{ fontSize: "clamp(14px,1.3vw,16px)", lineHeight: 1.9 }}>{ui.footer.police}</p>
+            </div>
+          </section>
+        </footer>
       </div>
 
       {/* ── FULL-SCREEN OVERLAY ── */}
@@ -1782,12 +2059,13 @@ export default function MootCourtModule() {
         <TeamDetailOverlay
           team={selectedTeam} originRect={originRect}
           onClose={() => { setSelectedTeam(null); setOriginRect(null); }}
+          ui={ui}
         />
       )}
 
       {/* ── AI FAB ── */}
       {!aiOpen && (
-        <button onClick={() => setAiOpen(true)} aria-label="打开竞赛问答智能体"
+        <button onClick={() => setAiOpen(true)} aria-label={ui.ai.title}
           style={{
             position: "fixed", bottom: 26, right: 26,
             width: 58, height: 58, borderRadius: "50%",
@@ -1816,6 +2094,8 @@ export default function MootCourtModule() {
           loading={loading} onShowTeams={handleShowTeams}
           pos={aiPos} onMouseDown={handleMouseDown}
           messagesEndRef={messagesEnd}
+          ui={ui}
+          quickQuestions={quickQuestions}
         />
       )}
 
