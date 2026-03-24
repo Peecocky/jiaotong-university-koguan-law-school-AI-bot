@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const fs=require\\(''fs''\\); const lines=fs.readFileSync\\(''src/MootCourtModule.jsx'',''utf8''\\).split\\(''\\\\n''\\); const l=lines[758]; console.log\\(JSON.stringify\\(l\\)\\); console.log\\(''char 60:'', JSON.stringify\\(l[59]\\)\\);\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\); const lines=fs.readFileSync\\(''src/MootCourtModule.jsx'',''utf8''\\).split\\(''\\\\n''\\); const l=lines[758]; for\\(let i=55;i<70;i++\\) console.log\\(i, l.charCodeAt\\(i\\), l[i]\\);\")"
+    ]
+  }
+}

@@ -756,26 +756,26 @@ const GUIDE_SCOPE_LABEL = {
 };
 
 const GUIDE_ITEMS = [
-  { type: "科创类", scope: "国际级", name: "中国国际大学生创新大赛", nameEn: "China International College Students Innovation Competition", org: "教育部等 12 个部门会同省级人民政府", orgEn: "MoE + 11 Ministries", freq: "一年一届" },
-  { type: "科创类", scope: "国家级", name: "“挑战杯”全国大学生课外学术科技作品竞赛", nameEn: "Challenge Cup National Student Academic Science & Technology Works Competition", org: "共青团中央、中国科协、教育部、中国社会科学院、全国学联", orgEn: "Communist Youth League Central, CAST, MoE", freq: "两年一届" },
-  { type: "科创类", scope: "国家级", name: "“挑战杯”中国大学生创业计划竞赛", nameEn: "Challenge Cup China Student Entrepreneurship Competition", org: "共青团中央、中国科协、教育部、全国学联", orgEn: "Communist Youth League Central, CAST, MoE", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "杰赛普（JESSUP）国际法模拟法庭大赛", nameEn: "Philip C. Jessup International Law Moot Court Competition", org: "美国国际法学生联合会（ILSA）、美国国际法学会（ASIL）", orgEn: "ILSA / ASIL", freq: "一年一届", teamId: 9 },
-  { type: "学科类", scope: "国际级", name: "Willem C. Vis 模拟国际商事仲裁辩论赛", nameEn: "Willem C. Vis International Commercial Arbitration Moot", org: "联合国国际贸易法委员会（UNCITRAL）", orgEn: "UNCITRAL", freq: "一年一届", teamId: 1 },
-  { type: "学科类", scope: "国际级", name: "模拟国际投资仲裁竞赛（FDI Moot）", nameEn: "FDI International Investment Arbitration Moot", org: "国际法律研究中心（CILS）", orgEn: "CILS / SCIA", freq: "一年一届", teamId: 3 },
-  { type: "学科类", scope: "国际级", name: "国际刑事法院（ICC）模拟法庭比赛（含中英文）", nameEn: "ICC Moot Court Competition (Chinese & English)", org: "国际律师协会（IBA）、国际刑事法院（ICC）、中国国际刑法青年学者联盟", orgEn: "IBA / ICC", freq: "一年一届", teamId: 6 },
-  { type: "学科类", scope: "国际级", name: "红十字国际人道法模拟法庭（IHL）竞赛", nameEn: "International Humanitarian Law Moot Court Competition (IHL)", org: "红十字国际委员会（ICRC）、中国红十字会总会", orgEn: "ICRC / China Red Cross Society", freq: "一年一届", teamId: 7 },
-  { type: "学科类", scope: "国际级", name: "法兰克福国际投资模拟仲裁庭", nameEn: "Frankfurt Investment Arbitration Moot Court", org: "德国马克斯·普朗克法律史与法理论研究所", orgEn: "Max Planck Institute (Germany)", freq: "一年一届", teamId: 13 },
-  { type: "学科类", scope: "国际级", name: "国际航空法模拟法庭竞赛（IALMC）", nameEn: "International Air Law Moot Court Competition (IALMC)", org: "荷兰莱顿大学航空法与空间法国际研究中心（IIASL）", orgEn: "Leiden University IIASL", freq: "一年一届", teamId: 10 },
-  { type: "学科类", scope: "国际级", name: "普莱斯传媒法国际模拟法庭竞赛", nameEn: "Price Media Law Moot Court Competition", org: "英国牛津大学", orgEn: "University of Oxford", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "曼弗雷德·拉克斯国际空间法模拟法庭竞赛", nameEn: "Manfred Lachs Space Law Moot Court Competition", org: "国际空间法学会（IISL）", orgEn: "IISL", freq: "一年一届", teamId: 5 },
-  { type: "学科类", scope: "国际级", name: "ICC 国际商事调解比赛", nameEn: "ICC International Commercial Mediation Competition", org: "国际商会（ICC）", orgEn: "ICC", freq: "一年一届" },
-  { type: "学科类", scope: "国际级", name: "国际体育模拟仲裁竞赛（SAM）", nameEn: "Sports Arbitration Moot (SAM)", org: "国际足联（FIFA）、瑞士仲裁学院", orgEn: "FIFA / Swiss Arbitration Academy", freq: "一年一届", teamId: 11 },
-  { type: "学科类", scope: "国家级", name: "“北外—万慧达杯”国际知识产权模拟法庭大赛", nameEn: "BFSU-Wanhuida Cup International IP Moot Court Competition", org: "最高人民法院知识产权法庭、北京外国语大学法学院、万慧达知识产权代理有限公司", orgEn: "SPC IP Tribunal / BFSU / Wanhuida", freq: "一年一届" },
-  { type: "学科类", scope: "国家级", name: "中国 WTO 模拟法庭辩论赛", nameEn: "China WTO Moot Court Competition", org: "商务部、中国政法大学、西南政法大学", orgEn: "MOFCOM / CUPL / SWUPL", freq: "一年一届", teamId: 8 },
-  { type: "学科类", scope: "国家级", name: "中国国际海洋法模拟法庭竞赛", nameEn: "International Law of the Sea Moot Court Competition (ILOSMCC)", org: "中国海洋法学会、武汉大学", orgEn: "Chinese Society of Intl Law of Sea / WHU", freq: "一年一届", teamId: 4 },
-  { type: "学科类", scope: "国家级", name: "“理律杯”全国高校模拟法庭竞赛", nameEn: "Lee & Li Cup National University Moot Court Competition", org: "理律杯模拟法庭比赛组委会、清华大学", orgEn: "Lee & Li Cup Organizing Committee / THU", freq: "一年一届" },
-  { type: "学科类", scope: "国家级", name: "全国大学生模拟法庭竞赛", nameEn: "National University Moot Court Competition", org: "教育部国家级实验教学示范中心法学组联席会", orgEn: "MoE National Experimental Teaching Center (Law)", freq: "一年一届" },
-  { type: "其他", scope: "国家级", name: "全国大学生职业规划大赛", nameEn: "National University Career Planning Competition", org: "教育部", orgEn: "Ministry of Education", freq: "一年一届" },
+  { type: "科创类", scope: "国际级", name: "中国国际大学生创新大赛", org: "教育部等 12 个部门会同省级人民政府", freq: "一年一届" },
+  { type: "科创类", scope: "国家级", name: "“挑战杯”全国大学生课外学术科技作品竞赛", org: "共青团中央、中国科协、教育部、中国社会科学院、全国学联", freq: "两年一届" },
+  { type: "科创类", scope: "国家级", name: "“挑战杯”中国大学生创业计划竞赛", org: "共青团中央、中国科协、教育部、全国学联", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "杰赛普（JESSUP）国际法模拟法庭大赛", org: "美国国际法学生联合会（ILSA）、美国国际法学会（ASIL）", freq: "一年一届", teamId: 9 },
+  { type: "学科类", scope: "国际级", name: "Willem C. Vis 模拟国际商事仲裁辩论赛", org: "联合国国际贸易法委员会（UNCITRAL）", freq: "一年一届", teamId: 1 },
+  { type: "学科类", scope: "国际级", name: "模拟国际投资仲裁竞赛（FDI Moot）", org: "国际法律研究中心（CILS）", freq: "一年一届", teamId: 3 },
+  { type: "学科类", scope: "国际级", name: "国际刑事法院（ICC）模拟法庭比赛（含中英文）", org: "国际律师协会（IBA）、国际刑事法院（ICC）、中国国际刑法青年学者联盟", freq: "一年一届", teamId: 6 },
+  { type: "学科类", scope: "国际级", name: "红十字国际人道法模拟法庭（IHL）竞赛", org: "红十字国际委员会（ICRC）、中国红十字会总会", freq: "一年一届", teamId: 7 },
+  { type: "学科类", scope: "国际级", name: "法兰克福国际投资模拟仲裁庭", org: "德国马克斯·普朗克法律史与法理论研究所", freq: "一年一届", teamId: 13 },
+  { type: "学科类", scope: "国际级", name: "国际航空法模拟法庭竞赛（IALMC）", org: "荷兰莱顿大学航空法与空间法国际研究中心（IIASL）", freq: "一年一届", teamId: 10 },
+  { type: "学科类", scope: "国际级", name: "普莱斯传媒法国际模拟法庭竞赛", org: "英国牛津大学", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "曼弗雷德·拉克斯国际空间法模拟法庭竞赛", org: "国际空间法学会（IISL）", freq: "一年一届", teamId: 5 },
+  { type: "学科类", scope: "国际级", name: "ICC 国际商事调解比赛", org: "国际商会（ICC）", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "国际体育模拟仲裁竞赛（SAM）", org: "国际足联（FIFA）、瑞士仲裁学院", freq: "一年一届", teamId: 11 },
+  { type: "学科类", scope: "国家级", name: "“北外—万慧达杯”国际知识产权模拟法庭大赛", org: "最高人民法院知识产权法庭、北京外国语大学法学院、万慧达知识产权代理有限公司", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: "中国 WTO 模拟法庭辩论赛", org: "商务部、中国政法大学、西南政法大学", freq: "一年一届", teamId: 8 },
+  { type: "学科类", scope: "国家级", name: "中国国际海洋法模拟法庭竞赛", org: "中国海洋法学会、武汉大学", freq: "一年一届", teamId: 4 },
+  { type: "学科类", scope: "国家级", name: "“理律杯”全国高校模拟法庭竞赛", org: "理律杯模拟法庭比赛组委会、清华大学", freq: "一年一届" },
+  { type: "学科类", scope: "国家级", name: "全国大学生模拟法庭竞赛", org: "教育部国家级实验教学示范中心法学组联席会", freq: "一年一届" },
+  { type: "其他", scope: "国家级", name: "全国大学生职业规划大赛", org: "教育部", freq: "一年一届" },
 ];
 
 const TEAM_MAP = new Map(TEAMS.map((team) => [team.id, team]));
@@ -785,116 +785,12 @@ const DISPLAY_TEAMS = [9, 1, 3, 13, 6, 7, 10, 5, 11, 8, 4, 2]
   .map(id => TEAM_MAP.get(id))
   .filter(Boolean);
 
-// ─────────────────────────────────────────────────────────────
-// LANGUAGE HELPERS
-// ─────────────────────────────────────────────────────────────
-const TAG_EN = {
-  "国际": "International",
-  "国内": "Domestic",
-  "国内/国际": "Intl & Domestic"
-};
-const ORG_TAG_EN = {
-  "中国海洋法学会": "Chinese Society of Intl Law of Sea",
-  "ICRC / 中国红十字总会": "ICRC / China Red Cross",
-  "商务部 / 中国政法大学": "MOFCOM / CUPL",
-  "中国政法大学": "CUPL",
-  "CILS / 深圳国际仲裁院": "CILS / SCIA",
-  "德国马克斯·普朗克研究所": "Max Planck Institute (Germany)",
-};
-
-const TEAM_EN_CONTENT = {
-  9: {
-    introduction: "The Philip C. Jessup International Law Moot Court Competition, founded in 1960, is the world's largest and oldest moot court competition, often called the Olympics of international law. In 2024, 674 teams from 100 jurisdictions registered globally. The China Mainland region has held annual competitions since 2003; the 2024 edition hosted 65 universities at Renmin University of China, the largest national round in history. Conducted entirely in English, comprising memorial (written) and oral rounds. Top teams from the China regional round (usually 8-9) advance to the Washington D.C. international round each April.",
-    achievements: "Philip C. Jessup International Law Moot Court Competition\n2018  National Round  First Prize (incl. Best Oralist)\n2019  National Round  National Overall First (Final Runner-up), Global Top 50\n2020  Domestic Round  Second Prize\n2021  International Round  First Prize\n2022  International Round  Global 47th, National First Prize, Best Oralist\n2024  National Round  Second Prize\n2025  China Region First Prize (Advanced to International)",
-    requirements: "Genuine passion for Jessup; able to sustain long-term motivation. Willing to invest substantial time; diligent and responsible. Strong analytical thinking and clear logical reasoning. Good teamwork and resilience under pressure. Priority given to students with international law coursework or prior moot experience, though not required; English proficiency assessed primarily through interview.",
-    application: "Deadline: April 26, 23:59. Submit Chinese CV to email. Email subject: Name + Year. Written test released: April 27. Written submission deadline: May 12, 23:59. Interview: mid-to-late May. Contact WeChat: sebastian_xu41. Email: jessup@sjtu.edu.cn",
-    schedule: "September: Case released (ILSA official). Sep-January: Legal research and memorial writing. January-February: Oral argument preparation. February: China Mainland regional round. April: Washington D.C. international round.",
-  },
-  1: {
-    introduction: "The Willem C. Vis International Commercial Arbitration Moot is the world's largest international commercial arbitration moot court competition, held annually in Vienna, Austria each spring since 1994, attracting 300+ university teams worldwide. Since 2003 an Eastern counterpart, the Vis (East) Moot, has been held in Hong Kong. In China, related competitions include the CIETAC Cup and Moot Shanghai. Cases revolve around a fictitious international sales contract governed by the CISG. All proceedings are conducted in English.",
-    achievements: "Willem C. Vis Moot / CIETAC Cup\n2018 CIETAC Cup Second Prize\n2020 CIETAC Cup Third Prize | 2021 CIETAC Cup Third Prize\n2024 CIETAC Cup National Champion | 2025 CIETAC Cup Second Prize\n\nMoot Shanghai\n2022 Moot Shanghai Global Top 16, 4th in China\n2025 Moot Shanghai Champion\n\nUNIDROIT PICC Moot 2025 Global Top 4\nAsia-Pacific Commercial Arbitration Moot 2025 Runner-up",
-    requirements: "Proficient English communication and legal analysis; able to perform oral pleadings. Interest in international commercial arbitration. Sufficient time commitment for systematic preparation. Open to all undergraduate and graduate students at Koguan School of Law. Selection: full-English interview including simulated oral pleading.",
-    application: "Deadline: May 18, 20:00. Materials: CV in Chinese and English. Email subject: Name - Year - Competition preference. Interview: tentatively May 25-26. Email: vismoot@sjtu.edu.cn",
-    schedule: "Sep-January: Legal research and memorial writing. January-February: Oral argument intensive preparation. Spring (Mar-Apr): Vienna or Hong Kong competition. CIETAC Cup: Autumn domestic round. Moot Shanghai: Spring Shanghai round.",
-  },
-  3: {
-    introduction: "The FDI Moot (Foreign Direct Investment International Arbitration Moot) is ranked alongside the Jessup and Vis Moot as one of the world's three major moot court competitions. Chinese teams must compete in the Shenzhen Cup, organized by the Shenzhen Court of International Arbitration, to qualify for the global round. Notable participating institutions include Peking University, Tsinghua University, CUPL, UIBE, Fudan University, Xiamen University, and ECUPL.\n\nNote: FDI Moot and the Frankfurt Investment Arbitration Moot Court are contested by the same SJTU team.",
-    achievements: "FDI Moot\n2021 FDI Moot Shenzhen First Prize\n2022 FDI Moot Shenzhen National First Prize\n2023 China National Round National Top 12\n2023 FDI Moot Shenzhen Cup National Top 16\n2025 FDI Moot Shenzhen First Prize",
-    requirements: "Undergraduate or graduate student at Shanghai Jiao Tong University. Strong English listening, speaking, reading, and writing skills. Sufficient time commitment. No prior moot court experience required. Interview focuses on English oral communication.",
-    application: "Deadline: April 13, 24:00 (annually). Send CV to registration email. Email subject: School - Name - Year. Body: indicate first or second choice competition preference. Email: fdi.moot@sjtu.edu.cn",
-    schedule: "April: Deadline, CV screening, online interview notification. April-October: Preparation (memorial writing plus oral training). Autumn: Shenzhen Cup domestic round. After domestic: Advance to global round.",
-  },
-  13: {
-    introduction: "Note: The Frankfurt Investment Arbitration Moot Court and the FDI Moot (Shenzhen Cup) are contested by the same SJTU team.\n\nThe Frankfurt Investment Arbitration Moot Court (Frankfurt IAM) is organized by the Max Planck Institute for Legal History and Legal Theory in Frankfurt, Germany. Teams argue as both claimant and respondent based on ISDS principles, bilateral investment treaties, and related international investment law. All proceedings are in English.",
-    achievements: "Frankfurt Investment Arbitration Moot Court\n(Same team as FDI Moot - please refer to the FDI Moot page for combined results)",
-    requirements: "Same team and recruitment process as FDI Moot. Undergraduate or graduate student at Shanghai Jiao Tong University. Strong English skills. Sufficient time commitment. No prior moot court experience required. For full application details, see the FDI Moot team page.",
-    application: "Same registration process as FDI Moot. Deadline: April 13, 24:00 (annually). Email: fdi.moot@sjtu.edu.cn",
-    schedule: "Competition schedule unified with FDI Moot team. Autumn: Frankfurt international round. Exact dates per annual official announcement.",
-  },
-  6: {
-    introduction: "The ICC Moot Court Competition (ICCMCC) simulates proceedings before the International Criminal Court, based on international criminal law and ICC rules of procedure and evidence. The ICC promotes the competition in all six official languages. The SJTU team prepares for both Chinese and English rounds simultaneously (same case). Selection includes a full-English written test and interview.",
-    achievements: "ICC Moot Court Competition (Chinese and English)\n2019 Chinese Round National First Prize\n2020 National Second Prize\n2021 Chinese Round National First Prize\n2022 English Round National 4th / First Prize\n2023 Chinese Round National First Prize\n2024 Chinese Round National First Prize (advanced to The Hague), Best Prosecution Award\n2025 Chinese Round National First Prize, Runner-up\n2025 Long'an Cup ICC English Moot Third Prize",
-    requirements: "Undergraduate or Master's students (1st/2nd year) at Koguan School of Law. Strong time commitment; excellent teamwork. Basic English reading, writing, and oral skills. Strong research and analytical abilities.",
-    application: "Registration deadline: September 22, 24:00. Brief submission deadline: September 27, 12:00. Interview: September 28. Materials: CV in Chinese and English (incl. WeChat ID, language level). Email subject: Name - Year. Email: icc.moot@sjtu.edu.cn",
-    schedule: "Sep 22: Registration deadline. Sep 27: Full-English brief submission. Sep 28: Interview. Oct-Apr: Preparation period. Spring: International round (incl. The Hague).",
-  },
-  7: {
-    introduction: "The International Humanitarian Law (IHL) Moot Court Competition is organized by the ICRC and the China Red Cross Society. The case is drafted by ICRC legal experts; judges are IHL specialists from multiple countries. Each team submits written memorials and argues as both prosecution and defense. The competition has been held for thirteen editions, with 30+ leading Chinese universities participating annually. Top three mainland teams are sponsored by the Red Cross to attend the Asia-Pacific IHL Moot.",
-    achievements: "IHL Moot Court Competition\n2019 National First Prize\n2020 Domestic Selection Second Prize\n2022 National First Prize\n2023 National First Prize\n2024 National First Prize\n2025 Second Prize",
-    requirements: "Undergraduate or graduate student at Koguan School of Law. Strong English reading, writing, and oral communication skills. Good analytical and research abilities; excellent teamwork. Sufficient time commitment.",
-    application: "Deadline: May 13, 20:00. Send Chinese and English CV to email. Email subject: Name - Year. Online info session: May 12, 20:00-22:00. Zoom: 646 1623 8936 (PW: 252964). Email: ihl.moot@sjtu.edu.cn",
-    schedule: "May 12: Online info session. May 13: Registration deadline. May 24: Memorial submission deadline. May 27: Interview. Autumn-Mar: Preparation period. Spring: Asia-Pacific international round.",
-  },
-  10: {
-    introduction: "The Leiden-Sarin International Air Law Moot Court Competition is the most influential international moot court competition in aviation law. Established at the recommendation of ICAO, it is hosted by the IIASL at Leiden University, Netherlands, the only global aviation law moot, now in its sixteenth edition. The international round rotates among participating countries. Teams argue for both applicant and respondent based on the Chicago Convention and related treaties.",
-    achievements: "Leiden-Sarin International Air Law Moot Court Competition\n2024 China Region Second Prize, Outstanding Oral Argument Award",
-    requirements: "Full-time undergraduate or Master's student at SJTU (any major). Basic English listening, speaking, reading, and writing ability. Basic legal research skills. Interest in international law and aviation law. Responsible, collaborative, with strong communication and resilience.",
-    application: "Deadline: October 20, 24:00. Email subject: Year (UG/Master) - Name - Aviation Law Moot Selection. Material 1: Chinese CV. Material 2: Issues summary (English, max one A4 page). Email: aviation.law@sjtu.edu.cn",
-    schedule: "Oct 20: Registration deadline. After applying: Selected candidates notified for interview. Next February: Domestic qualification round. 2026: 17th International Round (Namibia; must qualify domestically).",
-  },
-  5: {
-    introduction: "The Manfred Lachs Space Law Moot Court Competition, established by the IISL in 1992, is an annual global competition. The Global Final is heard by three sitting judges of the International Court of Justice. The Chinese Society of Space Law has organized Chinese teams since 2003; in 2022, 48 teams from 30 universities competed in the oral rounds.",
-    achievements: "Manfred Lachs Space Law Moot Court Competition\n2022 China Region First Prize\n2022 Asia-Pacific Region Top 8",
-    requirements: "Good English reading, writing, and oral skills. Strong logical analysis and research abilities. Excellent teamwork and resilience. Adequate time commitment. No prior competition experience required. Priority for students enrolled in Outer Space Law (LAW6873) this semester.",
-    application: "Deadline: September 26, 20:00. Email subject: Name - Year - Space Law Selection. Materials: Chinese CV (1 page, incl. English score) plus Written exercise (at least 500 words). Email: space.law@sjtu.edu.cn",
-    schedule: "Sep 26: Registration deadline. Oct 31: Registration finalized. Nov 16: Electronic brief submission. Dec 9-10: Beijing oral round (TBC). Next April: Global Final.",
-  },
-  11: {
-    introduction: "The Sports Arbitration Moot (SAM), organized by FIFA, the Swiss Arbitration Academy, and the University of Neuchatel, is the leading international competition in sports arbitration. Since its inaugural 2022 edition SAM has attracted top institutions including Universite Paris II, University of Vienna, QMUL, Peking University, and Wuhan University. All teams receive free access to the Jus Mundi legal research platform. Teams reaching the Top 16 travel to Europe for the in-person final.",
-    achievements: "Sports Arbitration Moot (SAM)\n2024 Global Final Top 8\n     Round-robin Stage First\n     Best Respondent Award | Best Legal Research Award",
-    requirements: "Law (LLB/LLM/PhD) students at SJTU. Strong English legal research and writing ability, or excellent English oral advocacy skills. Hardworking, diligent, strong team collaboration. Available for full training during competition period (Nov - next May). Only first-time SAM participants may apply.",
-    application: "Deadline: October 30, 17:00. Materials: CV plus English motivation letter (max 450 words). Email subject: Name + Year + Major. Note: no concurrent participation in other moots. Email: sam.moot@sjtu.edu.cn",
-    schedule: "Oct 30: Registration deadline. November: Interview. Nov-May: Preparation (memorial plus oral training). Spring: Online round. Top 16: In-person final in Europe.",
-  },
-  8: {
-    introduction: "The China WTO Moot Court Competition is jointly organized by MOFCOM, CUPL, and Southwest University of Political Science and Law. It is China's only moot court competition co-organized by a national ministry. The competition simulates the WTO dispute settlement panel process, conducted entirely in English. Judges include MOFCOM bureau-level officials, international economic law professors, and senior partners from international law firms.",
-    achievements: "China WTO Moot Court Competition\n2022 National Second Prize\n2024 National Champion",
-    requirements: "All undergraduate and Master's students at Koguan School of Law may apply, including incoming students. Interest in English moot court and international trade disputes. Competing representatives must be current Chinese-national undergraduate or Master's students. PhD students may not compete per competition rules.",
-    application: "Deadline: September 8, 24:00. Materials: Chinese and English CV plus Personal statement. Email subject: Name - Year - Major. Email: wto.moot@sjtu.edu.cn",
-    schedule: "Early September: Join recruitment group. Sep 8: Registration deadline. Sep-Oct: Selection rounds. Autumn-April: Preparation period. April-May: National competition.",
-  },
-  4: {
-    introduction: "The China International Law of the Sea Moot Court Competition (ILOSMCC) is organized by the Chinese Society of International Law of the Sea and the Center for Boundary and Ocean Studies at Wuhan University. It is China's first international all-English moot court competition and the world's first international law of the sea moot. The judging panel has historically included Judge Gao Zhiguo, the only Chinese judge ever to serve on ITLOS, alongside ITLOS judges and leading international scholars.",
-    achievements: "International Law of the Sea Moot Court Competition (ILOSMCC)\n2018 National Third Prize (x3), Best Oralist Award\n2019 National First Prize\n2021 National Third Prize\n2022 National Runner-up / National First Prize\n2025 National Second Prize",
-    requirements: "Undergraduate or graduate student at Shanghai Jiao Tong University. Strong English listening, speaking, reading, and writing skills. Sufficient time commitment. No prior moot court experience required.",
-    application: "Deadline: April 15, 24:00. Send CV to registration email. Email subject: School - Name - Year. Email: ilosmcc@sjtu.edu.cn",
-    schedule: "April: Registration deadline, CV screening. Mid-April: Online interview notification. April-October: Preparation (memorial writing plus oral training). Oct 22-23: Official competition at Wuhan University.",
-  },
-  2: {
-    introduction: "The China Law Graduate Elite National Graduate Moot Court Competition is organized by the Graduate School of China University of Political Science and Law. It aims to advance legal graduate education, broaden academic horizons, and cultivate teamwork and innovation. The competition is open to all law Master's and PhD students nationwide and invites representative teams from top law schools across China.",
-    achievements: "China Law Graduate Elite National Graduate Moot Court Competition\n2018 Invited participation; completed full domestic selection round",
-    requirements: "Solid legal foundation; familiarity with procedural law; strong learning ability. Current law graduate student (Master's or PhD) at Koguan School of Law. Basic English written and oral communication skills. Good teamwork and resilience.",
-    application: "Deadline: October 28, 12:00. Send CV to registration email. Body: note any prior moot court experience. Team: max 6 members plus 1 team leader.",
-    schedule: "Oct 28: Registration deadline. Nov 13 approx: Case release. Nov 23-26: Competition (check-in, opening, prelims, quarters, semis, final).",
-  },
-};
-
 // System prompt is configured on the Dify server side.
 
 // ─────────────────────────────────────────────────────────────
 // TEAM CARD
 // ─────────────────────────────────────────────────────────────
-function TeamCard({ team, onClick, index, registerRef, highlighted, ui, lang }) {
+function TeamCard({ team, onClick, index, registerRef, highlighted, ui }) {
   const [hovered, setHovered] = useState(false);
   const cardRef = useRef(null);
 
@@ -957,7 +853,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted, ui, lang }) 
           fontSize: 9.5, fontWeight: 600, color: team.accent,
           letterSpacing: "0.12em", textTransform: "uppercase",
           fontFamily: "'Space Mono', monospace"
-        }}>{lang === "en" ? (TAG_EN[team.tag] || team.tag) : team.tag}</div>
+        }}>{team.tag}</div>
         {team.orgTag && (
           <div style={{
             padding: "4px 10px", borderRadius: 100,
@@ -966,7 +862,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted, ui, lang }) 
             fontSize: 9.5, fontWeight: 500, color: "rgba(255,255,255,0.85)",
             letterSpacing: "0.06em",
             fontFamily: "'Space Mono', monospace"
-          }}>{lang === "en" ? (ORG_TAG_EN[team.orgTag] || team.orgTag) : team.orgTag}</div>
+          }}>{team.orgTag}</div>
         )}
       </div>
       {highlighted && (
@@ -995,17 +891,15 @@ function TeamCard({ team, onClick, index, registerRef, highlighted, ui, lang }) 
           background: `linear-gradient(to right, ${team.accent}, transparent)`,
           transition: "width 0.35s ease"
         }} />
-        {lang !== "en" && (
-          <p style={{
-            fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase",
-            color: team.accent, marginBottom: 6, fontWeight: 600, opacity: 0.9,
-            fontFamily: "'Instrument Sans', sans-serif"
-          }}>{team.subtitle}</p>
-        )}
+        <p style={{
+          fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase",
+          color: team.accent, marginBottom: 6, fontWeight: 600, opacity: 0.9,
+          fontFamily: "'Instrument Sans', sans-serif"
+        }}>{team.subtitle}</p>
         <h3 style={{
-          fontFamily: lang === "en" ? "'Instrument Sans', sans-serif" : "'Cormorant Garamond', serif",
-          fontSize: lang === "en" ? 16 : 20, fontWeight: 600, lineHeight: 1.25, color: "#FFFFFF"
-        }}>{lang === "en" ? team.subtitle : team.name}</h3>
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: 20, fontWeight: 600, lineHeight: 1.2, color: "#FFFFFF"
+        }}>{team.name}</h3>
       </div>
       {/* Hover pill */}
       <div style={{
@@ -1030,7 +924,7 @@ function TeamCard({ team, onClick, index, registerRef, highlighted, ui, lang }) 
 // ─────────────────────────────────────────────────────────────
 // FULLSCREEN OVERLAY
 // ─────────────────────────────────────────────────────────────
-function TeamDetailOverlay({ team, originRect, onClose, ui, lang }) {
+function TeamDetailOverlay({ team, originRect, onClose, ui }) {
   const [activeTab, setActiveTab] = useState("introduction");
   const [open, setOpen] = useState(false);
   const contentRef = useRef(null);
@@ -1058,13 +952,9 @@ function TeamDetailOverlay({ team, originRect, onClose, ui, lang }) {
   const pL = originRect ? (originRect.left / vw * 100).toFixed(2) : 40;
   const pR = originRect ? ((vw - originRect.right) / vw * 100).toFixed(2) : 40;
 
-  const enContent = TEAM_EN_CONTENT[team.id] || {};
   const content = {
-    introduction: lang === "en" ? (enContent.introduction || team.introduction) : team.introduction,
-    achievements: lang === "en" ? (enContent.achievements || team.achievements) : team.achievements,
-    requirements: lang === "en" ? (enContent.requirements || team.requirements) : team.requirements,
-    application: lang === "en" ? (enContent.application || team.application) : team.application,
-    schedule: lang === "en" ? (enContent.schedule || team.schedule) : team.schedule,
+    introduction: team.introduction, achievements: team.achievements,
+    requirements: team.requirements, application: team.application, schedule: team.schedule,
   };
 
   return (
@@ -1116,14 +1006,14 @@ function TeamDetailOverlay({ team, originRect, onClose, ui, lang }) {
               background: `${team.accent}14`, border: `1px solid ${team.accent}28`
             }}>
               <span style={{ fontSize: 16 }}>{team.icon}</span>
-              <span style={{ fontSize: 12, fontWeight: 600, color: team.accent, fontFamily: "'Space Mono', monospace" }}>{lang === "en" ? (TAG_EN[team.tag] || team.tag) : team.tag}</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: team.accent, fontFamily: "'Space Mono', monospace" }}>{team.tag}</span>
             </div>
             {team.orgTag && (
               <div style={{
                 padding: "5px 12px", borderRadius: 100,
                 background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)",
                 fontSize: 11, color: "rgba(236,242,255,0.65)", fontFamily: "'Space Mono', monospace"
-              }}>{lang === "en" ? (ORG_TAG_EN[team.orgTag] || team.orgTag) : team.orgTag}</div>
+              }}>{team.orgTag}</div>
             )}
           </div>
 
@@ -1166,19 +1056,16 @@ function TeamDetailOverlay({ team, originRect, onClose, ui, lang }) {
             animationDuration: "0.6s", animationTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
             animationFillMode: "both", animationDelay: "0.2s"
           }}>
-            {lang !== "en" && (
-              <p style={{
-                fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase",
-                color: team.accent, marginBottom: 10, opacity: 0.9, fontWeight: 700,
-                fontFamily: "'Space Mono', monospace"
-              }}>{team.subtitle}</p>
-            )}
+            <p style={{
+              fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase",
+              color: team.accent, marginBottom: 10, opacity: 0.9, fontWeight: 700,
+              fontFamily: "'Space Mono', monospace"
+            }}>{team.subtitle}</p>
             <h1 style={{
-              fontFamily: lang === "en" ? "'Instrument Sans', sans-serif" : "'Cormorant Garamond', serif",
-              fontSize: lang === "en" ? "clamp(26px,4vw,52px)" : "clamp(32px,5vw,68px)",
-              fontWeight: lang === "en" ? 500 : 400,
-              lineHeight: 1.1, color: "#FFFFFF", letterSpacing: "-0.01em"
-            }}>{lang === "en" ? team.subtitle : team.name}</h1>
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "clamp(32px,5vw,68px)", fontWeight: 400,
+              lineHeight: 1.0, color: "#FFFFFF", letterSpacing: "-0.01em"
+            }}>{team.name}</h1>
           </div>
         </div>
 
@@ -1246,21 +1133,21 @@ function TeamDetailOverlay({ team, originRect, onClose, ui, lang }) {
                 }}>
                   <div style={{ fontSize: 36, marginBottom: 12, filter: `drop-shadow(0 0 16px ${team.accent}55)` }}>{team.icon}</div>
                   <h3 style={{
-                    fontFamily: lang === "en" ? "'Instrument Sans', sans-serif" : "'Cormorant Garamond', serif",
-                    fontSize: lang === "en" ? 16 : 20, fontWeight: 500, color: "#ECF2FF", marginBottom: 4, lineHeight: 1.3
-                  }}>{lang === "en" ? team.subtitle : team.name}</h3>
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: 20, fontWeight: 500, color: "#ECF2FF", marginBottom: 4, lineHeight: 1.2
+                  }}>{team.name}</h3>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: 2 }}>
                     <span style={{
                       padding: "3px 9px", borderRadius: 100,
                       background: `${team.accent}18`, border: `1px solid ${team.accent}30`,
                       fontSize: 9.5, color: team.accent, fontFamily: "'Space Mono', monospace", fontWeight: 600
-                    }}>{lang === "en" ? (TAG_EN[team.tag] || team.tag) : team.tag}</span>
+                    }}>{team.tag}</span>
                     {team.orgTag && (
                       <span style={{
                         padding: "3px 9px", borderRadius: 100,
                         background: "rgba(255,255,255,0.06)", border: "1px solid rgba(236,242,255,0.14)",
                         fontSize: 9.5, color: "rgba(236,242,255,0.55)", fontFamily: "'Space Mono', monospace"
-                      }}>{lang === "en" ? (ORG_TAG_EN[team.orgTag] || team.orgTag) : team.orgTag}</span>
+                      }}>{team.orgTag}</span>
                     )}
                   </div>
                 </div>
@@ -1317,7 +1204,7 @@ function QuickBtn({ children, onClick, color }) {
   );
 }
 
-function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize, isMinimized, loading, onShowTeams, pos, onMouseDown, messagesEndRef, ui, quickQuestions, aiOnline, lang }) {
+function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize, isMinimized, loading, onShowTeams, pos, onMouseDown, messagesEndRef, ui, quickQuestions }) {
   const inputRef = useRef(null);
   useEffect(() => { if (!isMinimized) inputRef.current?.focus(); }, [isMinimized]);
 
@@ -1357,12 +1244,8 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
           <div>
             <p style={{ fontSize: 13, fontWeight: 700, color: "#1C1C28", lineHeight: 1.2, fontFamily: "'Instrument Sans', sans-serif" }}>{ui.ai.title}</p>
             <p style={{ fontSize: 10, color: "rgba(122,39,53,0.76)", display: "flex", alignItems: "center", gap: 4, fontFamily: "'Space Mono', monospace", marginTop: 2 }}>
-              <span style={{
-                display: "inline-block", width: 6, height: 6, borderRadius: "50%",
-                background: aiOnline === true ? "#4ADE80" : aiOnline === false ? "#F87171" : "#FBBF24",
-                boxShadow: `0 0 6px ${aiOnline === true ? "#4ADE80" : aiOnline === false ? "#F87171" : "#FBBF24"}`
-              }} />
-              {aiOnline === true ? (lang === "en" ? "Online" : "在线") : aiOnline === false ? (lang === "en" ? "Offline" : "不在线") : (lang === "en" ? "Checking..." : "检测中...")}
+              <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#4ADE80", boxShadow: "0 0 6px #4ADE80" }} />
+              {ui.ai.status}
             </p>
           </div>
         </div>
@@ -1379,6 +1262,26 @@ function AITutorWindow({ messages, input, setInput, onSend, onClose, onMinimize,
       </div>
 
       {!isMinimized && <>
+        <div style={{
+          padding: "10px 12px 8px",
+          display: "flex",
+          gap: 6,
+          flexWrap: "wrap",
+          background: "linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0))"
+        }}>
+          {ui.ai.tags.map((tag) => (
+            <span key={tag} style={{
+              fontSize: 10.5,
+              padding: "4px 8px",
+              borderRadius: 999,
+              background: "rgba(255,255,255,0.8)",
+              border: "1px solid rgba(122,39,53,0.14)",
+              color: "rgba(28,28,40,0.62)",
+              fontFamily: "'Instrument Sans', sans-serif"
+            }}>{tag}</span>
+          ))}
+        </div>
+
         {/* Messages */}
         <div style={{ height: 272, overflowY: "auto", padding: "8px 12px 6px", display: "flex", flexDirection: "column", gap: 10 }}>
           {messages.map((msg, i) => (
@@ -1508,7 +1411,6 @@ export default function MootCourtModule() {
   const [activeJumpTeamId, setActiveJumpTeamId] = useState(null);
   const [aiOpen,       setAiOpen]       = useState(false);
   const [aiMin,        setAiMin]        = useState(false);
-  const [aiOnline,     setAiOnline]     = useState(null);
   const [creditVisible, setCreditVisible] = useState(false);
   const [messages,     setMessages]     = useState([{
     role: "assistant",
@@ -1543,16 +1445,6 @@ export default function MootCourtModule() {
       welcomeScrollRef.current.scrollTop = 0;
     }
   }, [lang]);
-
-  useEffect(() => {
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 4000);
-    fetch("/api/dify/chat-messages", { method: "HEAD", signal: ctrl.signal })
-      .then(() => setAiOnline(true))
-      .catch(() => setAiOnline(false))
-      .finally(() => clearTimeout(timer));
-    return () => { ctrl.abort(); clearTimeout(timer); };
-  }, []);
 
   const handleWelcomeScroll = useCallback((e) => {
     if (lang === "en" && e.currentTarget.scrollTop > 10) {
@@ -1706,9 +1598,7 @@ export default function MootCourtModule() {
             : m
         ));
       }
-      setAiOnline(true);
     } catch (err) {
-      setAiOnline(false);
       console.error("Dify chat error:", err);
       setMessages(prev => prev.map(m =>
         m._id === placeholderIdx
@@ -2160,7 +2050,7 @@ export default function MootCourtModule() {
                   }}>{GUIDE_SCOPE_LABEL[lang][item.scope] || item.scope}</span>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
-                      <p style={{ fontSize: 15, fontWeight: 600, color: "#111111", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{lang === "en" && item.nameEn ? item.nameEn : item.name}</p>
+                      <p style={{ fontSize: 15, fontWeight: 600, color: "#111111", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{item.name}</p>
                       {item.teamId && (
                         <span style={{
                           flexShrink: 0,
@@ -2176,7 +2066,7 @@ export default function MootCourtModule() {
                         </span>
                       )}
                     </div>
-                    <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.38)", marginTop: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{lang === "en" && item.orgEn ? item.orgEn : item.org}</p>
+                    <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.38)", marginTop: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.org}</p>
                   </div>
                   <span style={{ fontSize: 12, color: "#111111", fontWeight: 500, fontFamily: "'Space Mono', monospace", whiteSpace: "nowrap" }}>{item.freq}</span>
                 </div>
@@ -2240,7 +2130,6 @@ export default function MootCourtModule() {
                   registerRef={registerTeamCardRef}
                   highlighted={activeJumpTeamId === team.id}
                   ui={ui}
-                  lang={lang}
                 />
               ))}
             </div>
@@ -2326,7 +2215,6 @@ export default function MootCourtModule() {
           team={selectedTeam} originRect={originRect}
           onClose={() => { setSelectedTeam(null); setOriginRect(null); }}
           ui={ui}
-          lang={lang}
         />
       )}
 
@@ -2363,8 +2251,6 @@ export default function MootCourtModule() {
           messagesEndRef={messagesEnd}
           ui={ui}
           quickQuestions={quickQuestions}
-          aiOnline={aiOnline}
-          lang={lang}
         />
       )}
 
