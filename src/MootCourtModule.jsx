@@ -6,9 +6,10 @@ import { useState, useRef, useEffect, useCallback } from "react";
 const TEAMS = [
   {
     id: 1,
-    name: "Willem C. Vis Moot",
-    subtitle: "国际商事仲裁模拟法庭",
-    tag: "CISG · 国际仲裁",
+    name: "威廉·维斯国际商事仲裁模拟法庭",
+    subtitle: "Willem C. Vis International Commercial Arbitration Moot",
+    tag: "国际",
+    orgTag: "UNCITRAL",
     icon: "⚖️",
     accent: "#F0C040",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
@@ -56,9 +57,10 @@ Moot Shanghai  每年春季上海举行`,
   },
   {
     id: 2,
-    name: "中华硕博模拟法庭",
-    subtitle: "全国研究生英文模拟法庭竞赛",
-    tag: "国内 · 研究生",
+    name: "中华法学硕博英才全国研究生模拟法庭竞赛",
+    subtitle: "China National Graduate Law Moot Court",
+    tag: "国内",
+    orgTag: "中国政法大学",
     icon: "🏛️",
     accent: "#60A5FA",
     image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80",
@@ -92,14 +94,17 @@ Moot Shanghai  每年春季上海举行`,
   },
   {
     id: 3,
-    name: "FDI 模拟国际仲裁",
-    subtitle: "国际投资仲裁模拟法庭",
-    tag: "ISDS · BIT",
+    name: "模拟国际投资仲裁竞赛",
+    subtitle: "FDI International Investment Arbitration Moot",
+    tag: "国际",
+    orgTag: "CILS / 深圳国际仲裁院",
     icon: "💼",
     accent: "#34D399",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
     bg: "linear-gradient(160deg,#04150d,#0a3020,#0d4a30)",
-    introduction: `2021 模拟国际投资仲裁（FDI Moot）与 Philip C. Jessup 国际法模拟法庭辩论赛及 Willem C. Vis 国际商事模拟仲裁庭比赛并称为全球三大模拟法庭竞赛。
+    introduction: `【注：FDI Moot 与法兰克福国际投资模拟仲裁庭（Frankfurt IAM）由同一支赛队参赛，两场比赛共用同一队伍组成。】
+
+2021 模拟国际投资仲裁（FDI Moot）与 Philip C. Jessup 国际法模拟法庭辩论赛及 Willem C. Vis 国际商事模拟仲裁庭比赛并称为全球三大模拟法庭竞赛。
 
 赛事分为全球赛和区域/国家赛，共用一套赛题。参赛队伍需通过区域/国家赛获得进入全球赛的资格。国内赛"深圳杯"由深圳国际仲裁院主办，金诚同达律师事务所协办，是中国赛队获得全球赛入场券的唯一渠道。
 
@@ -130,9 +135,10 @@ Moot Shanghai  每年春季上海举行`,
   },
   {
     id: 4,
-    name: "国际海洋法模拟法庭",
-    subtitle: "ILOSMCC 中国国际海洋法竞赛",
-    tag: "UNCLOS · ITLOS",
+    name: "中国国际海洋法模拟法庭竞赛",
+    subtitle: "International Law of the Sea Moot Court (ILOSMCC)",
+    tag: "国内/国际",
+    orgTag: "中国海洋法学会",
     icon: "🌊",
     accent: "#38BDF8",
     image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=900&q=80",
@@ -164,9 +170,10 @@ Moot Shanghai  每年春季上海举行`,
   },
   {
     id: 5,
-    name: "空间法模拟法庭",
-    subtitle: "Manfred Lachs Space Law Moot",
-    tag: "空间法 · ICJ 级别",
+    name: "曼弗雷德·拉克斯国际空间法模拟法庭竞赛",
+    subtitle: "Manfred Lachs Space Law Moot Court Competition",
+    tag: "国际",
+    orgTag: "IISL",
     icon: "🚀",
     accent: "#C084FC",
     image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=80",
@@ -200,9 +207,10 @@ Moot Shanghai  每年春季上海举行`,
   },
   {
     id: 6,
-    name: "ICCMCC 国际刑事法",
-    subtitle: "国际刑事法院模拟法庭",
-    tag: "ICC · 罗马规约",
+    name: "国际刑事法院模拟法庭比赛",
+    subtitle: "ICC Moot Court Competition (ICCMCC)",
+    tag: "国际",
+    orgTag: "IBA / ICC",
     icon: "⚔️",
     accent: "#F87171",
     image: "https://images.unsplash.com/photo-1589216532372-1c2a367900d9?auto=format&fit=crop&w=900&q=80",
@@ -239,9 +247,10 @@ Moot Shanghai  每年春季上海举行`,
   },
   {
     id: 7,
-    name: "IHL 国际人道法",
-    subtitle: "红十字国际人道法模拟法庭",
-    tag: "ICRC · 日内瓦公约",
+    name: "红十字国际人道法模拟法庭竞赛",
+    subtitle: "International Humanitarian Law Moot (IHL / ICRC)",
+    tag: "国际",
+    orgTag: "ICRC / 中国红十字总会",
     icon: "🕊️",
     accent: "#86EFAC",
     image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=900&q=80",
@@ -281,9 +290,10 @@ ZOOM 会议室：646 1623 8936  密码：252964
   },
   {
     id: 8,
-    name: "WTO 模拟法庭",
-    subtitle: "中国WTO模拟法庭辩论赛",
-    tag: "GATT · 争端解决",
+    name: "中国WTO模拟法庭辩论赛",
+    subtitle: "China WTO Moot Court Competition",
+    tag: "国内",
+    orgTag: "商务部 / 中国政法大学",
     icon: "🌐",
     accent: "#93C5FD",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
@@ -316,9 +326,10 @@ ZOOM 会议室：646 1623 8936  密码：252964
   },
   {
     id: 9,
-    name: "Jessup 模拟法庭",
-    subtitle: "Philip C. Jessup 国际法庭",
-    tag: "全球最大 · 国际公法",
+    name: "菲利普·杰赛普国际法模拟法庭大赛",
+    subtitle: "Philip C. Jessup International Law Moot Court Competition",
+    tag: "国际",
+    orgTag: "ILSA / ASIL",
     icon: "🏅",
     accent: "#FCD34D",
     image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=900&q=80",
@@ -358,9 +369,10 @@ ZOOM 会议室：646 1623 8936  密码：252964
   },
   {
     id: 10,
-    name: "国际航空法模拟法庭",
-    subtitle: "莱顿-塞林国际航空法竞赛",
-    tag: "ICAO · 芝加哥公约",
+    name: "莱顿-塞林国际航空法模拟法庭竞赛",
+    subtitle: "Leiden-Sarin International Air Law Moot Court",
+    tag: "国际",
+    orgTag: "荷兰莱顿大学 IIASL",
     icon: "✈️",
     accent: "#7DD3FC",
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80",
@@ -390,9 +402,10 @@ ZOOM 会议室：646 1623 8936  密码：252964
   },
   {
     id: 11,
-    name: "国际体育仲裁竞赛",
+    name: "国际体育模拟仲裁竞赛",
     subtitle: "Sports Arbitration Moot (SAM)",
-    tag: "FIFA · CAS · 体育法",
+    tag: "国际",
+    orgTag: "FIFA / 瑞士仲裁学院",
     icon: "🏆",
     accent: "#FB923C",
     image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=900&q=80",
@@ -490,6 +503,39 @@ INTA 国际商标协会模拟法庭
 每年秋季    "金法槌杯"华东地区选拔
 春季        复旦法援杯、青法会等各类邀请赛`,
   },
+  {
+    id: 13,
+    name: "法兰克福国际投资模拟仲裁庭",
+    subtitle: "Frankfurt Investment Arbitration Moot Court",
+    tag: "国际",
+    orgTag: "德国马克斯·普朗克研究所",
+    icon: "🏛️",
+    accent: "#34D399",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
+    bg: "linear-gradient(160deg,#04150d,#0a3020,#0d4a30)",
+    introduction: `【注：法兰克福国际投资模拟仲裁庭与 FDI Moot（深圳杯）由同一支赛队参赛，两场比赛共用同一队伍组成。】
+
+法兰克福国际投资模拟仲裁庭（Frankfurt Investment Arbitration Moot Court）由德国马克斯·普朗克法律史与法理论研究所（Max-Planck-Institut für Rechtsgeschichte und Rechtstheorie）主办，是国际投资仲裁领域的重要模拟法庭赛事。
+
+赛事围绕国际投资仲裁争端展开，要求参赛队伍以申请方与答辩方身份分别撰写书状并进行口头辩论，内容涵盖投资者-国家争端解决（ISDS）、双边投资协定（BIT）及相关国际投资法律问题。比赛全程以英文进行。`,
+    achievements: `法兰克福国际投资模拟仲裁庭（Frankfurt IAM）
+（与 FDI Moot 同一赛队参赛，成绩记录整合至 FDI Moot 赛队介绍）`,
+    requirements: `• 上海交通大学在读本科生或研究生
+• 具有良好的英语听说读写能力
+• 具有充足的备赛时间投入
+• 不要求过往具有模拟法庭竞赛经验
+• 与 FDI Moot 同一支赛队，招募流程统一
+
+（详细报名信息请参见 FDI Moot 赛队介绍）`,
+    application: `报名方式与 FDI Moot 赛队相同
+报名截止：每年 4 月 13 日 24:00
+发送个人简历至报名邮箱，注明赛事意向
+
+📧 fdi.moot@sjtu.edu.cn`,
+    schedule: `赛程与 FDI Moot 赛队统一安排
+秋季       法兰克福正式比赛（国际赛）
+（具体时间以当年官方通知为准）`,
+  },
 ];
 
 const TABS = [
@@ -576,8 +622,8 @@ const UI_TEXT = {
       welcomeText: "欢迎来到上海交通大学凯原法学院模拟法庭联赛中心。在这里，你可以快速浏览学院赛队、比赛方向、招募信息与赛事介绍。",
       stats: [
         { n: "12", label: "赛队" },
-        { n: "3", label: "顶级国际赛事" },
-        { n: "100+", label: "参赛国家/地区" },
+        { n: "11", label: "国际赛事" },
+        { n: "5", label: "国内赛事" },
       ],
     },
     guide: {
@@ -653,8 +699,8 @@ const UI_TEXT = {
       credit: "Designed by Shangyue Shi, New York University",
       stats: [
         { n: "12", label: "Teams" },
-        { n: "3", label: "Top global moots" },
-        { n: "100+", label: "Countries/regions" },
+        { n: "11", label: "Global moots" },
+        { n: "5", label: "National moots" },
       ],
     },
     guide: {
@@ -718,7 +764,7 @@ const GUIDE_ITEMS = [
   { type: "学科类", scope: "国际级", name: "模拟国际投资仲裁竞赛（FDI Moot）", org: "国际法律研究中心（CILS）", freq: "一年一届", teamId: 3 },
   { type: "学科类", scope: "国际级", name: "国际刑事法院（ICC）模拟法庭比赛（含中英文）", org: "国际律师协会（IBA）、国际刑事法院（ICC）、中国国际刑法青年学者联盟", freq: "一年一届", teamId: 6 },
   { type: "学科类", scope: "国际级", name: "红十字国际人道法模拟法庭（IHL）竞赛", org: "红十字国际委员会（ICRC）、中国红十字会总会", freq: "一年一届", teamId: 7 },
-  { type: "学科类", scope: "国际级", name: "法兰克福国际投资模拟仲裁庭", org: "德国马克斯·普朗克法律史与法理论研究所", freq: "一年一届" },
+  { type: "学科类", scope: "国际级", name: "法兰克福国际投资模拟仲裁庭", org: "德国马克斯·普朗克法律史与法理论研究所", freq: "一年一届", teamId: 13 },
   { type: "学科类", scope: "国际级", name: "国际航空法模拟法庭竞赛（IALMC）", org: "荷兰莱顿大学航空法与空间法国际研究中心（IIASL）", freq: "一年一届", teamId: 10 },
   { type: "学科类", scope: "国际级", name: "普莱斯传媒法国际模拟法庭竞赛", org: "英国牛津大学", freq: "一年一届" },
   { type: "学科类", scope: "国际级", name: "曼弗雷德·拉克斯国际空间法模拟法庭竞赛", org: "国际空间法学会（IISL）", freq: "一年一届", teamId: 5 },
@@ -733,6 +779,11 @@ const GUIDE_ITEMS = [
 ];
 
 const TEAM_MAP = new Map(TEAMS.map((team) => [team.id, team]));
+
+// Display order follows GUIDE_ITEMS recommendation order; 法兴社 excluded from cards (kept in data for AI)
+const DISPLAY_TEAMS = [9, 1, 3, 13, 6, 7, 10, 5, 11, 8, 4, 2]
+  .map(id => TEAM_MAP.get(id))
+  .filter(Boolean);
 
 // System prompt is configured on the Dify server side.
 
@@ -793,16 +844,27 @@ function TeamCard({ team, onClick, index, registerRef, highlighted, ui }) {
         position: "absolute", inset: 0,
         background: `linear-gradient(to top, ${team.bg.match(/#[0-9a-f]{6}/gi)?.[0] || "#000"}EE 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.1) 100%)`
       }} />
-      {/* Top tag */}
-      <div style={{
-        position: "absolute", top: 14, left: 14,
-        padding: "4px 10px", borderRadius: 100,
-        background: `${team.accent}22`, backdropFilter: "blur(8px)",
-        border: `1px solid ${team.accent}40`,
-        fontSize: 9.5, fontWeight: 600, color: team.accent,
-        letterSpacing: "0.12em", textTransform: "uppercase",
-        fontFamily: "'Space Mono', monospace"
-      }}>{team.tag}</div>
+      {/* Top tags */}
+      <div style={{ position: "absolute", top: 14, left: 14, display: "flex", gap: 5, flexWrap: "wrap" }}>
+        <div style={{
+          padding: "4px 10px", borderRadius: 100,
+          background: `${team.accent}22`, backdropFilter: "blur(8px)",
+          border: `1px solid ${team.accent}40`,
+          fontSize: 9.5, fontWeight: 600, color: team.accent,
+          letterSpacing: "0.12em", textTransform: "uppercase",
+          fontFamily: "'Space Mono', monospace"
+        }}>{team.tag}</div>
+        {team.orgTag && (
+          <div style={{
+            padding: "4px 10px", borderRadius: 100,
+            background: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)",
+            border: "1px solid rgba(255,255,255,0.22)",
+            fontSize: 9.5, fontWeight: 500, color: "rgba(255,255,255,0.85)",
+            letterSpacing: "0.06em",
+            fontFamily: "'Space Mono', monospace"
+          }}>{team.orgTag}</div>
+        )}
+      </div>
       {highlighted && (
         <div style={{
           position: "absolute", top: 14, right: 14,
@@ -937,13 +999,22 @@ function TeamDetailOverlay({ team, originRect, onClose, ui }) {
             <span style={{ fontSize: 13, fontWeight: 500 }}>{ui.buttons.back}</span>
           </button>
 
-          <div style={{
-            display: "flex", alignItems: "center", gap: 8,
-            padding: "5px 14px 5px 10px", borderRadius: 100,
-            background: `${team.accent}14`, border: `1px solid ${team.accent}28`
-          }}>
-            <span style={{ fontSize: 16 }}>{team.icon}</span>
-            <span style={{ fontSize: 12, fontWeight: 600, color: team.accent, fontFamily: "'Space Mono', monospace" }}>{team.tag}</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <div style={{
+              display: "flex", alignItems: "center", gap: 8,
+              padding: "5px 14px 5px 10px", borderRadius: 100,
+              background: `${team.accent}14`, border: `1px solid ${team.accent}28`
+            }}>
+              <span style={{ fontSize: 16 }}>{team.icon}</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: team.accent, fontFamily: "'Space Mono', monospace" }}>{team.tag}</span>
+            </div>
+            {team.orgTag && (
+              <div style={{
+                padding: "5px 12px", borderRadius: 100,
+                background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)",
+                fontSize: 11, color: "rgba(236,242,255,0.65)", fontFamily: "'Space Mono', monospace"
+              }}>{team.orgTag}</div>
+            )}
           </div>
 
           <button onClick={handleClose} aria-label={ui.buttons.close}
@@ -1065,10 +1136,20 @@ function TeamDetailOverlay({ team, originRect, onClose, ui }) {
                     fontFamily: "'Cormorant Garamond', serif",
                     fontSize: 20, fontWeight: 500, color: "#ECF2FF", marginBottom: 4, lineHeight: 1.2
                   }}>{team.name}</h3>
-                  <p style={{
-                    fontSize: 9.5, letterSpacing: "0.2em", textTransform: "uppercase",
-                    color: team.accent, opacity: 0.8, fontFamily: "'Space Mono', monospace", fontWeight: 600
-                  }}>{team.tag}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: 2 }}>
+                    <span style={{
+                      padding: "3px 9px", borderRadius: 100,
+                      background: `${team.accent}18`, border: `1px solid ${team.accent}30`,
+                      fontSize: 9.5, color: team.accent, fontFamily: "'Space Mono', monospace", fontWeight: 600
+                    }}>{team.tag}</span>
+                    {team.orgTag && (
+                      <span style={{
+                        padding: "3px 9px", borderRadius: 100,
+                        background: "rgba(255,255,255,0.06)", border: "1px solid rgba(236,242,255,0.14)",
+                        fontSize: 9.5, color: "rgba(236,242,255,0.55)", fontFamily: "'Space Mono', monospace"
+                      }}>{team.orgTag}</span>
+                    )}
+                  </div>
                 </div>
                 {/* Sidebar stats */}
                 <div style={{ padding: "18px 22px" }}>
@@ -1488,7 +1569,9 @@ export default function MootCourtModule() {
 
             if ((parsed.event === "message" || parsed.event === "agent_message") && parsed.answer) {
               fullAnswer += parsed.answer;
-              const snapshot = fullAnswer;
+              const snapshot = fullAnswer
+                .replace(/\*\*/g, "")
+                .replace(/#{1,6}\s*/g, "");
               setMessages(prev => prev.map(m =>
                 m._id === placeholderIdx ? { ...m, content: snapshot } : m
               ));
@@ -1528,7 +1611,7 @@ export default function MootCourtModule() {
   }, [input, loading, ui, lang]);
 
   const handleShowTeams = useCallback(() => {
-    const list = TEAMS.map((t, i) => `${i + 1}. ${t.name} — ${t.tag}`).join("\n");
+    const list = DISPLAY_TEAMS.map((t, i) => `${i + 1}. ${t.name} — ${t.tag}`).join("\n");
     setMessages(prev => [...prev, { role: "assistant", content: `${ui.ai.allTeamsReplyPrefix}\n\n${list}\n\n${ui.ai.allTeamsReplySuffix}` }]);
   }, [ui]);
 
@@ -1967,7 +2050,7 @@ export default function MootCourtModule() {
                   }}>{GUIDE_SCOPE_LABEL[lang][item.scope] || item.scope}</span>
                   <div style={{ minWidth: 0 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
-                      <p style={{ fontSize: 13, fontWeight: 500, color: "#1C1C28", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{item.name}</p>
+                      <p style={{ fontSize: 15, fontWeight: 600, color: "#111111", lineHeight: 1.4, overflow: "hidden", textOverflow: "ellipsis" }}>{item.name}</p>
                       {item.teamId && (
                         <span style={{
                           flexShrink: 0,
@@ -1985,7 +2068,7 @@ export default function MootCourtModule() {
                     </div>
                     <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.38)", marginTop: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.org}</p>
                   </div>
-                  <span style={{ fontSize: 10, color: "rgba(28,28,40,0.35)", fontFamily: "'Space Mono', monospace", whiteSpace: "nowrap" }}>{item.freq}</span>
+                  <span style={{ fontSize: 12, color: "#111111", fontWeight: 500, fontFamily: "'Space Mono', monospace", whiteSpace: "nowrap" }}>{item.freq}</span>
                 </div>
               ))}
               <div style={{ padding: "12px 24px", textAlign: "center" }}>
@@ -2025,7 +2108,7 @@ export default function MootCourtModule() {
                 background: "rgba(122,39,53,0.08)", color: "#7A2735",
                 border: "1px solid rgba(122,39,53,0.15)",
                 fontFamily: "'Space Mono', monospace"
-              }}>{TEAMS.length}</span>
+              }}>{DISPLAY_TEAMS.length}</span>
             </div>
             <div style={{ transform: dirOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.28s", opacity: 0.5 }}>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -2038,7 +2121,7 @@ export default function MootCourtModule() {
               gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
               gap: 16
             }}>
-              {TEAMS.map((team, idx) => (
+              {DISPLAY_TEAMS.map((team, idx) => (
                 <TeamCard
                   key={team.id}
                   team={team}
