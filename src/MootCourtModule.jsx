@@ -2178,7 +2178,7 @@ export default function MootCourtModule() {
                     </div>
                     <p style={{ fontSize: 10.5, color: "rgba(28,28,40,0.38)", marginTop: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{lang === "en" && item.orgEn ? item.orgEn : item.org}</p>
                   </div>
-                  <span style={{ fontSize: 12, color: "#111111", fontWeight: 500, fontFamily: "'Space Mono', monospace", whiteSpace: "nowrap" }}>{item.freq}</span>
+                  <span style={{ fontSize: 12, color: "#111111", fontWeight: 500, fontFamily: "'Space Mono', monospace", whiteSpace: "nowrap" }}>{lang === "en" ? ({"一年一届": "Annual", "两年一届": "Biennial"}[item.freq] || item.freq) : item.freq}</span>
                 </div>
               ))}
               <div style={{ padding: "12px 24px", textAlign: "center" }}>
